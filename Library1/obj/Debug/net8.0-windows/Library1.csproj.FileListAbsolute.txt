@@ -1,0 +1,15 @@
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\bin\Debug\net8.0-windows\Library1.deps.json
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\bin\Debug\net8.0-windows\Library1.dll
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\bin\Debug\net8.0-windows\Library1.pdb
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.MyMenu.resources
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.csproj.GenerateResource.cache
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.GeneratedMSBuildEditorConfig.editorconfig
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.AssemblyInfoInputs.cache
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.AssemblyInfo.cs
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.csproj.CoreCompileInputs.cache
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.dll
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\refint\Library1.dll
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.pdb
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\ref\Library1.dll
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\Library1.Properties.Resources.resources
+D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\Library1\obj\Debug\net8.0-windows\LoginLibrary.ucLogin.resources
