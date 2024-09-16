@@ -1,0 +1,14 @@
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\bin\Debug\net6.0-windows\TestMnenu.deps.json
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\bin\Debug\net6.0-windows\TestMnenu.dll
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\bin\Debug\net6.0-windows\TestMnenu.pdb
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.UserControl1.resources
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.csproj.GenerateResource.cache
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.GeneratedMSBuildEditorConfig.editorconfig
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.AssemblyInfoInputs.cache
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.AssemblyInfo.cs
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.csproj.CoreCompileInputs.cache
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.sourcelink.json
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.dll
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\refint\TestMnenu.dll
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\TestMnenu.pdb
+D:\_school\DoAnPTPMTM\Src\MainForm\TestMnenu\obj\Debug\net6.0-windows\ref\TestMnenu.dll

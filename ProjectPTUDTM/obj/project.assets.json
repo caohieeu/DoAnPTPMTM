@@ -1,82 +1,51 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {
-      "Library1/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/Library1.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Library1.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
-      }
-    }
+    "net6.0-windows7.0": {}
   },
-  "libraries": {
-    "Library1/1.0.0": {
-      "type": "project",
-      "path": "../Library1/Library1.csproj",
-      "msbuildProject": "../Library1/Library1.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": [
-      "Library1 >= 1.0.0"
-    ]
+    "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {}
+    "C:\\Users\\rokkh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkspaceSchool\\Nam 4\\PTUDTM\\ProjectPTUDTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
+      "projectUniqueName": "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
       "projectName": "ProjectPTUDTM",
-      "projectPath": "D:\\WorkspaceSchool\\Nam 4\\PTUDTM\\ProjectPTUDTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkspaceSchool\\Nam 4\\PTUDTM\\ProjectPTUDTM\\ProjectPTUDTM\\obj\\",
+      "projectPath": "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
+      "packagesPath": "C:\\Users\\rokkh\\.nuget\\packages\\",
+      "outputPath": "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rokkh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0-windows"
+        "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "D:\\Work\\onboarding-2024.2.1\\srcs-api\\_nugets": {},
+        "http://nuget.grapecity.com/nuget": {}
       },
       "frameworks": {
-        "net8.0-windows7.0": {
-          "targetAlias": "net8.0-windows",
-          "projectReferences": {
-            "D:\\WorkspaceSchool\\Nam 4\\PTUDTM\\ProjectPTUDTM\\Library1\\Library1.csproj": {
-              "projectPath": "D:\\WorkspaceSchool\\Nam 4\\PTUDTM\\ProjectPTUDTM\\Library1\\Library1.csproj"
-            }
-          }
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows7.0",
+          "projectReferences": {}
         }
       },
       "warningProperties": {
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
-      "net8.0-windows7.0": {
-        "targetAlias": "net8.0-windows",
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows7.0",
         "imports": [
           "net461",
           "net462",
@@ -96,8 +65,16 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.grapecity.com/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }

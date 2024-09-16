@@ -18,3 +18,28 @@ D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ProjectPTUDTM\bin\Debug\net8.0-win
 D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ProjectPTUDTM\bin\Debug\net8.0-windows\Library1.pdb
 D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.csproj.AssemblyReference.cache
 D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectP.83AA3D87.Up2Date
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\ProjectPTUDTM.exe
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\ProjectPTUDTM.deps.json
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\ProjectPTUDTM.runtimeconfig.json
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\ProjectPTUDTM.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\ProjectPTUDTM.pdb
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.csproj.GenerateResource.cache
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.GeneratedMSBuildEditorConfig.editorconfig
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.AssemblyInfoInputs.cache
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.AssemblyInfo.cs
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.csproj.CoreCompileInputs.cache
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.sourcelink.json
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\refint\ProjectPTUDTM.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.pdb
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.genruntimeconfig.cache
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ref\ProjectPTUDTM.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.MainForm.resources
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\Core.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\LoginForm.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\Core.pdb
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\LoginForm.pdb
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.csproj.AssemblyReference.cache
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\obj\Debug\net8.0-windows\ProjectPTUDTM.csproj.CopyComplete
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\MenuBar.dll
+D:\_school\DoAnPTPMTM\ProjectPTUDTM\bin\Debug\net8.0-windows\MenuBar.pdb

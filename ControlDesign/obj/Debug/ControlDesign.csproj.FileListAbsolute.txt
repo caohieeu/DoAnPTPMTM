@@ -1,9 +1,0 @@
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\bin\Debug\ControlDesign.dll
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\bin\Debug\ControlDesign.pdb
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\ControlDesign.csproj.AssemblyReference.cache
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\ControlDesign.csproj.CoreCompileInputs.cache
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\ControlDesign.dll
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\ControlDesign.pdb
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\ControlDesign.Properties.Resources.resources
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\LoginLibrary.ucLogin.resources
-D:\WorkspaceSchool\Nam 4\PTUDTM\ProjectPTUDTM\ControlDesign\obj\Debug\ControlDesign.csproj.GenerateResource.cache
