@@ -15,9 +15,6 @@
     <Reference Include="LoginForm">
       <HintPath>..\Dll\Debug\net6.0-windows\LoginForm.dll</HintPath>
     </Reference>
-    <Reference Include="MenuBar">
-      <HintPath>..\Dll\Debug\net6.0-windows\MenuBar.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

@@ -9,8 +9,7 @@
       "ProjectPTUDTM/1.0.0": {
         "dependencies": {
           "Core": "1.0.0.0",
-          "LoginForm": "1.0.0.0",
-          "MenuBar": "1.0.0.0"
+          "LoginForm": "1.0.0.0"
         },
         "runtime": {
           "ProjectPTUDTM.dll": {}
@@ -31,14 +30,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "MenuBar/1.0.0.0": {
-        "runtime": {
-          "MenuBar.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -54,11 +45,6 @@
       "sha512": ""
     },
     "LoginForm/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MenuBar/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
