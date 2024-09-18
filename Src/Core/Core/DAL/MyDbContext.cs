@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Core.DAL
 {
     public class MyDbContext : IMyDbcontext
-    {
+    {   
         private readonly string _connectionString;
         public MyDbContext(string connectionString)
         {

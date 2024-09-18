@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Core.DAL;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -19,6 +22,13 @@ namespace ProjectPTUDTM
         }
         public void CreateTabs(int tabCount)
         {
+            string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
+            MyDbContext myDbContext = new MyDbContext(connectionString);
+
+            string sqlQuery = "SELECT * FROM Menu";
+            DataTable result = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+
+
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
