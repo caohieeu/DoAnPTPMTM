@@ -27,12 +27,6 @@
 - Quản lý đơn hàng
 - Xử lý thanh toán
 - Quản lý người dùng và quyền truy cập
-- Giao diện lập trình ứng dụng (API)
-##### Cơ sở dữ liệu:
-- Thông tin sản phẩm
-- Thông tin người dùng
-- Lịch sử đơn hàng
-- Thông tin thanh toán
 ## 4. Triển khai dự án 
 #### 4.1. Mô tả tổng quan
 Dự án xây dựng một hệ thống bán hàng trực tuyến cho thiết bị điện tử nhằm cung cấp một nền tảng hiệu quả để khách hàng có thể tìm kiếm, lựa chọn và mua sắm các sản phẩm điện tử. Hệ thống sẽ bao gồm một giao diện người dùng dễ sử dụng, cho phép người dùng duyệt các danh mục sản phẩm, xem chi tiết sản phẩm, thêm sản phẩm vào giỏ hàng và thực hiện thanh toán một cách an toàn. Phần backend của hệ thống sẽ xử lý các yêu cầu từ giao diện người dùng, quản lý cơ sở dữ liệu và đảm bảo tính bảo mật của thông tin người dùng.
@@ -47,9 +41,7 @@ Dự án xây dựng một hệ thống bán hàng trực tuyến cho thiết b�
 ###### Application
 - Quản lý đơn hàng
 - Quản lý sản phẩm
-- Quản lý danh mục sản phẩm và thông tin chi tiết sản phẩm.
 - Quản ký người dùng
-- Quản lý nhà cung cấp
 - Quản lý thanh toán
 ###### AI: phân cụm khách hàng theo tuổi và loại hàng mua (kmean).
 ##### 4.2.2 Yêu cầu thành phần
