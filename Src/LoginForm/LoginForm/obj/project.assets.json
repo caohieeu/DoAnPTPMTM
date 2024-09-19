@@ -1884,19 +1884,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\rokkh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
+      "projectUniqueName": "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
       "projectName": "LoginForm",
-      "projectPath": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\obj\\",
+      "projectPath": "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
+      "packagesPath": "C:\\Users\\rokkh\\.nuget\\packages\\",
+      "outputPath": "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rokkh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1904,8 +1904,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "D:\\Work\\onboarding-2024.2.1\\srcs-api\\_nugets": {},
+        "http://nuget.grapecity.com/nuget": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
@@ -1917,11 +1917,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1952,8 +1947,16 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.grapecity.com/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }

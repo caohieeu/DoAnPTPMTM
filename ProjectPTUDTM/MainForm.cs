@@ -40,7 +40,9 @@ namespace ProjectPTUDTM
         {
             if (Core.Enviroment.UserName == string.Empty)
             {
-                LoginForm.LoginForm loginForm = new LoginForm.LoginForm();
+                string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
+
+                LoginForm.LoginForm loginForm = new LoginForm.LoginForm(connectionString);
 
                 loginForm.ShowDialog();
                 if (loginForm.IsSuccess)

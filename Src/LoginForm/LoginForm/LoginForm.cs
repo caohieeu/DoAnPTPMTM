@@ -18,14 +18,15 @@ namespace LoginForm
     {
         public bool IsSuccess = false;
         MyDbContext myDbContext;
-        public String _Conn;
+        public string _Conn;
         public LoginForm()
         {
             InitializeComponent();
         }
-        public LoginForm(String _Conn)
+        public LoginForm(string _Conn)
         {
             this._Conn = _Conn;
+            InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace LoginForm
                 return;
             }
             IsSuccess = true;
-            MessageBox.Show("Thanh cong");
+            Close();
         }
         public LoginResult Check_User(string pUser, string pPass)
         {
@@ -63,9 +64,9 @@ namespace LoginForm
             new SqlParameter("@username", pUser),
             new SqlParameter("@password", pPass)
             };
-            int userCount = myDbContext.ExecuteCommand(sqlCommand, commandType, parameters);
+            DataTable dt = myDbContext.ExecuteQuery(sqlCommand, commandType, parameters);
 
-            if (userCount == 0)
+            if ((int)dt.Rows[0][0] == 0)
                 return LoginResult.Invalid;
             return LoginResult.Success;
         }

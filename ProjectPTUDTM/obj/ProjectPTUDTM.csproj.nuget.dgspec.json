@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj": {}
+    "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj": {}
   },
   "projects": {
-    "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj": {
+    "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
+        "projectUniqueName": "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
         "projectName": "ProjectPTUDTM",
-        "projectPath": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\ProjectPTUDTM\\obj\\",
+        "projectPath": "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\ProjectPTUDTM.csproj",
+        "packagesPath": "C:\\Users\\rokkh\\.nuget\\packages\\",
+        "outputPath": "D:\\_school\\DoAnPTPMTM\\ProjectPTUDTM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rokkh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "D:\\Work\\onboarding-2024.2.1\\srcs-api\\_nugets": {},
+          "http://nuget.grapecity.com/nuget": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
@@ -35,11 +35,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -74,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

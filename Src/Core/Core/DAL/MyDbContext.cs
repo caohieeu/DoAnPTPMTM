@@ -15,6 +15,13 @@ namespace Core.DAL
         {
             _connectionString = connectionString;
         }
+        /// <summary>
+        /// Sử dụng với thao tác update, insert, delete
+        /// </summary>
+        /// <param name="sqlCommand"></param>
+        /// <param name="commandType"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public int ExecuteCommand(string sqlCommand, CommandType commandType, params IDataParameter[] parameters)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -32,7 +39,13 @@ namespace Core.DAL
                 }
             }
         }
-
+        /// <summary>
+        /// Sủ dụng với lệnh select, trả về 1 datatable
+        /// </summary>
+        /// <param name="sqlQuery"></param>
+        /// <param name="commandType"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public DataTable ExecuteQuery(string sqlQuery, CommandType commandType, params IDataParameter[] parameters)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
