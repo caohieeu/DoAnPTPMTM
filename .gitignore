@@ -2,5 +2,7 @@
 Src/**/.vs/
 Src/**/obj/
 Src/**/bin/
+ProjectPTUDTM/**/obj/
+ProjectPTUDTM/**/bin/
 
 ProjectPTUDTM.sln
