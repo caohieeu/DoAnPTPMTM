@@ -1,5 +1,8 @@
 .vs/
 Src/**/.vs/
+Src/**/obj/
+Src/**/bin/
 Src/***/obj/
+Src/***/bin/
 
 ProjectPTUDTM.sln
