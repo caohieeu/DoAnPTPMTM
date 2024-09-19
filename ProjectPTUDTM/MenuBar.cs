@@ -22,7 +22,7 @@ namespace ProjectPTUDTM
         }
         public void CreateTabs(int tabCount)
         {
-            string connectionString = Program._Configuration.GetConnectionString("ConnectionOfLuan") ?? "";
+            string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
             MyDbContext myDbContext = new MyDbContext(connectionString);
 
             string sqlQuery = "SELECT * FROM Menu";

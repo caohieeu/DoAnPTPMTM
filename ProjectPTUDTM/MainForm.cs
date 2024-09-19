@@ -6,9 +6,6 @@ namespace ProjectPTUDTM
 {
     public partial class MainForm : Form
     {
-        private string _Conn = Program._Configuration.GetConnectionString("ConnectionOfLuan") ?? "";
-        private int width { get; set; }
-        private int height { get; set; }
         public MainForm()
         {
             InitializeComponent();
