@@ -1,11 +1,11 @@
+using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using LoginForm;
 
 namespace ProjectPTUDTM
 {
     public partial class MainForm : Form
     {
-        private int width { get; set; }
-        private int height { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -37,8 +37,9 @@ namespace ProjectPTUDTM
         {
             if (Core.Enviroment.UserName == string.Empty)
             {
-                LoginForm.LoginForm loginForm = new LoginForm.LoginForm();
+                string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
 
+                LoginForm.LoginForm loginForm = new LoginForm.LoginForm(connectionString);
 
                 loginForm.ShowDialog();
                 if (loginForm.IsSuccess)

@@ -31,13 +31,12 @@
             txtUserName = new TextBox();
             panel1 = new Panel();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
             label2 = new Label();
             panel2 = new Panel();
             txtPassWord = new TextBox();
             cbShow = new CheckBox();
             btnLogin = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label3 = new Label();
             SuspendLayout();
             // 
             // txtUserName
@@ -69,15 +68,6 @@
             label1.Size = new Size(111, 31);
             label1.TabIndex = 3;
             label1.Text = "Tài Khoản";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(38, 218);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(34, 31);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -131,23 +121,33 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Crimson;
+            label3.Location = new Point(87, 87);
+            label3.Name = "label3";
+            label3.Size = new Size(217, 39);
+            label3.TabIndex = 11;
+            label3.Text = "ĐĂNG NHẬP";
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
-            ClientSize = new Size(390, 568);
+            ClientSize = new Size(390, 642);
+            Controls.Add(label3);
             Controls.Add(btnLogin);
             Controls.Add(cbShow);
             Controls.Add(label2);
             Controls.Add(panel2);
             Controls.Add(txtPassWord);
-            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(txtUserName);
             Name = "LoginForm";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,11 +156,11 @@
         private TextBox txtUserName;
         private Panel panel1;
         private Label label1;
-        private PictureBox pictureBox1;
         private Label label2;
         private Panel panel2;
         private TextBox txtPassWord;
         private CheckBox cbShow;
         private Button btnLogin;
+        private Label label3;
     }
 }
