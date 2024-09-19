@@ -1,9 +1,12 @@
+using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using LoginForm;
 
 namespace ProjectPTUDTM
 {
     public partial class MainForm : Form
     {
+        private string _Conn = Program._Configuration.GetConnectionString("ConnectionOfLuan") ?? "";
         private int width { get; set; }
         private int height { get; set; }
         public MainForm()
@@ -38,7 +41,6 @@ namespace ProjectPTUDTM
             if (Core.Enviroment.UserName == string.Empty)
             {
                 LoginForm.LoginForm loginForm = new LoginForm.LoginForm();
-
 
                 loginForm.ShowDialog();
                 if (loginForm.IsSuccess)

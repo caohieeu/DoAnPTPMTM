@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj": {}
+    "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj": {}
   },
   "projects": {
-    "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj": {
+    "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
+        "projectUniqueName": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
         "projectName": "LoginForm",
-        "projectPath": "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
-        "packagesPath": "C:\\Users\\rokkh\\.nuget\\packages\\",
-        "outputPath": "D:\\_school\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\obj\\",
+        "projectPath": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\LoginForm.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\Src\\LoginForm\\LoginForm\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rokkh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Work\\onboarding-2024.2.1\\srcs-api\\_nugets": {},
-          "http://nuget.grapecity.com/nuget": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
@@ -35,11 +35,22 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

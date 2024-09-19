@@ -1,6 +1,3 @@
-D:\_school\DoAnPTPMTM\Dll\Debug\net6.0-windows\LoginForm.deps.json
-D:\_school\DoAnPTPMTM\Dll\Debug\net6.0-windows\LoginForm.dll
-D:\_school\DoAnPTPMTM\Dll\Debug\net6.0-windows\LoginForm.pdb
 D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.LoginForm.resources
 D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.GenerateResource.cache
 D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.GeneratedMSBuildEditorConfig.editorconfig
@@ -14,3 +11,19 @@ D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm
 D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\ref\LoginForm.dll
 D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.AssemblyReference.cache
 D:\_school\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.CopyComplete
+D:\_school\DoAnPTPMTM\Dll\Debug\net6.0-windows\LoginForm.deps.json
+D:\_school\DoAnPTPMTM\Dll\Debug\net6.0-windows\LoginForm.dll
+D:\_school\DoAnPTPMTM\Dll\Debug\net6.0-windows\LoginForm.pdb
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.AssemblyReference.cache
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.LoginForm.resources
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.GenerateResource.cache
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.GeneratedMSBuildEditorConfig.editorconfig
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.AssemblyInfoInputs.cache
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.AssemblyInfo.cs
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.CoreCompileInputs.cache
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.sourcelink.json
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.csproj.Up2Date
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.dll
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\refint\LoginForm.dll
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\LoginForm.pdb
+D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Src\LoginForm\LoginForm\obj\Debug\net6.0-windows\ref\LoginForm.dll
