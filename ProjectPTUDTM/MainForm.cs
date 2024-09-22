@@ -10,7 +10,6 @@ namespace ProjectPTUDTM
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-
         }
         public void CreateMenu()
         {
@@ -35,13 +34,14 @@ namespace ProjectPTUDTM
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (Core.Enviroment.UserName == string.Empty)
+			CreateMenu();
+			if (Core.Enviroment.UserName == string.Empty)
             {
                 string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
 
                 LoginForm.LoginForm loginForm = new LoginForm.LoginForm(connectionString);
 
-                loginForm.ShowDialog();
+                //loginForm.ShowDialog();
                 if (loginForm.IsSuccess)
                 {
                     CreateMenu();
@@ -51,6 +51,20 @@ namespace ProjectPTUDTM
             {
                 CreateMenu();
             }
+        }
+        public void showContent(string content)
+        {
+			this.panel2.Controls.Clear();
+
+            Label contentLabel = new Label
+            {
+                Text = content,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                AutoSize = true,
+            };
+
+            this.panel2.Controls.Add(contentLabel);
         }
     }
 }
