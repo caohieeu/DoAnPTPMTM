@@ -18,43 +18,51 @@ namespace ProjectPTUDTM
         public MenuBar()
         {
             InitializeComponent();
-   
         }
         public void CreateTabs(int tabCount)
         {
-            string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
+			string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
             MyDbContext myDbContext = new MyDbContext(connectionString);
 
             string sqlQuery = "SELECT * FROM Menu";
             DataTable result = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
 
-
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
+			FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 AutoSize = true,
                 FlowDirection = FlowDirection.TopDown,
-                WrapContents = false
-            };
+                WrapContents = false,
+			};
             this.Controls.Add(flowLayoutPanel);
 
-            for (int i = 0; i < tabCount; i++)
+            foreach (DataRow row in result.Rows)
             {
                 Panel tabPanel = new Panel
                 {
-                    Size = new System.Drawing.Size(200, 100),
+                    Size = new System.Drawing.Size(200, 60),
                     BorderStyle = BorderStyle.FixedSingle,
                 };
 
                 Button tabButton = new Button
                 {
-                    Text = $"Tab {i + 1}",
+                    Text = row["AssemblyName"].ToString(),
                     Dock = DockStyle.Fill
                 };
+				tabButton.Click += TabButton_Click;
                 tabPanel.Controls.Add(tabButton);
 
                 flowLayoutPanel.Controls.Add(tabPanel);
             }
         }
-    }
+
+		private void TabButton_Click(object? sender, EventArgs e)
+		{
+			var mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+			if (mainForm != null)
+			{
+				mainForm.showContent("Trang quản lý người dùng");
+			}
+		}
+	}
 }
