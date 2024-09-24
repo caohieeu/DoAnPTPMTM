@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>D:\_school\DoAnPTPMTM\Dll</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\..\..\Dll\Debug\net6.0-windows\Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

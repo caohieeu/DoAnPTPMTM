@@ -11,27 +11,31 @@ namespace ProjectPTUDTM
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
 
-        }
-        public void CreateMenu()
-        {
-            menuBar1.CreateTabs(5);
-            //string appdomain = AppDomain.CurrentDomain.ToString();
-            //DirectoryInfo parentDirectory = Directory.GetParent(appdomain)?.Parent?.Parent?.Parent?.Parent;
+            string appdomain = AppDomain.CurrentDomain.ToString();
+            DirectoryInfo parentDirectory = Directory.GetParent(appdomain)?.Parent?.Parent?.Parent?.Parent;
 
             //string dllPath = parentDirectory.FullName + "\\Dll\\Debug\\net6.0-windows\\MenuBar.dll";
             //Assembly assembly = Assembly.LoadFile(dllPath);
-            //Type formType = assembly.GetType("Library1.MyMenu");
+            //Type formType = assembly.GetType("QuanLyNguoiDung.QLNDForm");
             //if (formType == null)
             //{
             //    MessageBox.Show("Form type not found.");
             //    return;
             //}
-            //Control formInstance = (Control)Activator.CreateInstance(formType);
+
+            //string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
+
+            //object[] parameters = { connectionString };
+            //Control formInstance = (Control)Activator.CreateInstance(formType, parameters);
 
             //panel1.Controls.Add(formInstance);
 
             //formInstance.Dock = DockStyle.Fill;
             //formInstance.Show();
+        }
+        public void CreateMenu()
+        {
+            menuBar1.CreateTabs(5);
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
