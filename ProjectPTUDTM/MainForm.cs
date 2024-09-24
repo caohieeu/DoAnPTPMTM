@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using LoginForm;
+using System.Data;
 
 namespace ProjectPTUDTM
 {
@@ -13,42 +14,31 @@ namespace ProjectPTUDTM
         }
         public void CreateMenu()
         {
-            menuBar1.CreateTabs(5);
-            //string appdomain = AppDomain.CurrentDomain.ToString();
-            //DirectoryInfo parentDirectory = Directory.GetParent(appdomain)?.Parent?.Parent?.Parent?.Parent;
-
-            //string dllPath = parentDirectory.FullName + "\\Dll\\Debug\\net6.0-windows\\MenuBar.dll";
-            //Assembly assembly = Assembly.LoadFile(dllPath);
-            //Type formType = assembly.GetType("QuanLyNguoiDung.QLNDForm");
-            //if (formType == null)
-            //{
-            //    MessageBox.Show("Form type not found.");
-            //    return;
-            //}
-
-            //string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
-
-            //object[] parameters = { connectionString };
-            //Control formInstance = (Control)Activator.CreateInstance(formType, parameters);
-
-            //panel1.Controls.Add(formInstance);
-
-            //formInstance.Dock = DockStyle.Fill;
-            //formInstance.Show();
+            menuBar1.CreateTabs();
+            menuBar1.TabButtonClicked += MenuBar1_TabButtonClicked;
         }
+
+        private void MenuBar1_TabButtonClicked(DataRow dtr)
+        {
+            ShowForm(dtr);
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-			CreateMenu();
 			if (Core.Enviroment.UserName == string.Empty)
             {
                 string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
 
                 LoginForm.LoginForm loginForm = new LoginForm.LoginForm(connectionString);
 
-                //loginForm.ShowDialog();
+                loginForm.ShowDialog();
                 if (loginForm.IsSuccess)
                 {
                     CreateMenu();
+                }
+                else
+                {
+                    Close();
                 }
             }
             else
@@ -56,19 +46,32 @@ namespace ProjectPTUDTM
                 CreateMenu();
             }
         }
-        public void showContent(string content)
+        public void ShowForm(DataRow dtr)
         {
 			this.panel2.Controls.Clear();
 
-            Label contentLabel = new Label
-            {
-                Text = content,
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                AutoSize = true,
-            };
+            string appdomain = AppDomain.CurrentDomain.ToString();
+            DirectoryInfo parentDirectory = Directory.GetParent(appdomain)?.Parent?.Parent?.Parent?.Parent;
 
-            this.panel2.Controls.Add(contentLabel);
+            string dllPath = parentDirectory.FullName + $"\\Dll\\Debug\\net6.0-windows\\{dtr["AssemblyName"]}.dll";
+            Assembly assembly = Assembly.LoadFile(dllPath);
+            Type formType = assembly.GetType($"{dtr["NameSpace"]}");
+            if (formType == null)
+            {
+                MessageBox.Show("Form type not found.");
+                return;
+            }
+
+            string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
+
+            object[] parameters = { connectionString };
+            Form formInstance = (Form)Activator.CreateInstance(formType, parameters);
+            formInstance.TopLevel = false;
+
+            panel2.Controls.Add(formInstance);
+
+            formInstance.Dock = DockStyle.Fill;
+            formInstance.Show();
         }
     }
 }

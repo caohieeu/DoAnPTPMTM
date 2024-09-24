@@ -15,11 +15,12 @@ namespace ProjectPTUDTM
 {
     public partial class MenuBar : UserControl
     {
+        public event Action<DataRow> TabButtonClicked;
         public MenuBar()
         {
             InitializeComponent();
         }
-        public void CreateTabs(int tabCount)
+        public void CreateTabs()
         {
 			string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
             MyDbContext myDbContext = new MyDbContext(connectionString);
@@ -46,7 +47,8 @@ namespace ProjectPTUDTM
 
                 Button tabButton = new Button
                 {
-                    Text = row["AssemblyName"].ToString(),
+                    Text = row["MenuName"].ToString(),
+                    Tag = row,
                     Dock = DockStyle.Fill
                 };
 				tabButton.Click += TabButton_Click;
@@ -58,11 +60,10 @@ namespace ProjectPTUDTM
 
 		private void TabButton_Click(object? sender, EventArgs e)
 		{
-			var mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
-			if (mainForm != null)
-			{
-				mainForm.showContent("Trang quản lý người dùng");
-			}
-		}
+            if (sender is Button clickedButton && clickedButton.Tag is DataRow dataRow)
+            {
+                TabButtonClicked?.Invoke(dataRow);
+            }
+        }
 	}
 }
