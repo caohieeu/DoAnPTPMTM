@@ -109,6 +109,7 @@
             cbShow.TabIndex = 9;
             cbShow.Text = "Hiển thị mật khẩu";
             cbShow.UseVisualStyleBackColor = true;
+            cbShow.CheckedChanged += cbShow_CheckedChanged;
             // 
             // btnLogin
             // 

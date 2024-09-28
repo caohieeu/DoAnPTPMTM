@@ -22,11 +22,14 @@ namespace LoginForm
         public LoginForm()
         {
             InitializeComponent();
+
+            txtUserName.Text = "aaaaaaa1aa";
         }
         public LoginForm(string _Conn)
         {
             this._Conn = _Conn;
             InitializeComponent();
+            txtUserName.Text = "aaaaaaaaa";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -44,7 +47,7 @@ namespace LoginForm
                 return;
             }
             LoginResult result;
-            result = Check_User(txtUserName.Text, txtPassWord.Text); 
+            result = Check_User(txtUserName.Text, txtPassWord.Text);
             if (result == LoginResult.Invalid)
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
@@ -69,6 +72,14 @@ namespace LoginForm
             if ((int)dt.Rows[0][0] == 0)
                 return LoginResult.Invalid;
             return LoginResult.Success;
+        }
+
+        private void cbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbShow.Checked)
+            {
+                txtPassWord.PasswordChar = '\0';
+            }
         }
     }
 }
