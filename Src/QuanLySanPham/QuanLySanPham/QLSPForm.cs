@@ -1,4 +1,4 @@
-﻿using QuanLySanPham.DAO;
+using QuanLySanPham.DAO;
 using QuanLySanPham.Model;
 using System;
 using System.Collections.Generic;
@@ -110,12 +110,12 @@ namespace QuanLySanPham
                 productToUpdate.Stock = Convert.ToInt32(selectedRow.Cells["Stock"].Value);
 
                 ProductDao dao = new ProductDao(_connectionString);
-                bool result = dao.UpdateProduct(productToUpdate); // Cập nhật vào cơ sở dữ liệu
+                bool result = dao.UpdateProduct(productToUpdate);
 
                 if (result)
                 {
                     MessageBox.Show("Cập nhật sản phẩm thành công!");
-                    LoadDataToGrid(); // Nạp lại dữ liệu
+                    LoadDataToGrid();
                 }
                 else
                 {
