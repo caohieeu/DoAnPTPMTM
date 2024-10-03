@@ -18,9 +18,28 @@ namespace QuanLyNguoiDung
         {
             _connectionString = connectionString;
             InitializeComponent();
+            btnAdd.Click += BtnAdd_Click;
+            grdUser.CellDoubleClick += GrdUser_CellDoubleClick;
+        }
+        private void ShowDetailForm(string type, string param)
+        {
+            MyDao myDao = new MyDao(_connectionString);
+            Execute execute = new Execute(myDao);
+            AddForm addForm = new AddForm(execute, this, type, param);
+            addForm.ShowDialog();
+        }
+        private void GrdUser_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            var userId = grdUser.Rows[e.RowIndex].Cells[0].Value.ToString();
+            ShowDetailForm("modified", userId);
         }
 
-        private void QLNDForm_Load(object sender, EventArgs e)
+        private void BtnAdd_Click(object? sender, EventArgs e)
+        {
+            ShowDetailForm("add", string.Empty);
+        }
+
+        public void QLNDForm_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
