@@ -1,4 +1,4 @@
-﻿using QuanLySanPham.DAO;
+using QuanLySanPham.DAO;
 using QuanLySanPham.Model;
 using System;
 using System.Collections.Generic;
