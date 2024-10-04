@@ -18,5 +18,24 @@ namespace QuanLySanPham.Model
         public DateTime DateCreated { get; set; }
         public DateTime DatePurchase { get; set; }
         public int Stock { get; set; }
+
+
+        public Product()
+        {
+        }
+        public Product(string id, string name, string description, decimal price, string imageURL, string categoryID, string brandID, DateTime dateCreated, DateTime datePurchase, int stock)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Price = price;
+            ImageURL = imageURL;
+            CategoryID = categoryID;
+            BrandID = brandID;
+            DateCreated = dateCreated;
+            DatePurchase = datePurchase;
+            Stock = stock;
+        }
+
     }
 }

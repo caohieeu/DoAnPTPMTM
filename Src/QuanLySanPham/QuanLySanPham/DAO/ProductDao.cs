@@ -91,7 +91,23 @@ namespace QuanLySanPham.DAO
 
             return myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters) > 0;
         }
+        public DataTable GetBrands()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = "SELECT Id, Name FROM Brands";
+
+            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+        }
 
 
+        public DataTable GetCategories()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = "SELECT Id, Name FROM Categories";
+
+            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+        }
     }
 }
