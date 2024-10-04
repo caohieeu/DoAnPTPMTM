@@ -60,13 +60,15 @@
             // 
             // grdSP
             // 
+            grdSP.AllowUserToAddRows = false;
+            grdSP.AllowUserToDeleteRows = false;
             grdSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grdSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grdSP.Location = new Point(1, 315);
             grdSP.Name = "grdSP";
             grdSP.RowHeadersWidth = 51;
             grdSP.RowTemplate.Height = 29;
-            grdSP.Size = new Size(1120, 315);
+            grdSP.Size = new Size(932, 315);
             grdSP.TabIndex = 0;
             grdSP.CellClick += grdSP_CellClick;
             grdSP.CellContentClick += grdSP_CellContentClick;
