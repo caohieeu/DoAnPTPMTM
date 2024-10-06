@@ -61,6 +61,7 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(50, 24);
             btnAdd.Text = "Thêm";
+            btnAdd.Click += BtnAdd_Click;
             // 
             // editBtn
             // 
