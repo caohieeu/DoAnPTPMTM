@@ -91,6 +91,47 @@ namespace QuanLySanPham.DAO
 
             return myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters) > 0;
         }
+        public DataTable GetProductByName(string name)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = "SELECT * FROM Products WHERE name LIKE @name";
+            var parameters = new IDataParameter[]
+            {
+                new SqlParameter("@name", $"%{name}%")
+            };
+
+            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text, parameters);
+        }
+        public Product GetProductById(string Id)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+            Product pr = new Product();
+            string sqlQuery = "SELECT * FROM Products WHERE id = @id";
+            var parameters = new IDataParameter[]
+            {
+                new SqlParameter("@id", Id)
+            };
+            var res = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text, parameters); 
+            if (res.Rows.Count > 0)
+            {
+                DataRow row = res.Rows[0];
+                pr = new Product
+                {
+                    Id = row["Id"].ToString(),
+                    Name = row["Name"].ToString(),
+                    Description = row["Description"].ToString(),
+                    Price = Convert.ToDecimal(row["Price"]),
+                    ImageURL = row["ImageURL"].ToString(),
+                    CategoryID = row["CategoryID"].ToString(),
+                    DateCreated = Convert.ToDateTime(row["DateCreated"]),
+                    DatePurchase = Convert.ToDateTime(row["DatePurchase"]),
+                    Stock = Convert.ToInt32(row["Stock"]),
+                    BrandID = row["BrandID"].ToString()
+                };
+            }
+            return pr;
+        }
         public DataTable GetBrands()
         {
             MyDbContext myDbContext = new MyDbContext(Conn);

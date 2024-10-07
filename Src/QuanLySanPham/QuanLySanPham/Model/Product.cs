@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace QuanLySanPham.Model
 {
     public class Product
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public string ImageURL { get; set; }
-        public string CategoryID { get; set; }
-        public string BrandID { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DatePurchase { get; set; }
-        public int Stock { get; set; }
+        public string Id { get; set; } = string.Empty;
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        [Required]
+        public string Description { get; set; } = string.Empty;
+        [Required]
+        public decimal Price { get; set; } = 0;
+        [Required]
+        public string ImageURL { get; set; } = string.Empty;
+        [Required]
+        public string CategoryID { get; set; } = string.Empty;
+        [Required]
+        public string BrandID { get; set; } = string.Empty;
+        [Required]
+        public DateTime? DateCreated { get; set; } = null;
+        [Required]
+        public DateTime? DatePurchase { get; set; } = null;
+        [Required]
+        public int Stock { get; set; } = 0;
 
 
         public Product()
