@@ -36,6 +36,8 @@
             btnSearch = new Button();
             toolStrip1 = new ToolStrip();
             btnThem = new ToolStripButton();
+            lblHeaderl = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)grdSP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
             toolStrip1.SuspendLayout();
@@ -45,6 +47,7 @@
             // 
             grdSP.AllowUserToAddRows = false;
             grdSP.AllowUserToDeleteRows = false;
+            grdSP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grdSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grdSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grdSP.Location = new Point(1, 160);
@@ -57,14 +60,16 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(357, 77);
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSearch.Location = new Point(321, 101);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(400, 27);
+            txtSearch.Size = new Size(469, 27);
             txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(663, 76);
+            btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSearch.Location = new Point(696, 99);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 2;
@@ -92,11 +97,33 @@
             btnThem.Text = "Thêm";
             btnThem.Click += btnThem_Click;
             // 
+            // lblHeaderl
+            // 
+            lblHeaderl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblHeaderl.AutoSize = true;
+            lblHeaderl.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHeaderl.Location = new Point(383, 27);
+            lblHeaderl.Name = "lblHeaderl";
+            lblHeaderl.Size = new Size(352, 46);
+            lblHeaderl.TabIndex = 5;
+            lblHeaderl.Text = "Danh Sách Sản Phẩm";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(212, 104);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 20);
+            label2.TabIndex = 6;
+            label2.Text = "Tìm Sản Phẩm";
+            // 
             // QLSPForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1108, 631);
+            Controls.Add(label2);
+            Controls.Add(lblHeaderl);
             Controls.Add(toolStrip1);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
@@ -104,6 +131,7 @@
             Name = "QLSPForm";
             Text = "QLSP";
             Load += QLSPForm_Load;
+            Resize += QLSPForm_Resize;
             ((System.ComponentModel.ISupportInitialize)grdSP).EndInit();
             ((System.ComponentModel.ISupportInitialize)bdSource).EndInit();
             toolStrip1.ResumeLayout(false);
@@ -120,5 +148,7 @@
         private Button btnSearch;
         private ToolStrip toolStrip1;
         private ToolStripButton btnThem;
+        private Label lblHeaderl;
+        private Label label2;
     }
 }

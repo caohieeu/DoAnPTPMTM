@@ -1,26 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Dll</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="iTextSharp" Version="5.5.13.4" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Core">
-      <HintPath>..\Dll\Debug\net6.0\Core.dll</HintPath>
-    </Reference>
-    <Reference Include="LoginForm">
-      <HintPath>..\Dll\Debug\net6.0-windows\LoginForm.dll</HintPath>
+      <HintPath>..\..\..\Dll\Debug\net6.0-windows\Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 

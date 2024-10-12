@@ -106,5 +106,10 @@ namespace QuanLySanPham
             var product = grdSP.Rows[e.RowIndex].Cells[0].Value.ToString();
             ShowDetailForm("modified", product);
         }
+
+        private void QLSPForm_Resize(object sender, EventArgs e)
+        {
+            lblHeaderl.Left = (this.ClientSize.Width - lblHeaderl.Width) / 2;
+        }
     }
 }
