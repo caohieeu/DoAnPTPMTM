@@ -86,6 +86,7 @@
             btnTim.TabIndex = 4;
             btnTim.Text = "Tìm";
             btnTim.UseVisualStyleBackColor = true;
+            btnTim.Click += btnTim_Click;
             // 
             // QLHDForm
             // 

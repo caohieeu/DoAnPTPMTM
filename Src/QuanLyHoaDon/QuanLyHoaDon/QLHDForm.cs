@@ -55,7 +55,7 @@ namespace QuanLyHoaDon
         {
             orderDao = new OrderDao(_connectionString);
             orderDetailDao = new OrderDetailDao(_connectionString);
-           
+
             ExecuteOrder execute = new ExecuteOrder(orderDao, orderDetailDao);
             XuatHDForm manageForm = new XuatHDForm(execute, this, param);
             manageForm.ShowDialog();
@@ -69,6 +69,39 @@ namespace QuanLyHoaDon
         private void QLHDForm_Resize(object sender, EventArgs e)
         {
             lblHeader.Left = (this.ClientSize.Width - lblHeader.Width) / 2;
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if(txtTim.Text != null)
+            {
+                OrderDao orderDao = new OrderDao(_connectionString);
+                var dataTable = orderDao.GetOrderById(txtTim.Text);
+
+                List<Order> orders = new List<Order>();
+
+                //foreach (DataRow row in dataTable.Rows)
+                //{
+                //    Order order = new Order
+                //    {
+                //        Id = row["Id"].ToString(),
+                //        UserID = row["UserID"].ToString(),
+                //        ShippingAddress = row["ShippingAddress"].ToString(),
+                //        PaymentMethod = row["PaymentMethod"].ToString(),
+                //        OrderStatus = row["OrderStatus"].ToString(),
+                //        DeliveryStatus = row["DeliveryStatus"].ToString(),
+                //        OrderDate = Convert.ToDateTime(row["OrderDate"])
+                //    };
+                //    orders.Add(order);
+                //}
+                //grdHoaDon.DataSource = new BindingList<Order>(orders);
+
+                MessageBox.Show("Tạm thời chưa làm =))!");
+            }
+            else
+            {
+                MessageBox.Show("Hãy điền thông tin trước khi tìm kiếm!");
+            }
         }
     }
 }

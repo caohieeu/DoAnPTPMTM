@@ -75,8 +75,9 @@ namespace QuanLyHoaDon
             try
             {
                 PDFGenerator pDFGenerator = new PDFGenerator();
+                string nameFile = "HoaDon_" + param;
                 string file = "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\SaveFile";
-                pDFGenerator.GenerateInvoicePDF(file, "hoadon", lblIdOder.Text, lblCus.Text, lblAdd.Text, lblOderAt.Text, lblOderStatus.Text, lblPayMethod.Text, lblDeliver.Text, grdDetailOrder, txtThanhTien.Text);
+                pDFGenerator.GenerateInvoicePDF(file, nameFile, lblIdOder.Text, lblCus.Text, lblAdd.Text, lblOderAt.Text, lblOderStatus.Text, lblPayMethod.Text, lblDeliver.Text, grdDetailOrder, txtThanhTien.Text);
                 MessageBox.Show("Xuất hóa đơn thành công!");
             }
             catch (Exception ex)
