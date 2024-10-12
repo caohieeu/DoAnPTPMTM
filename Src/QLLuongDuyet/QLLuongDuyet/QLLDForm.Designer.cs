@@ -100,6 +100,7 @@
             toolStripButton6.Name = "toolStripButton6";
             toolStripButton6.Size = new Size(50, 24);
             toolStripButton6.Text = "Thêm";
+            toolStripButton6.Click += toolStripButton6_Click;
             // 
             // toolStripButton5
             // 
@@ -109,6 +110,7 @@
             toolStripButton5.Name = "toolStripButton5";
             toolStripButton5.Size = new Size(38, 24);
             toolStripButton5.Text = "Sửa";
+            toolStripButton5.Click += toolStripButton5_Click;
             // 
             // toolStripButton4
             // 
@@ -118,6 +120,7 @@
             toolStripButton4.Name = "toolStripButton4";
             toolStripButton4.Size = new Size(39, 24);
             toolStripButton4.Text = "Xóa";
+            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // dataGridView2
             // 

@@ -1,5 +1,4 @@
 ﻿using Core.DAL;
-using Microsoft.VisualBasic.ApplicationServices;
 using QLLuongDuyet.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace QLLuongDuyet.DAO
 {
@@ -17,14 +17,82 @@ namespace QLLuongDuyet.DAO
         {
             Conn = conn;
         }
-        public DataTable GetLuongDuyet()
+        public DataSet GetLuongDuyet()
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
-            string sqlQuery = "select * from LuongDuyet order by ThuTu";
+            string query = "select * from LuongDuyet order by ThuTu " +
+                            "select * from UserLuongDuyet";
+            return myDbContext.ExecuteQueryDataset(query, CommandType.Text);
 
-            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
         }
+        public DataTable GetUsers()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string query = "select * from Users where RoleId = 'admin' or RoleId = 'employee'";
+            return myDbContext.ExecuteQuery(query, CommandType.Text);   
+        }
+        public DataTable GetOrders()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+          
+            string query = "select * from Users where RoleId = 'admin' or RoleId = 'employee'";
+            return myDbContext.ExecuteQuery(query, CommandType.Text);
+        }
+        public bool AddUSLD(UserLuongDuyet userLuongDuyet)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = @"INSERT INTO [dbo].[UserLuongDuyet]
+                        ([Id], [LuongDuyetId], [UserId], [OrderId])
+                        VALUES
+                        (@Id, @LuongDuyetId, @UserId, @OrderId)";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.Id },
+                new SqlParameter("@LuongDuyetId", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.LuongDuyetId },
+                new SqlParameter("@UserId", SqlDbType.NVarChar, 128) { Value = userLuongDuyet.UserId },
+                new SqlParameter("@OrderId", SqlDbType.NVarChar, 128) { Value = (object)userLuongDuyet.OrderId ?? DBNull.Value }
+            };
+
+            int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);
+
+            if (res > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        public bool UpdateUSLD(UserLuongDuyet userLuongDuyet)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = @"UPDATE [dbo].[UserLuongDuyet]
+                        SET [LuongDuyetId] = @LuongDuyetId, 
+                            [UserId] = @UserId, 
+                            [OrderId] = @OrderId
+                        WHERE [Id] = @Id";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.Id },
+                new SqlParameter("@LuongDuyetId", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.LuongDuyetId },
+                new SqlParameter("@UserId", SqlDbType.NVarChar, 128) { Value = userLuongDuyet.UserId },
+                new SqlParameter("@OrderId", SqlDbType.NVarChar, 128) { Value = userLuongDuyet.OrderId }
+            };
+
+            int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);
+
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool AddLuongDuyet(LuongDuyet luongDuyet)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);

@@ -1,6 +1,6 @@
 ﻿namespace QLLuongDuyet
 {
-    partial class UpsertForm
+    partial class LDUpsertForm
     {
         /// <summary>
         /// Required designer variable.
@@ -73,6 +73,7 @@
             btnHuy.TabIndex = 3;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // label2
             // 
@@ -90,7 +91,7 @@
             txtThuTu.Size = new Size(78, 27);
             txtThuTu.TabIndex = 6;
             // 
-            // UpsertForm
+            // LDUpsertForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -101,7 +102,7 @@
             Controls.Add(btnLuu);
             Controls.Add(label1);
             Controls.Add(txtTenLuongDuyet);
-            Name = "UpsertForm";
+            Name = "LDUpsertForm";
             Text = "UpsertForm";
             Load += UpsertForm_Load;
             ((System.ComponentModel.ISupportInitialize)txtThuTu).EndInit();

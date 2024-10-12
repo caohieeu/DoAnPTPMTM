@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace QLLuongDuyet
 {
-    public partial class UpsertForm : Form
+    public partial class LDUpsertForm : Form
     {
         public bool IsSave { set; get; }
         string id;
         string conn;
         int mode;
         DataRow luongDuyet;
-        public UpsertForm(
+        public LDUpsertForm(
             string Conn
             , int mode
         )
@@ -29,7 +29,7 @@ namespace QLLuongDuyet
             this.mode = mode;
             IsSave = false;
         }
-        public UpsertForm(
+        public LDUpsertForm(
             string Conn
             , int mode
             , DataRow luongDuyet
@@ -55,11 +55,11 @@ namespace QLLuongDuyet
                 ThuTu = (int)txtThuTu.Value
             };
             MyDao myDao = new MyDao(conn);
-            if(mode == 0)
+            if (mode == 0)
             {
                 myDao.AddLuongDuyet(luongDuyet);
             }
-            else if(mode == 1)
+            else if (mode == 1)
             {
                 myDao.UpdateLuongDuyet(luongDuyet);
             }
@@ -69,7 +69,7 @@ namespace QLLuongDuyet
 
         private void UpsertForm_Load(object sender, EventArgs e)
         {
-            if(luongDuyet != null)
+            if (luongDuyet != null)
             {
                 txtTenLuongDuyet.Text = luongDuyet["TenLuongDuyet"].ToString();
                 txtThuTu.Value = (int)luongDuyet["ThuTu"];
@@ -79,6 +79,11 @@ namespace QLLuongDuyet
             {
                 id = Guid.NewGuid().ToString().Substring(0, 25);
             }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
