@@ -10,7 +10,8 @@ namespace Core.DAL
     public interface IMyDbcontext
     {
         int ExecuteCommand(string sqlCommand, CommandType commandType, params IDataParameter[] parameters);
-
         DataTable ExecuteQuery(string sqlQuery, CommandType commandType, params IDataParameter[] parameters);
+        DataSet ExecuteQueryDataset(string sqlQuery, CommandType commandType, params IDataParameter[] parameters);
+
     }
 }

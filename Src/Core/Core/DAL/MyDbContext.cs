@@ -68,5 +68,34 @@ namespace Core.DAL
                 }
             }
         }
+        /// <summary>
+        /// Sủ dụng với lệnh nhiều select, trả về 1 dataset
+        /// </summary>
+        /// <param name="sqlQuery"></param>
+        /// <param name="commandType"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public DataSet ExecuteQueryDataset(string sqlQuery, CommandType commandType, params IDataParameter[] parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    command.CommandType = commandType;
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataSet resultTable = new DataSet();
+                        adapter.Fill(resultTable);
+                        return resultTable;  //
+                    }
+                }
+            }
+        }
     }
 }
