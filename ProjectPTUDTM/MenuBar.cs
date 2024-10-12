@@ -27,7 +27,6 @@ namespace ProjectPTUDTM
 
             string sqlQuery = "SELECT * FROM Menu";
             DataTable result = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
-
 			FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
