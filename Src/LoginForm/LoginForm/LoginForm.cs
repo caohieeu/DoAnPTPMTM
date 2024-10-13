@@ -76,9 +76,13 @@ namespace LoginForm
 
         private void cbShow_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbShow.Checked)
+            if (cbShow.Checked)
             {
-                txtPassWord.PasswordChar = '\0';
+                txtPassWord.PasswordChar = ' ';
+            }
+            else
+            {
+                txtPassWord.PasswordChar = '*';
             }
         }
     }

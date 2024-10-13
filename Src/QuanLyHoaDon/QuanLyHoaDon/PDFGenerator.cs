@@ -13,11 +13,10 @@ namespace QuanLyHoaDon
 {
     public class PDFGenerator
     {
-        public void GenerateInvoicePDF(string filePath, string fileName, string maHoaDon, string khachHang, string diaChi, string ngayDat, string trangThai, string paymentMethod, string tinhTrangGiaoHang, DataGridView dgvOrderDetails, string tongTien)
+        public void GenerateInvoicePDF(string filePath, string maHoaDon, string khachHang, string diaChi, string ngayDat, string trangThai, string paymentMethod, string tinhTrangGiaoHang, DataGridView dgvOrderDetails, string tongTien)
         {
-            string fullPath = Path.Combine(filePath, $"{fileName}.pdf");
             Document document = new Document();
-            PdfWriter.GetInstance(document, new FileStream(fullPath, FileMode.Create));
+            PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
 
             document.Open();
 

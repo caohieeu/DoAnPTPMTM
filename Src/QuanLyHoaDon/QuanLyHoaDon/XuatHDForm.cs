@@ -74,17 +74,26 @@ namespace QuanLyHoaDon
         {
             try
             {
-                PDFGenerator pDFGenerator = new PDFGenerator();
-                string nameFile = "HoaDon_" + param;
-                string file = "D:\\Document\\HocAndCode\\HocTap\\HK7_Nam4\\LTUDTM\\DoAn\\DoAnPTPMTM\\SaveFile";
-                pDFGenerator.GenerateInvoicePDF(file, nameFile, lblIdOder.Text, lblCus.Text, lblAdd.Text, lblOderAt.Text, lblOderStatus.Text, lblPayMethod.Text, lblDeliver.Text, grdDetailOrder, txtThanhTien.Text);
-                MessageBox.Show("Xuất hóa đơn thành công!");
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+                saveFileDialog.Title = "Save Invoice";
+                saveFileDialog.FileName = "HoaDon_" + param;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    PDFGenerator pDFGenerator = new PDFGenerator();
+                    string filePath = saveFileDialog.FileName;  
+
+                    pDFGenerator.GenerateInvoicePDF(filePath, lblIdOder.Text, lblCus.Text, lblAdd.Text, lblOderAt.Text, lblOderStatus.Text, lblPayMethod.Text, lblDeliver.Text, grdDetailOrder, txtThanhTien.Text);
+
+                    MessageBox.Show("Xuất hóa đơn thành công!");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi không xuất được hóa đơn: " + ex.Message);
             }
-           
         }
+
     }
 }
