@@ -12,5 +12,14 @@ namespace Core
         public static string UserName { get; set; } = string.Empty;
         public static string UserImage { set; get; } = string.Empty;
         public static string UserRole { set; get; } = string.Empty;
+
+
+        public static void clearObject()
+        {
+            UserID = string.Empty;
+            UserName = string.Empty;
+            UserImage = string.Empty;
+            UserRole = string.Empty;
+        }
     }
 }
