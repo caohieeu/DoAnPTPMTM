@@ -20,7 +20,7 @@ namespace ProjectPTUDTM
         {
             InitializeComponent();
         }
-        public void CreateTabs()
+        public void CreateTabs(string username)
         {
 			string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
             MyDbContext myDbContext = new MyDbContext(connectionString);

@@ -12,9 +12,9 @@ namespace ProjectPTUDTM
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
         }
-        public void CreateMenu()
+        public void CreateMenu(string username)
         {
-            menuBar1.CreateTabs();
+            menuBar1.CreateTabs(username);
             menuBar1.TabButtonClicked += MenuBar1_TabButtonClicked;
         }
 
@@ -34,16 +34,18 @@ namespace ProjectPTUDTM
                 loginForm.ShowDialog();
                 if (loginForm.IsSuccess)
                 {
-                    CreateMenu();
+                    CreateMenu(Core.Enviroment.UserName);
                 }
                 else
                 {
                     Close();
                 }
+
+                MessageBox.Show(Core.Enviroment.UserName);
             }
             else
             {
-                CreateMenu();
+                CreateMenu(Core.Enviroment.UserName);
             }
         }
         public void ShowForm(DataRow dtr)

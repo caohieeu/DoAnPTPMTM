@@ -46,20 +46,22 @@ namespace LoginForm
                 this.txtPassWord.Focus();
                 return;
             }
-            LoginResult result;
-            result = Check_User(txtUserName.Text, txtPassWord.Text);
-            if (result == LoginResult.Invalid)
+  
+            var result = Check_User(txtUserName.Text, txtPassWord.Text);
+            if (result == null)
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
                 return;
             }
             IsSuccess = true;
+            Enviroment.UserName = result["id"].ToString();
+            Enviroment.UserRole = result["roleid"].ToString();
             Close();
         }
-        public LoginResult Check_User(string pUser, string pPass)
+        public DataRow Check_User(string pUser, string pPass)
         {
             myDbContext = new MyDbContext(_Conn);
-            string sqlCommand = "SELECT COUNT(*) FROM Users WHERE Username = @username AND PasswordHash = @password";
+            string sqlCommand = "SELECT * FROM Users WHERE Username = @username AND PasswordHash = @password";
             CommandType commandType = CommandType.Text;
 
             SqlParameter[] parameters = new SqlParameter[]
@@ -69,9 +71,9 @@ namespace LoginForm
             };
             DataTable dt = myDbContext.ExecuteQuery(sqlCommand, commandType, parameters);
 
-            if ((int)dt.Rows[0][0] == 0)
-                return LoginResult.Invalid;
-            return LoginResult.Success;
+            if (dt == null || dt.Rows.Count == 0)
+                return null;
+            return dt.Rows[0];
         }
 
         private void cbShow_CheckedChanged(object sender, EventArgs e)

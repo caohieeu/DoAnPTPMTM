@@ -8,6 +8,7 @@ namespace Core
 {
     public static class Enviroment
     {
+        public static string UserID { get; set; } = string.Empty;
         public static string UserName { get; set; } = string.Empty;
         public static string UserImage { set; get; } = string.Empty;
         public static string UserRole { set; get; } = string.Empty;
