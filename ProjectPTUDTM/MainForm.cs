@@ -34,18 +34,17 @@ namespace ProjectPTUDTM
                 loginForm.ShowDialog();
                 if (loginForm.IsSuccess)
                 {
-                    CreateMenu(Core.Enviroment.UserName);
+                    CreateMenu(Core.Enviroment.UserID);
                 }
                 else
                 {
                     Close();
                 }
 
-                MessageBox.Show(Core.Enviroment.UserName);
             }
             else
             {
-                CreateMenu(Core.Enviroment.UserName);
+                CreateMenu(Core.Enviroment.UserID);
             }
         }
         public void ShowForm(DataRow dtr)
