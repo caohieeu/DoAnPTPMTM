@@ -44,6 +44,8 @@ namespace QLLuongDuyet
 
             bsUSLD.DataSource = bsLD;
             bsUSLD.DataMember = "LD";
+
+
         }
         private void QLLDForm_Load(object sender, EventArgs e)
         {

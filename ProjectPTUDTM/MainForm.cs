@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using LoginForm;
 using System.Data;
+using Core;
 
 namespace ProjectPTUDTM
 {
@@ -16,16 +17,27 @@ namespace ProjectPTUDTM
         {
             menuBar1.CreateTabs(username);
             menuBar1.TabButtonClicked += MenuBar1_TabButtonClicked;
+            menuBar1.TabBtnLogout += MenuBar1_TabBtnLogout;
+        }
+
+        private void MenuBar1_TabBtnLogout()
+        {
+            Enviroment.clearObject();
+
+            var menu = menuBar1.Controls["Menus"];
+            menu.Controls.Clear();
+            menuBar1.Controls.Remove(menu);
+
+            InitLoad();
         }
 
         private void MenuBar1_TabButtonClicked(DataRow dtr)
         {
             ShowForm(dtr);
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
+        private void InitLoad()
         {
-			if (Core.Enviroment.UserName == string.Empty)
+            if (Core.Enviroment.UserName == string.Empty)
             {
                 string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
 
@@ -45,6 +57,10 @@ namespace ProjectPTUDTM
             {
                 CreateMenu(Core.Enviroment.UserID);
             }
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            InitLoad();
         }
         public void ShowForm(DataRow dtr)
         {

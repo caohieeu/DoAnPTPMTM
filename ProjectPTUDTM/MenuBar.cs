@@ -18,6 +18,7 @@ namespace ProjectPTUDTM
     public partial class MenuBar : UserControl
     {
         public event Action<DataRow> TabButtonClicked;
+        public event Action TabBtnLogout;
         public MenuBar()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace ProjectPTUDTM
             MyDbContext myDbContext = new MyDbContext(connectionString);
 
             string sqlQuery = "SELECT m.* FROM Users u JOIN Roles r ON u.RoleId = r.id JOIN RoleMenu rm ON r.id = rm.RoleId JOIN Menu m ON rm.MenuId = m.MenuId WHERE u.id = '" + userId + "'";
+            //string sqlQuery = "SELECT m.* FROM Menu m";
             DataTable result = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
 			FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
@@ -77,8 +79,10 @@ namespace ProjectPTUDTM
 
         private void BtnLogout_Click(object? sender, EventArgs e)
         {
-            //Core.Enviroment.clearObject();
-            
+            if (sender is Button)
+            {
+                TabBtnLogout?.Invoke();
+            }
         }
 
         private void TabButton_Click(object? sender, EventArgs e)
