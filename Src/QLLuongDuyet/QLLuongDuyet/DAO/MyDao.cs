@@ -21,10 +21,7 @@ namespace QLLuongDuyet.DAO
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
-            string query = "select * from LuongDuyet order by ThuTu " +
-                            "select * from UserLuongDuyet " +
-                            "select * from roleLuongDuyet";
-            return myDbContext.ExecuteQueryDataset(query, CommandType.Text);
+            return myDbContext.ExecuteQueryDataset("GetLuongDuyetRelate", CommandType.StoredProcedure);
 
         }
         public DataTable GetUsers()
@@ -45,7 +42,7 @@ namespace QLLuongDuyet.DAO
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
-            string sqlQuery = @"UPDATE [dbo].[UserLuongDuyet]
+            string sqlQuery = @"UPDATE [dbo].[RoleLuongDuyet]
                         SET [LuongDuyetId] = @LuongDuyetId, 
                             [RoleId] = @RoleId
                         WHERE [Id] = @Id";

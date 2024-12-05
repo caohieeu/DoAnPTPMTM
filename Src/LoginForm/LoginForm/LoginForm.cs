@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Core;
 using Core.DAL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using BCrypt.Net;
 
 namespace LoginForm
 {
@@ -61,16 +62,20 @@ namespace LoginForm
         }
         public DataRow Check_User(string pUser, string pPass)
         {
+   
             myDbContext = new MyDbContext(_Conn);
-            string sqlCommand = "SELECT * FROM Users WHERE Username = @username AND PasswordHash = @password";
+            string sqlCommand = "SELECT * FROM Users WHERE Username = @username";
             CommandType commandType = CommandType.Text;
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-            new SqlParameter("@username", pUser),
-            new SqlParameter("@password", pPass)
+                new SqlParameter("@username", pUser)
             };
             DataTable dt = myDbContext.ExecuteQuery(sqlCommand, commandType, parameters);
+
+            string pass = dt?.Rows[0]?["passwordhash"]?.ToString() ?? string.Empty;
+            if (pass == string.Empty && pass != pPass && !BCrypt.Net.BCrypt.Verify(pPass, pass))
+                return null;
 
             if (dt == null || dt.Rows.Count == 0)
                 return null;

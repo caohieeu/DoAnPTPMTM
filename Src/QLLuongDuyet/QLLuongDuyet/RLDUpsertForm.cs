@@ -15,13 +15,13 @@ namespace QLLuongDuyet
     {
         public bool IsSave { set; get; }
         string conn, luongDuyetId, id;
-        DataRow rld;
+        DataRowView rld;
         int mode;
         public RLDUpsertForm(
             string conn,
             int mode,
             string luongDuyetId,
-            DataRow rld
+            DataRowView rld
             )
         {
             InitializeComponent();

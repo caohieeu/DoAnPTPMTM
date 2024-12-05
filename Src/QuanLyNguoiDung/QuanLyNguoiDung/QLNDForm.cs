@@ -18,7 +18,7 @@ namespace QuanLyNguoiDung
         {
             _connectionString = connectionString;
             InitializeComponent();
-            btnAdd.Click += BtnAdd_Click;
+
             grdUser.CellDoubleClick += GrdUser_CellDoubleClick;
         }
         private void ShowDetailForm(string type, string param)
@@ -26,6 +26,8 @@ namespace QuanLyNguoiDung
             MyDao myDao = new MyDao(_connectionString);
             Execute execute = new Execute(myDao);
             AddForm addForm = new AddForm(execute, this, type, param);
+
+
             addForm.ShowDialog();
         }
         private void GrdUser_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
@@ -36,6 +38,7 @@ namespace QuanLyNguoiDung
 
         private void BtnAdd_Click(object? sender, EventArgs e)
         {
+
             ShowDetailForm("add", string.Empty);
         }
 

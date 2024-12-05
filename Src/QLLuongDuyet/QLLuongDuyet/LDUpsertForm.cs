@@ -18,7 +18,7 @@ namespace QLLuongDuyet
         string id;
         string conn;
         int mode;
-        DataRow luongDuyet;
+        DataRowView luongDuyet;
         public LDUpsertForm(
             string Conn
             , int mode
@@ -32,7 +32,7 @@ namespace QLLuongDuyet
         public LDUpsertForm(
             string Conn
             , int mode
-            , DataRow luongDuyet
+            , DataRowView luongDuyet
         )
         {
             InitializeComponent();

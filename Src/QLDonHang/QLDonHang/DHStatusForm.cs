@@ -14,6 +14,7 @@ namespace QLDonHang
 {
     public partial class DHStatusForm : Form
     {
+        DataTable dttable;
         DataRow usld;
         string oderId, conn, status;
         public bool isSave;
@@ -26,19 +27,29 @@ namespace QLDonHang
             this.conn = conn;
             this.status = status;
             isSave = false;
+
+            cbStatus.SelectedValue = status;
+            dataGridView1.DataSource = bindingSource1;
         }
 
         private void DHStatusForm_Load(object sender, EventArgs e)
         {
+            RefreshData();
+        }
+        private void RefreshData()
+        {
+
             MyDao myDao = new MyDao(conn);
-            var dt = myDao.GetLuongDuyet();
-            cbStatus.Items.Clear();
-            cbStatus.DataSource = dt;
+
+            var dt = myDao.GetLuongDuyet(oderId);
+
+            cbStatus.DataSource = dt.Tables[0];
             cbStatus.ValueMember = "TenLuongDuyet";
             cbStatus.DisplayMember = "TenLuongDuyet";
-            cbStatus.SelectedValue = status;
+            
+            dttable = dt.Tables[1];
+            bindingSource1.DataSource = dttable;
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             MyDao myDao = new MyDao(conn);
@@ -47,7 +58,7 @@ namespace QLDonHang
                 Id = oderId,
                 OrderStatus = cbStatus.Text,
             };
-            if(myDao.UpdateStatus(order))
+            if (myDao.UpdateStatus(order))
             {
                 MessageBox.Show("Cập nhật thành công");
             }
@@ -55,9 +66,19 @@ namespace QLDonHang
             {
                 MessageBox.Show("Cập nhật không thành công");
             }
-            this.Close();
-            QLDonHangForm frm = new QLDonHangForm(conn);
             isSave = true;
+            RefreshData();
+        }
+
+        private void cbStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            status = cbStatus.SelectedValue.ToString();
+        }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

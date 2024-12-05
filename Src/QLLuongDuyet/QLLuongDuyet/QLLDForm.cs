@@ -33,14 +33,16 @@ namespace QLLuongDuyet
 
             DataSet dts = myDao.GetLuongDuyet();
             masterTable = dts.Tables[0];
+
             childTable = dts.Tables[1];
+
             childTable2 = dts.Tables[2];
 
             DataColumn[] cols = new DataColumn[] { masterTable.Columns["tenluongduyet"] };
 
             DataColumn[] cols2 = new DataColumn[] { childTable.Columns["LuongDuyetId"] };
-
             DataColumn[] cols3 = new DataColumn[] { childTable2.Columns["LuongDuyetId"] };
+
 
             DataRelation dataRelation = new DataRelation("LD", cols, cols2, false);
             DataRelation dataRelation2 = new DataRelation("LD2", cols, cols3, false);
@@ -77,7 +79,7 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null) return;
 
-            var frm = new LDUpsertForm(_connectionString, 1, masterTable.Rows[bsLD.Position]);
+            var frm = new LDUpsertForm(_connectionString, 1, (DataRowView)bsLD.Current);
             frm.ShowDialog();
             if (frm.IsSave)
             {
@@ -113,7 +115,7 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null || bsUSLD.Current == null) return;
 
-            var frm = new USDLUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), childTable.Rows[bsUSLD.Position]);
+            var frm = new USDLUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), (DataRowView)bsUSLD.Current);
             frm.ShowDialog();
             if (frm.IsSave)
             {
@@ -142,12 +144,17 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null || bsRLD.Current == null) return;
 
-            var frm = new RLDUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), childTable2.Rows[bsUSLD.Position]);
+            var frm = new RLDUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), (DataRowView)bsRLD.Current);
             frm.ShowDialog();
             if (frm.IsSave)
             {
                 LoadData();
             }
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

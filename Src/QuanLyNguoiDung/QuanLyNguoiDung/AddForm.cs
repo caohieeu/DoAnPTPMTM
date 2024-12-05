@@ -93,8 +93,11 @@ namespace QuanLyNguoiDung
                     ImagePath = txtImage.Text,
                     Phone = txtPhone.Text,
                 };
-                var resourePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Resources", "ProfileImage");
-                File.Copy(ImageLocation, Path.Combine(resourePath, txtImage.Text), true);
+                if(txtImage.Text != string.Empty)
+                {
+                    var resourePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Resources", "ProfileImage");
+                    File.Copy(ImageLocation, Path.Combine(resourePath, txtImage.Text), true);
+                }
                 if (_execute.Add(currentUser))
                 {
                     MessageBox.Show("Add new user successfully");

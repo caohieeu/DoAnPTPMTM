@@ -28,24 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cbStatus = new ComboBox();
             label1 = new Label();
             btnSave = new Button();
             btnCancel = new Button();
+            dataGridView1 = new DataGridView();
+            label2 = new Label();
+            bindingSource1 = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // cbStatus
             // 
             cbStatus.FormattingEnabled = true;
-            cbStatus.Location = new Point(155, 40);
+            cbStatus.Location = new Point(90, 25);
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(223, 28);
             cbStatus.TabIndex = 0;
+            cbStatus.SelectedValueChanged += cbStatus_SelectedValueChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(35, 43);
+            label1.Location = new Point(12, 25);
             label1.Name = "label1";
             label1.Size = new Size(49, 20);
             label1.TabIndex = 1;
@@ -53,9 +60,10 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(300, 98);
+            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSave.Location = new Point(590, 360);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(78, 29);
+            btnSave.Size = new Size(64, 27);
             btnSave.TabIndex = 2;
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = true;
@@ -63,18 +71,42 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(207, 98);
+            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancel.Location = new Point(521, 360);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(77, 29);
+            btnCancel.Size = new Size(63, 27);
             btnCancel.TabIndex = 2;
             btnCancel.Text = "Hủy";
             btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 100);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(642, 252);
+            dataGridView1.TabIndex = 3;
+            dataGridView1.Enter += dataGridView1_Enter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 77);
+            label2.Name = "label2";
+            label2.Size = new Size(95, 20);
+            label2.TabIndex = 4;
+            label2.Text = "Lịch sử duyệt";
             // 
             // DHStatusForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(412, 141);
+            ClientSize = new Size(666, 399);
+            Controls.Add(label2);
+            Controls.Add(dataGridView1);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(label1);
@@ -82,6 +114,8 @@
             Name = "DHStatusForm";
             Text = "DHStatusForm";
             Load += DHStatusForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -92,5 +126,8 @@
         private Label label1;
         private Button btnSave;
         private Button btnCancel;
+        private DataGridView dataGridView1;
+        private Label label2;
+        private BindingSource bindingSource1;
     }
 }

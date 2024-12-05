@@ -26,30 +26,28 @@ namespace QLLuongDuyet.DAO
             return myDbContext.ExecuteQueryDataset("GetOrder", CommandType.StoredProcedure, parameters);
 
         }
-        public DataTable GetLuongDuyet()
+        public DataSet GetLuongDuyet(string orderid)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
+            IDataParameter[] parameters = {
+                new SqlParameter("@pOrderId", SqlDbType.NVarChar) { Value = orderid }
+            };
 
-            string query = "select ld.* from LuongDuyet ld " +
-                            "left join UserLuongDuyet us on ld.Id = us.LuongDuyetId " +
-                            "order by ThuTu";
-            return myDbContext.ExecuteQuery(query, CommandType.Text);   
+            return myDbContext.ExecuteQueryDataset("GetLuongDuyet", CommandType.StoredProcedure, parameters);   
         }
         public bool UpdateStatus(Orders order)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
-            string sqlQuery = @"UPDATE [dbo].[Orders]
-                        SET [OrderStatus] = @OrderStatus
-                        WHERE [Id] = @Id";
-
             SqlParameter[] parameters =
             {
-                new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = order.Id },
-                new SqlParameter("@OrderStatus", SqlDbType.NVarChar, 50) { Value = order.OrderStatus },
+                new SqlParameter("@porderid", SqlDbType.NVarChar, 50) { Value = order.Id },
+                new SqlParameter("@pluongduyetid", SqlDbType.NVarChar, 50) { Value = order.OrderStatus },
+                new SqlParameter("@pUserId", SqlDbType.NVarChar, 50) { Value = Core.Enviroment.UserID },
+                new SqlParameter("@pOrderBrowseId", SqlDbType.NVarChar, 50) { Value = Guid.NewGuid().ToString() },
             };
 
-            int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);
+            int res = myDbContext.ExecuteCommand("UpdateOrderStatus", CommandType.StoredProcedure, parameters);
 
             if (res > 0)
             {
