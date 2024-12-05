@@ -17,6 +17,7 @@ namespace QLLuongDuyet
         private readonly string _connectionString;
         private DataTable masterTable;
         private DataTable childTable;
+        private DataTable childTable2;
         public QLLDForm(string connectionString)
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace QLLuongDuyet
 
             dataGridView1.DataSource = bsLD;
             dataGridView2.DataSource = bsUSLD;
+            dataGridView3.DataSource = bsRLD;
         }
         private void LoadData()
         {
@@ -32,18 +34,28 @@ namespace QLLuongDuyet
             DataSet dts = myDao.GetLuongDuyet();
             masterTable = dts.Tables[0];
             childTable = dts.Tables[1];
+            childTable2 = dts.Tables[2];
 
-            DataColumn[] cols = new DataColumn[] { masterTable.Columns["Id"] };
+            DataColumn[] cols = new DataColumn[] { masterTable.Columns["tenluongduyet"] };
+
             DataColumn[] cols2 = new DataColumn[] { childTable.Columns["LuongDuyetId"] };
+
+            DataColumn[] cols3 = new DataColumn[] { childTable2.Columns["LuongDuyetId"] };
+
             DataRelation dataRelation = new DataRelation("LD", cols, cols2, false);
+            DataRelation dataRelation2 = new DataRelation("LD2", cols, cols3, false);
 
             dts.Relations.Add(dataRelation);
+            dts.Relations.Add(dataRelation2);
 
             bsLD.DataSource = dts;
             bsLD.DataMember = masterTable.TableName;
 
             bsUSLD.DataSource = bsLD;
             bsUSLD.DataMember = "LD";
+
+            bsRLD.DataSource = bsLD;
+            bsRLD.DataMember = "LD2";
         }
         private void QLLDForm_Load(object sender, EventArgs e)
         {
@@ -89,7 +101,7 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null) return;
 
-            var frm = new USDLUpsertForm(_connectionString, 0, ((DataRowView)bsLD.Current)["Id"].ToString(), null);
+            var frm = new USDLUpsertForm(_connectionString, 0, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), null);
             frm.ShowDialog();
             if (frm.IsSave)
             {
@@ -101,7 +113,7 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null || bsUSLD.Current == null) return;
 
-            var frm = new USDLUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["Id"].ToString(), childTable.Rows[bsUSLD.Position]);
+            var frm = new USDLUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), childTable.Rows[bsUSLD.Position]);
             frm.ShowDialog();
             if (frm.IsSave)
             {
@@ -112,6 +124,30 @@ namespace QLLuongDuyet
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (bsLD.Current == null) return;
+
+            var frm = new RLDUpsertForm(_connectionString, 0, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), null);
+            frm.ShowDialog();
+            if (frm.IsSave)
+            {
+                LoadData();
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (bsLD.Current == null || bsRLD.Current == null) return;
+
+            var frm = new RLDUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), childTable2.Rows[bsUSLD.Position]);
+            frm.ShowDialog();
+            if (frm.IsSave)
+            {
+                LoadData();
+            }
         }
     }
 }

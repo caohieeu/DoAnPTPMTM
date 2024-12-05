@@ -7,6 +7,9 @@
     <Compile Update="LDUpsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RLDUpsertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="USDLUpsertForm.cs">
       <SubType>Form</SubType>
     </Compile>

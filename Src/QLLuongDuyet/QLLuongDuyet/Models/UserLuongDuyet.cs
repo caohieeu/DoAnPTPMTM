@@ -11,6 +11,5 @@ namespace QLLuongDuyet.Models
         public string Id { get; set; }
         public string LuongDuyetId { get; set; }    
         public string UserId { set; get; }  
-        public string OrderId { set; get; } 
     }
 }

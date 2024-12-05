@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using LoginForm;
 using System.Data;
+using Core;
 
 namespace ProjectPTUDTM
 {
@@ -12,20 +13,31 @@ namespace ProjectPTUDTM
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
         }
-        public void CreateMenu()
+        public void CreateMenu(string username)
         {
-            menuBar1.CreateTabs();
+            menuBar1.CreateTabs(username);
             menuBar1.TabButtonClicked += MenuBar1_TabButtonClicked;
+            menuBar1.TabBtnLogout += MenuBar1_TabBtnLogout;
+        }
+
+        private void MenuBar1_TabBtnLogout()
+        {
+            Enviroment.clearObject();
+
+            var menu = menuBar1.Controls["Menus"];
+            menu.Controls.Clear();
+            menuBar1.Controls.Remove(menu);
+
+            InitLoad();
         }
 
         private void MenuBar1_TabButtonClicked(DataRow dtr)
         {
             ShowForm(dtr);
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
+        private void InitLoad()
         {
-			if (Core.Enviroment.UserName == string.Empty)
+            if (Core.Enviroment.UserName == string.Empty)
             {
                 string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
 
@@ -34,7 +46,7 @@ namespace ProjectPTUDTM
                 loginForm.ShowDialog();
                 if (loginForm.IsSuccess)
                 {
-                    CreateMenu();
+                    CreateMenu(Core.Enviroment.UserID);
                 }
                 else
                 {
@@ -43,8 +55,12 @@ namespace ProjectPTUDTM
             }
             else
             {
-                CreateMenu();
+                CreateMenu(Core.Enviroment.UserID);
             }
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            InitLoad();
         }
         public void ShowForm(DataRow dtr)
         {
@@ -59,7 +75,7 @@ namespace ProjectPTUDTM
             if (formType == null)
             {
                 MessageBox.Show("Form type not found.");
-                return;
+                return; 
             }
 
             string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
