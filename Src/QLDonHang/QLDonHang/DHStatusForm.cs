@@ -28,7 +28,6 @@ namespace QLDonHang
             this.status = status;
             isSave = false;
 
-            cbStatus.SelectedValue = status;
             dataGridView1.DataSource = bindingSource1;
         }
 
@@ -46,7 +45,8 @@ namespace QLDonHang
             cbStatus.DataSource = dt.Tables[0];
             cbStatus.ValueMember = "TenLuongDuyet";
             cbStatus.DisplayMember = "TenLuongDuyet";
-            
+            cbStatus.SelectedValue = status;
+
             dttable = dt.Tables[1];
             bindingSource1.DataSource = dttable;
         }
@@ -67,12 +67,12 @@ namespace QLDonHang
                 MessageBox.Show("Cập nhật không thành công");
             }
             isSave = true;
+            status = cbStatus.SelectedValue.ToString();
             RefreshData();
         }
 
         private void cbStatus_SelectedValueChanged(object sender, EventArgs e)
         {
-            status = cbStatus.SelectedValue.ToString();
         }
 
         private void dataGridView1_Enter(object sender, EventArgs e)

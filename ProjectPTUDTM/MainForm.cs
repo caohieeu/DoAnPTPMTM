@@ -12,12 +12,13 @@ namespace ProjectPTUDTM
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            menuBar1.TabBtnLogout += MenuBar1_TabBtnLogout;
+            menuBar1.TabButtonClicked += MenuBar1_TabButtonClicked;
         }
         public void CreateMenu(string username)
         {
             menuBar1.CreateTabs(username);
-            menuBar1.TabButtonClicked += MenuBar1_TabButtonClicked;
-            menuBar1.TabBtnLogout += MenuBar1_TabBtnLogout;
+
         }
 
         private void MenuBar1_TabBtnLogout()
