@@ -50,7 +50,6 @@ namespace QLLuongDuyet
                 Id = id,
                 UserId = txtUser.SelectedValue.ToString(),
                 LuongDuyetId = luongDuyetId,
-                OrderId = usld?["OrderId"].ToString() ?? null
             };
             MyDao myDao = new MyDao(conn);
             if (mode == 0)

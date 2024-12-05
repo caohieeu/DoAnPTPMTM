@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<BaseOutputPath>D:\WorkspaceSchool\Nam 4\PTUDTM\DoAnPTPMTM\Dll</BaseOutputPath>
+		<BaseOutputPath>D:\_school\DoAnPTPMTM\Dll</BaseOutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>

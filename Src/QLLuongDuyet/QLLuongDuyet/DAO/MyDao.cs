@@ -33,28 +33,20 @@ namespace QLLuongDuyet.DAO
             string query = "select * from Users where RoleId = 'admin' or RoleId = 'employee'";
             return myDbContext.ExecuteQuery(query, CommandType.Text);   
         }
-        public DataTable GetOrders()
-        {
-            MyDbContext myDbContext = new MyDbContext(Conn);
-          
-            string query = "select * from Users where RoleId = 'admin' or RoleId = 'employee'";
-            return myDbContext.ExecuteQuery(query, CommandType.Text);
-        }
         public bool AddUSLD(UserLuongDuyet userLuongDuyet)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
             string sqlQuery = @"INSERT INTO [dbo].[UserLuongDuyet]
-                        ([Id], [LuongDuyetId], [UserId], [OrderId])
+                        ([Id], [LuongDuyetId], [UserId])
                         VALUES
-                        (@Id, @LuongDuyetId, @UserId, @OrderId)";
+                        (@Id, @LuongDuyetId, @UserId)";
 
             SqlParameter[] parameters =
             {
                 new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.Id },
                 new SqlParameter("@LuongDuyetId", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.LuongDuyetId },
                 new SqlParameter("@UserId", SqlDbType.NVarChar, 128) { Value = userLuongDuyet.UserId },
-                new SqlParameter("@OrderId", SqlDbType.NVarChar, 128) { Value = (object)userLuongDuyet.OrderId ?? DBNull.Value }
             };
 
             int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);
@@ -72,8 +64,7 @@ namespace QLLuongDuyet.DAO
 
             string sqlQuery = @"UPDATE [dbo].[UserLuongDuyet]
                         SET [LuongDuyetId] = @LuongDuyetId, 
-                            [UserId] = @UserId, 
-                            [OrderId] = @OrderId
+                            [UserId] = @UserId
                         WHERE [Id] = @Id";
 
             SqlParameter[] parameters =
@@ -81,7 +72,6 @@ namespace QLLuongDuyet.DAO
                 new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.Id },
                 new SqlParameter("@LuongDuyetId", SqlDbType.NVarChar, 50) { Value = userLuongDuyet.LuongDuyetId },
                 new SqlParameter("@UserId", SqlDbType.NVarChar, 128) { Value = userLuongDuyet.UserId },
-                new SqlParameter("@OrderId", SqlDbType.NVarChar, 128) { Value = userLuongDuyet.OrderId }
             };
 
             int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);

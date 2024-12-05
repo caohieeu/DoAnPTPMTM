@@ -1,5 +1,4 @@
 ﻿using Core.DAL;
-using QLLuongDuyet.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,25 +20,20 @@ namespace QLLuongDuyet.DAO
         public DataSet GetDonHang()
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
-
-            string query = "select * from Orders " +
-                            "select * from OrderDetails";
-            return myDbContext.ExecuteQueryDataset(query, CommandType.Text);
+            IDataParameter[] parameters = {
+                new SqlParameter("@pUserID", SqlDbType.NVarChar) { Value = Core.Enviroment.UserID }
+            };
+            return myDbContext.ExecuteQueryDataset("GetOrder", CommandType.StoredProcedure, parameters);
 
         }
         public DataTable GetLuongDuyet()
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
-            string query = "select * from LuongDuyet";
+            string query = "select ld.* from LuongDuyet ld " +
+                            "left join UserLuongDuyet us on ld.Id = us.LuongDuyetId " +
+                            "order by ThuTu";
             return myDbContext.ExecuteQuery(query, CommandType.Text);   
-        }
-        public DataTable GetOrders()
-        {
-            MyDbContext myDbContext = new MyDbContext(Conn);
-          
-            string query = "select * from Users where RoleId = 'admin' or RoleId = 'employee'";
-            return myDbContext.ExecuteQuery(query, CommandType.Text);
         }
         public bool UpdateStatus(Orders order)
         {

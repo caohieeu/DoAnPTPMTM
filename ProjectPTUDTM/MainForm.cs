@@ -75,7 +75,7 @@ namespace ProjectPTUDTM
             if (formType == null)
             {
                 MessageBox.Show("Form type not found.");
-                return;
+                return; 
             }
 
             string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";

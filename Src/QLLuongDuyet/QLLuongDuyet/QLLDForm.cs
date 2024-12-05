@@ -33,7 +33,7 @@ namespace QLLuongDuyet
             masterTable = dts.Tables[0];
             childTable = dts.Tables[1];
 
-            DataColumn[] cols = new DataColumn[] { masterTable.Columns["Id"] };
+            DataColumn[] cols = new DataColumn[] { masterTable.Columns["tenluongduyet"] };
             DataColumn[] cols2 = new DataColumn[] { childTable.Columns["LuongDuyetId"] };
             DataRelation dataRelation = new DataRelation("LD", cols, cols2, false);
 
@@ -91,7 +91,7 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null) return;
 
-            var frm = new USDLUpsertForm(_connectionString, 0, ((DataRowView)bsLD.Current)["Id"].ToString(), null);
+            var frm = new USDLUpsertForm(_connectionString, 0, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), null);
             frm.ShowDialog();
             if (frm.IsSave)
             {
@@ -103,7 +103,7 @@ namespace QLLuongDuyet
         {
             if (bsLD.Current == null || bsUSLD.Current == null) return;
 
-            var frm = new USDLUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["Id"].ToString(), childTable.Rows[bsUSLD.Position]);
+            var frm = new USDLUpsertForm(_connectionString, 1, ((DataRowView)bsLD.Current)["tenluongduyet"].ToString(), childTable.Rows[bsUSLD.Position]);
             frm.ShowDialog();
             if (frm.IsSave)
             {

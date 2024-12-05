@@ -36,7 +36,6 @@ namespace QLDonHang
             cbStatus.DataSource = dt;
             cbStatus.ValueMember = "TenLuongDuyet";
             cbStatus.DisplayMember = "TenLuongDuyet";
-
             cbStatus.SelectedValue = status;
         }
 
