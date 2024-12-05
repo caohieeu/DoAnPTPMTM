@@ -88,5 +88,27 @@ namespace QuanLyNguoiDung.DAO
             }
             return users;
         }
+        public List<Role> GetRoles()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+            List<Role> roles = new List<Role>();
+            string sqlQuery = $"SELECT * FROM Roles";
+
+            var res = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+            if (res.Rows.Count > 0)
+            {
+                foreach (DataRow row in res.Rows)
+                {
+                    Role role = new Role
+                    {
+                        Id = row["Id"].ToString(),
+                        Name = row["Name"].ToString(),
+                    };
+
+                    roles.Add(role);
+                }
+            }
+            return roles;
+        }
     }
 }

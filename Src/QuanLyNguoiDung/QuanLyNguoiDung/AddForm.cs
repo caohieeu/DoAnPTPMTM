@@ -51,12 +51,7 @@ namespace QuanLyNguoiDung
 
             cbRole.Items.Clear();
 
-            var roles = new List<Role>
-        {
-            new Role { Id = Utils.Admin, Name = Utils.Admin },
-            new Role { Id = Utils.Employee, Name = Utils.Employee },
-            new Role { Id = Utils.Guest, Name = Utils.Guest },
-        };
+            var roles = _execute.GetRoles();
 
             cbRole.DataSource = roles;
             cbRole.DisplayMember = "Name";

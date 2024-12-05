@@ -73,5 +73,9 @@ namespace QuanLyNguoiDung
         {
             return _myDao.Delete(userId);
         }
+        public List<Role> GetRoles()
+        {
+            return _myDao.GetRoles();
+        }
     }
 }
