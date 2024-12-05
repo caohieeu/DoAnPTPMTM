@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace QLLuongDuyet.Models
 {
-    public class UserLuongDuyet
+    public class RoleLuongDuyet
     {
         public string Id { get; set; }
-        public string LuongDuyetId { get; set; }    
-        public string UserId { set; get; }  
+        public string LuongDuyetId { get; set; }
+        public string RoleId { set; get; }
     }
 }

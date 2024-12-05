@@ -22,7 +22,8 @@ namespace QLLuongDuyet.DAO
             MyDbContext myDbContext = new MyDbContext(Conn);
 
             string query = "select * from LuongDuyet order by ThuTu " +
-                            "select * from UserLuongDuyet";
+                            "select * from UserLuongDuyet " +
+                            "select * from roleLuongDuyet";
             return myDbContext.ExecuteQueryDataset(query, CommandType.Text);
 
         }
@@ -32,6 +33,62 @@ namespace QLLuongDuyet.DAO
 
             string query = "select * from Users where RoleId = 'admin' or RoleId = 'employee'";
             return myDbContext.ExecuteQuery(query, CommandType.Text);   
+        }
+        public DataTable GetRole()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string query = "select * from Roles";
+            return myDbContext.ExecuteQuery(query, CommandType.Text);
+        }
+        public bool UpdateRLD(RoleLuongDuyet roleLuongDuyet)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = @"UPDATE [dbo].[UserLuongDuyet]
+                        SET [LuongDuyetId] = @LuongDuyetId, 
+                            [RoleId] = @RoleId
+                        WHERE [Id] = @Id";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = roleLuongDuyet.Id },
+                new SqlParameter("@LuongDuyetId", SqlDbType.NVarChar, 50) { Value = roleLuongDuyet.LuongDuyetId },
+                new SqlParameter("@RoleId", SqlDbType.NVarChar, 128) { Value = roleLuongDuyet.RoleId },
+            };
+
+            int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);
+
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool AddRLD(RoleLuongDuyet roleLuongDuyet)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = @"INSERT INTO [dbo].[RoleLuongDuyet]
+                        ([Id], [LuongDuyetId], [RoleId])
+                        VALUES
+                        (@Id, @LuongDuyetId, @RoleId)";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Id", SqlDbType.NVarChar, 50) { Value = roleLuongDuyet.Id },
+                new SqlParameter("@LuongDuyetId", SqlDbType.NVarChar, 50) { Value = roleLuongDuyet.LuongDuyetId },
+                new SqlParameter("@RoleId", SqlDbType.NVarChar, 128) { Value = roleLuongDuyet.RoleId },
+            };
+
+            int res = myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters);
+
+            if (res > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
         public bool AddUSLD(UserLuongDuyet userLuongDuyet)
         {

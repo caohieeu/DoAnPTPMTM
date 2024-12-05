@@ -38,23 +38,38 @@
             btnSuaLD = new ToolStripButton();
             btnXoaLD = new ToolStripButton();
             panel2 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            panel3 = new Panel();
+            dataGridView3 = new DataGridView();
+            toolStrip3 = new ToolStrip();
+            toolStripButton1 = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
+            panel4 = new Panel();
+            dataGridView2 = new DataGridView();
             toolStrip2 = new ToolStrip();
             toolStripButton6 = new ToolStripButton();
             toolStripButton5 = new ToolStripButton();
             toolStripButton4 = new ToolStripButton();
-            dataGridView2 = new DataGridView();
             bsLD = new BindingSource(components);
             bsUSLD = new BindingSource(components);
             miniToolStrip = new ToolStrip();
+            bsRLD = new BindingSource(components);
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             toolStrip1.SuspendLayout();
             panel2.SuspendLayout();
-            toolStrip2.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            toolStrip3.SuspendLayout();
+            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bsLD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUSLD).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsRLD).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -135,13 +150,108 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(toolStrip2);
-            panel2.Controls.Add(dataGridView2);
+            panel2.Controls.Add(tableLayoutPanel2);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 248);
             panel2.Name = "panel2";
             panel2.Size = new Size(886, 239);
             panel2.TabIndex = 5;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(panel3, 1, 0);
+            tableLayoutPanel2.Controls.Add(panel4, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(886, 239);
+            tableLayoutPanel2.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(dataGridView3);
+            panel3.Controls.Add(toolStrip3);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(446, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(437, 233);
+            panel3.TabIndex = 5;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Dock = DockStyle.Fill;
+            dataGridView3.Location = new Point(0, 27);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 51;
+            dataGridView3.RowTemplate.Height = 29;
+            dataGridView3.Size = new Size(437, 206);
+            dataGridView3.TabIndex = 10;
+            // 
+            // toolStrip3
+            // 
+            toolStrip3.ImageScalingSize = new Size(20, 20);
+            toolStrip3.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
+            toolStrip3.Location = new Point(0, 0);
+            toolStrip3.Name = "toolStrip3";
+            toolStrip3.Size = new Size(437, 27);
+            toolStrip3.TabIndex = 9;
+            toolStrip3.Text = "toolStrip3";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(50, 24);
+            toolStripButton1.Text = "Thêm";
+            toolStripButton1.Click += toolStripButton1_Click;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(38, 24);
+            toolStripButton2.Text = "Sửa";
+            toolStripButton2.Click += toolStripButton2_Click;
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(39, 24);
+            toolStripButton3.Text = "Xóa";
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(dataGridView2);
+            panel4.Controls.Add(toolStrip2);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(3, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(437, 233);
+            panel4.TabIndex = 6;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Dock = DockStyle.Fill;
+            dataGridView2.Location = new Point(0, 27);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.RowTemplate.Height = 29;
+            dataGridView2.Size = new Size(437, 206);
+            dataGridView2.TabIndex = 4;
             // 
             // toolStrip2
             // 
@@ -149,8 +259,8 @@
             toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripButton6, toolStripButton5, toolStripButton4 });
             toolStrip2.Location = new Point(0, 0);
             toolStrip2.Name = "toolStrip2";
-            toolStrip2.Size = new Size(886, 27);
-            toolStrip2.TabIndex = 7;
+            toolStrip2.Size = new Size(437, 27);
+            toolStrip2.TabIndex = 8;
             toolStrip2.Text = "toolStrip2";
             // 
             // toolStripButton6
@@ -183,17 +293,6 @@
             toolStripButton4.Text = "Xóa";
             toolStripButton4.Click += toolStripButton4_Click;
             // 
-            // dataGridView2
-            // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(0, 30);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(883, 206);
-            dataGridView2.TabIndex = 4;
-            // 
             // miniToolStrip
             // 
             miniToolStrip.AccessibleName = "New item selection";
@@ -224,12 +323,20 @@
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            toolStrip3.ResumeLayout(false);
+            toolStrip3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsLD).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsUSLD).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsRLD).EndInit();
             ResumeLayout(false);
         }
 
@@ -245,11 +352,20 @@
         private ToolStripButton btnSuaLD;
         private ToolStripButton btnXoaLD;
         private Panel panel2;
+        private DataGridView dataGridView2;
+        private ToolStrip miniToolStrip;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Panel panel3;
+        private Panel panel4;
         private ToolStrip toolStrip2;
         private ToolStripButton toolStripButton6;
         private ToolStripButton toolStripButton5;
         private ToolStripButton toolStripButton4;
-        private DataGridView dataGridView2;
-        private ToolStrip miniToolStrip;
+        private DataGridView dataGridView3;
+        private ToolStrip toolStrip3;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton toolStripButton3;
+        private BindingSource bsRLD;
     }
 }
