@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            button1 = new Button();
             menuBar1 = new MenuBar();
             panel2 = new Panel();
             panel1.SuspendLayout();
@@ -36,6 +38,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(menuBar1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -43,12 +46,21 @@
             panel1.Size = new Size(944, 442);
             panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(3, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(209, 135);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = true;
+            // 
             // menuBar1
             // 
             menuBar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            menuBar1.Location = new Point(3, 12);
+            menuBar1.Location = new Point(3, 153);
             menuBar1.Name = "menuBar1";
-            menuBar1.Size = new Size(209, 418);
+            menuBar1.Size = new Size(209, 277);
             menuBar1.TabIndex = 0;
             // 
             // panel2
@@ -79,5 +91,6 @@
         private Panel panel1;
         private Panel panel2;
         private MenuBar menuBar1;
+        private Button button1;
     }
 }

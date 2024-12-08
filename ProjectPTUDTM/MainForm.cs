@@ -65,7 +65,7 @@ namespace ProjectPTUDTM
         }
         public void ShowForm(DataRow dtr)
         {
-			this.panel2.Controls.Clear();
+            this.panel2.Controls.Clear();
 
             string appdomain = AppDomain.CurrentDomain.ToString();
             DirectoryInfo parentDirectory = Directory.GetParent(appdomain)?.Parent?.Parent?.Parent?.Parent;
@@ -76,7 +76,7 @@ namespace ProjectPTUDTM
             if (formType == null)
             {
                 MessageBox.Show("Form type not found.");
-                return; 
+                return;
             }
 
             string connectionString = Program._Configuration.GetConnectionString("DefaultConnection") ?? "";
@@ -89,6 +89,11 @@ namespace ProjectPTUDTM
 
             formInstance.Dock = DockStyle.Fill;
             formInstance.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
