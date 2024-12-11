@@ -31,6 +31,7 @@ namespace ProjectPTUDTM
             string sqlQuery = "SELECT m.* FROM Users u JOIN Roles r ON u.RoleId = r.id JOIN RoleMenu rm ON r.id = rm.RoleId JOIN Menu m ON rm.MenuId = m.MenuId WHERE u.id = '" + userId + "'";
             //string sqlQuery = "SELECT m.* FROM Menu m";
             DataTable result = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+
 			FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -38,6 +39,7 @@ namespace ProjectPTUDTM
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
 			};
+
             flowLayoutPanel.Name = "Menus";
             this.Controls.Add(flowLayoutPanel);
             foreach (DataRow row in result.Rows)
