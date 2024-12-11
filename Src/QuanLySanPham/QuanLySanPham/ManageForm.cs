@@ -69,8 +69,6 @@ namespace QuanLySanPham
                     txtUrl.Text = product.ImageURL;
                     comboBoxCategoryID.SelectedValue = product.CategoryID;
                     comboBoxBrandID.SelectedValue = product.BrandID;
-                    dateTimePickerNgayTao.Value = product.DateCreated ?? DateTime.Now;
-                    dateTimePickerNgayBan.Value = product.DatePurchase ?? DateTime.Now;
                     txtStock.Text = product.Stock.ToString();
                     string productId = txtId.Text;
                     string name = txtName.Text;
@@ -79,8 +77,6 @@ namespace QuanLySanPham
                     string imageUrl = txtUrl.Text;
                     string categoryId = comboBoxCategoryID.SelectedValue.ToString();
                     string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    DateTime dateCreated = dateTimePickerNgayTao.Value;
-                    DateTime datePurchase = dateTimePickerNgayBan.Value;
                     int stock = int.Parse(txtStock.Text);
                 }
             }
@@ -126,10 +122,8 @@ namespace QuanLySanPham
                     string imageUrl = txtUrl.Text;
                     string categoryId = comboBoxCategoryID.SelectedValue.ToString();
                     string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    DateTime dateCreated = dateTimePickerNgayTao.Value;
-                    DateTime datePurchase = dateTimePickerNgayBan.Value;
                     int stock = int.Parse(txtStock.Text);
-                    currentProduct = new Product(id, name, description, price, imageUrl, categoryId, brandId, dateCreated, datePurchase, stock);
+                    currentProduct = new Product(id, name, description, price, imageUrl, categoryId, brandId, DateTime.UtcNow, DateTime.UtcNow, stock);
                     if (_execute.Add(currentProduct))
                     {
                         MessageBox.Show("Thêm sản phẩm thành công!");
@@ -142,7 +136,7 @@ namespace QuanLySanPham
                     MessageBox.Show("Hãy thêm dữ liệu vào textbox!");
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm sản phẩm: " + ex);
             }
@@ -161,10 +155,8 @@ namespace QuanLySanPham
                     string imageUrl = txtUrl.Text;
                     string categoryId = comboBoxCategoryID.SelectedValue.ToString();
                     string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    DateTime dateCreated = dateTimePickerNgayTao.Value;
-                    DateTime datePurchase = dateTimePickerNgayBan.Value;
                     int stock = int.Parse(txtStock.Text);
-                    currentProduct = new Product(productId, name, description, price, imageUrl, categoryId, brandId, dateCreated, datePurchase, stock);
+                    currentProduct = new Product(productId, name, description, price, imageUrl, categoryId, brandId, (DateTime)currentProduct.DateCreated, (DateTime)currentProduct.DatePurchase, stock);
                     if (_execute.UpdateProduct(currentProduct))
                     {
                         MessageBox.Show("Sửa sản phẩm thành công!");
@@ -231,6 +223,11 @@ namespace QuanLySanPham
             {
                 MessageBox.Show("Error have occured", "400", MessageBoxButtons.OK);
             }
+        }
+
+        private void ManageForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
