@@ -28,12 +28,14 @@ namespace QuanLySanPham.Model
         public DateTime? DatePurchase { get; set; } = null;
         [Required]
         public int Stock { get; set; } = 0;
+        [Required]
+        public string ProviderId { get; set; } = string.Empty;
 
 
         public Product()
         {
         }
-        public Product(string id, string name, string description, decimal price, string imageURL, string categoryID, string brandID, DateTime dateCreated, DateTime datePurchase, int stock)
+        public Product(string id, string name, string description, decimal price, string imageURL, string categoryID, string brandID, DateTime dateCreated, DateTime datePurchase, int stock, string providerId)
         {
             Id = id;
             Name = name;
@@ -45,6 +47,7 @@ namespace QuanLySanPham.Model
             DateCreated = dateCreated;
             DatePurchase = datePurchase;
             Stock = stock;
+            ProviderId = providerId;
         }
 
     }

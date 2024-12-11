@@ -53,12 +53,24 @@ namespace QuanLySanPham
                     DateCreated = Convert.ToDateTime(row["DateCreated"]),
                     DatePurchase = Convert.ToDateTime(row["DatePurchase"]),
                     Stock = Convert.ToInt32(row["Stock"]),
-                    BrandID = row["BrandID"].ToString()
+                    BrandID = row["BrandID"].ToString(),
+                    ProviderId = row["ProviderId"].ToString()
                 };
                 products.Add(product);
             }
 
             grdSP.DataSource = new BindingList<Product>(products);
+            grdSP.Columns["Id"].HeaderText = "Mã sản phẩm";
+            grdSP.Columns["Name"].HeaderText = "Tên sản phẩm";
+            grdSP.Columns["Description"].HeaderText = "Mô tả";
+            grdSP.Columns["Price"].HeaderText = "Giá";
+            grdSP.Columns["ImageURL"].HeaderText = "URL Hình ảnh";
+            grdSP.Columns["CategoryID"].HeaderText = "Mã danh mục";
+            grdSP.Columns["DateCreated"].HeaderText = "Ngày tạo";
+            grdSP.Columns["DatePurchase"].HeaderText = "Ngày mua";
+            grdSP.Columns["Stock"].HeaderText = "Số lượng";
+            grdSP.Columns["BrandID"].HeaderText = "Mã thương hiệu";
+            grdSP.Columns["ProviderId"].HeaderText = "Mã nhà cung cấp";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -83,7 +95,8 @@ namespace QuanLySanPham
                         DateCreated = Convert.ToDateTime(row["DateCreated"]),
                         DatePurchase = Convert.ToDateTime(row["DatePurchase"]),
                         Stock = Convert.ToInt32(row["Stock"]),
-                        BrandID = row["BrandID"].ToString()
+                        BrandID = row["BrandID"].ToString(),
+                        ProviderId = row["ProviderId"].ToString()
                     };
                     products.Add(product);
                 }
@@ -96,11 +109,6 @@ namespace QuanLySanPham
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            ShowDetailForm("add", string.Empty);
-        }
-
         private void grdSP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var product = grdSP.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -110,6 +118,11 @@ namespace QuanLySanPham
         private void QLSPForm_Resize(object sender, EventArgs e)
         {
             lblHeaderl.Left = (this.ClientSize.Width - lblHeaderl.Width) / 2;
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            ShowDetailForm("add", string.Empty);
         }
     }
 }

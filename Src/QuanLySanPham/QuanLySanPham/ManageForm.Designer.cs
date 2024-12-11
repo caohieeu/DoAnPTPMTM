@@ -32,7 +32,6 @@
             btnXoa = new Button();
             btnThem = new Button();
             label8 = new Label();
-            txtStock = new TextBox();
             label7 = new Label();
             comboBoxBrandID = new ComboBox();
             label6 = new Label();
@@ -41,7 +40,6 @@
             label4 = new Label();
             txtPrice = new TextBox();
             label3 = new Label();
-            txtDescription = new TextBox();
             label2 = new Label();
             txtName = new TextBox();
             label1 = new Label();
@@ -49,12 +47,19 @@
             label11 = new Label();
             btnUpload = new Button();
             comboBoxCategoryID = new ComboBox();
+            ptrBoxProduct = new PictureBox();
+            label9 = new Label();
+            cbbProviderId = new ComboBox();
+            txtDescription = new RichTextBox();
+            txtStock = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)ptrBoxProduct).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtStock).BeginInit();
             SuspendLayout();
             // 
             // btnSua
             // 
             btnSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSua.Location = new Point(595, 305);
+            btnSua.Location = new Point(610, 527);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(76, 30);
             btnSua.TabIndex = 47;
@@ -65,7 +70,7 @@
             // btnXoa
             // 
             btnXoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnXoa.Location = new Point(674, 305);
+            btnXoa.Location = new Point(689, 527);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(82, 30);
             btnXoa.TabIndex = 46;
@@ -76,9 +81,9 @@
             // btnThem
             // 
             btnThem.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnThem.Location = new Point(510, 305);
+            btnThem.Location = new Point(331, 512);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(82, 30);
+            btnThem.Size = new Size(120, 45);
             btnThem.TabIndex = 45;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
@@ -87,32 +92,25 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(404, 150);
+            label8.Location = new Point(404, 110);
             label8.Name = "label8";
             label8.Size = new Size(69, 20);
             label8.TabIndex = 41;
             label8.Text = "Số lượng";
             // 
-            // txtStock
-            // 
-            txtStock.Location = new Point(494, 147);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(258, 27);
-            txtStock.TabIndex = 40;
-            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(404, 194);
+            label7.Location = new Point(404, 154);
             label7.Name = "label7";
-            label7.Size = new Size(61, 20);
+            label7.Size = new Size(92, 20);
             label7.TabIndex = 39;
-            label7.Text = "BrandId";
+            label7.Text = "Thương hiệu";
             // 
             // comboBoxBrandID
             // 
             comboBoxBrandID.FormattingEnabled = true;
-            comboBoxBrandID.Location = new Point(494, 190);
+            comboBoxBrandID.Location = new Point(513, 150);
             comboBoxBrandID.Name = "comboBoxBrandID";
             comboBoxBrandID.Size = new Size(258, 28);
             comboBoxBrandID.TabIndex = 38;
@@ -122,22 +120,22 @@
             label6.AutoSize = true;
             label6.Location = new Point(17, 194);
             label6.Name = "label6";
-            label6.Size = new Size(84, 20);
+            label6.Size = new Size(37, 20);
             label6.TabIndex = 37;
-            label6.Text = "CategoryID";
+            label6.Text = "Loại";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(17, 150);
             label5.Name = "label5";
-            label5.Size = new Size(28, 20);
+            label5.Size = new Size(35, 20);
             label5.TabIndex = 36;
-            label5.Text = "Url";
+            label5.Text = "Ảnh";
             // 
             // txtUrl
             // 
-            txtUrl.Location = new Point(109, 147);
+            txtUrl.Location = new Point(125, 147);
             txtUrl.Name = "txtUrl";
             txtUrl.Size = new Size(254, 27);
             txtUrl.TabIndex = 35;
@@ -153,7 +151,7 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(109, 103);
+            txtPrice.Location = new Point(125, 103);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(258, 27);
             txtPrice.TabIndex = 33;
@@ -161,18 +159,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(404, 106);
+            label3.Location = new Point(17, 299);
             label3.Name = "label3";
             label3.Size = new Size(48, 20);
             label3.TabIndex = 32;
             label3.Text = "Mô tả";
-            // 
-            // txtDescription
-            // 
-            txtDescription.Location = new Point(494, 103);
-            txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(258, 27);
-            txtDescription.TabIndex = 31;
             // 
             // label2
             // 
@@ -185,7 +176,7 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(494, 59);
+            txtName.Location = new Point(513, 59);
             txtName.Name = "txtName";
             txtName.Size = new Size(258, 27);
             txtName.TabIndex = 29;
@@ -195,13 +186,13 @@
             label1.AutoSize = true;
             label1.Location = new Point(17, 62);
             label1.Name = "label1";
-            label1.Size = new Size(22, 20);
+            label1.Size = new Size(98, 20);
             label1.TabIndex = 28;
-            label1.Text = "Id";
+            label1.Text = "Mã sản phẩm";
             // 
             // txtId
             // 
-            txtId.Location = new Point(113, 59);
+            txtId.Location = new Point(125, 59);
             txtId.Name = "txtId";
             txtId.Size = new Size(256, 27);
             txtId.TabIndex = 25;
@@ -218,7 +209,7 @@
             // 
             // btnUpload
             // 
-            btnUpload.Location = new Point(294, 146);
+            btnUpload.Location = new Point(312, 147);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(69, 28);
             btnUpload.TabIndex = 49;
@@ -229,23 +220,67 @@
             // comboBoxCategoryID
             // 
             comboBoxCategoryID.FormattingEnabled = true;
-            comboBoxCategoryID.Location = new Point(107, 190);
+            comboBoxCategoryID.Location = new Point(125, 191);
             comboBoxCategoryID.Name = "comboBoxCategoryID";
             comboBoxCategoryID.Size = new Size(256, 28);
             comboBoxCategoryID.TabIndex = 26;
+            // 
+            // ptrBoxProduct
+            // 
+            ptrBoxProduct.Location = new Point(404, 194);
+            ptrBoxProduct.Name = "ptrBoxProduct";
+            ptrBoxProduct.Size = new Size(367, 297);
+            ptrBoxProduct.TabIndex = 50;
+            ptrBoxProduct.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(17, 243);
+            label9.Name = "label9";
+            label9.Size = new Size(100, 20);
+            label9.TabIndex = 52;
+            label9.Text = "Nhà cung cấp";
+            // 
+            // cbbProviderId
+            // 
+            cbbProviderId.FormattingEnabled = true;
+            cbbProviderId.Location = new Point(125, 240);
+            cbbProviderId.Name = "cbbProviderId";
+            cbbProviderId.Size = new Size(256, 28);
+            cbbProviderId.TabIndex = 51;
+            // 
+            // txtDescription
+            // 
+            txtDescription.Location = new Point(119, 299);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(260, 192);
+            txtDescription.TabIndex = 53;
+            txtDescription.Text = "";
+            // 
+            // txtStock
+            // 
+            txtStock.Location = new Point(513, 108);
+            txtStock.Name = "txtStock";
+            txtStock.Size = new Size(258, 27);
+            txtStock.TabIndex = 54;
             // 
             // ManageForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(768, 347);
+            ClientSize = new Size(783, 569);
+            Controls.Add(txtStock);
+            Controls.Add(txtDescription);
+            Controls.Add(label9);
+            Controls.Add(cbbProviderId);
+            Controls.Add(ptrBoxProduct);
             Controls.Add(btnUpload);
             Controls.Add(label11);
             Controls.Add(btnSua);
             Controls.Add(btnXoa);
             Controls.Add(btnThem);
             Controls.Add(label8);
-            Controls.Add(txtStock);
             Controls.Add(label7);
             Controls.Add(comboBoxBrandID);
             Controls.Add(label6);
@@ -254,7 +289,6 @@
             Controls.Add(label4);
             Controls.Add(txtPrice);
             Controls.Add(label3);
-            Controls.Add(txtDescription);
             Controls.Add(label2);
             Controls.Add(txtName);
             Controls.Add(label1);
@@ -263,6 +297,8 @@
             Name = "ManageForm";
             Text = "ManageForm";
             Load += ManageForm_Load;
+            ((System.ComponentModel.ISupportInitialize)ptrBoxProduct).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtStock).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,7 +309,6 @@
         private Button btnXoa;
         private Button btnThem;
         private Label label8;
-        private TextBox txtStock;
         private Label label7;
         private ComboBox comboBoxBrandID;
         private Label label6;
@@ -282,7 +317,6 @@
         private Label label4;
         private TextBox txtPrice;
         private Label label3;
-        private TextBox txtDescription;
         private Label label2;
         private TextBox txtName;
         private Label label1;
@@ -290,5 +324,10 @@
         private Label label11;
         private Button btnUpload;
         private ComboBox comboBoxCategoryID;
+        private PictureBox ptrBoxProduct;
+        private Label label9;
+        private ComboBox cbbProviderId;
+        private RichTextBox txtDescription;
+        private NumericUpDown txtStock;
     }
 }

@@ -69,6 +69,10 @@ namespace QuanLySanPham
         {
             return _productDao.GetCategories();
         }
+        public DataTable getProvider()
+        {
+            return _productDao.GetProvider();
+        }
         public bool UpdateProduct(Product product)
         {
             return _productDao.UpdateProduct(product);

@@ -28,8 +28,8 @@ namespace QuanLySanPham.DAO
         public bool InsertProduct(Product product)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
-            string sqlQuery = @"INSERT INTO Products (Id, Name, Description, Price, ImageURL, CategoryID, BrandID, DateCreated, DatePurchase, Stock) 
-                        VALUES (@Id, @Name, @Description, @Price, @ImageURL, @CategoryID, @BrandID, @DateCreated, @DatePurchase, @Stock)";
+            string sqlQuery = @"INSERT INTO Products (Id, Name, Description, Price, ImageURL, CategoryID, BrandID, DateCreated, DatePurchase, Stock, ProviderId) 
+                        VALUES (@Id, @Name, @Description, @Price, @ImageURL, @CategoryID, @BrandID, @DateCreated, @DatePurchase, @Stock, @ProviderId)";
 
             var parameters = new IDataParameter[]
             {
@@ -42,7 +42,8 @@ namespace QuanLySanPham.DAO
             new SqlParameter("@BrandID", product.BrandID),
             new SqlParameter("@DateCreated", product.DateCreated),
             new SqlParameter("@DatePurchase", product.DatePurchase),
-            new SqlParameter("@Stock", product.Stock)
+            new SqlParameter("@Stock", product.Stock),
+            new SqlParameter("@ProviderId", product.ProviderId)
             };
 
             return myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters) > 0;
@@ -72,7 +73,8 @@ namespace QuanLySanPham.DAO
                             BrandID = @BrandID,
                             DateCreated = @DateCreated,
                             DatePurchase = @DatePurchase,
-                            Stock = @Stock
+                            Stock = @Stock,
+                            ProviderId = @ProviderId
                         WHERE Id = @Id";
 
             var parameters = new IDataParameter[]
@@ -86,7 +88,8 @@ namespace QuanLySanPham.DAO
                 new SqlParameter("@BrandID", product.BrandID),
                 new SqlParameter("@DateCreated", product.DateCreated),
                 new SqlParameter("@DatePurchase", product.DatePurchase),
-                new SqlParameter("@Stock", product.Stock)
+                new SqlParameter("@Stock", product.Stock),
+                new SqlParameter("@ProviderId", product.ProviderId)
             };
 
             return myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters) > 0;
@@ -127,7 +130,8 @@ namespace QuanLySanPham.DAO
                     DateCreated = Convert.ToDateTime(row["DateCreated"]),
                     DatePurchase = Convert.ToDateTime(row["DatePurchase"]),
                     Stock = Convert.ToInt32(row["Stock"]),
-                    BrandID = row["BrandID"].ToString()
+                    BrandID = row["BrandID"].ToString(),
+                    ProviderId = row["ProviderId"].ToString(),
                 };
             }
             return pr;
@@ -147,6 +151,15 @@ namespace QuanLySanPham.DAO
             MyDbContext myDbContext = new MyDbContext(Conn);
 
             string sqlQuery = "SELECT Id, Name FROM Categories";
+
+            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+        }
+
+        public DataTable GetProvider()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = "SELECT * FROM Provider";
 
             return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
         }

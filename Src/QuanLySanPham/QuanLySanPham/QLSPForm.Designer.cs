@@ -49,14 +49,14 @@
             // 
             grdSP.AllowUserToAddRows = false;
             grdSP.AllowUserToDeleteRows = false;
+            grdSP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grdSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grdSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grdSP.Dock = DockStyle.Fill;
-            grdSP.Location = new Point(0, 0);
+            grdSP.Location = new Point(-3, 30);
             grdSP.Name = "grdSP";
             grdSP.RowHeadersWidth = 51;
             grdSP.RowTemplate.Height = 29;
-            grdSP.Size = new Size(795, 239);
+            grdSP.Size = new Size(1006, 298);
             grdSP.TabIndex = 0;
             grdSP.CellDoubleClick += grdSP_CellDoubleClick;
             // 
@@ -65,13 +65,13 @@
             txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Location = new Point(165, 61);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(493, 27);
+            txtSearch.Size = new Size(704, 27);
             txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
             btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSearch.Location = new Point(664, 60);
+            btnSearch.Location = new Point(875, 60);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 2;
@@ -106,7 +106,7 @@
             panel1.Controls.Add(grdSP);
             panel1.Location = new Point(1, 111);
             panel1.Name = "panel1";
-            panel1.Size = new Size(795, 239);
+            panel1.Size = new Size(1006, 332);
             panel1.TabIndex = 7;
             // 
             // toolStrip1
@@ -115,7 +115,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnThem });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(795, 27);
+            toolStrip1.Size = new Size(1006, 27);
             toolStrip1.TabIndex = 5;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -127,17 +127,19 @@
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(50, 24);
             btnThem.Text = "Thêm";
+            btnThem.Click += btnThem_Click_1;
             // 
             // QLSPForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(796, 358);
+            ClientSize = new Size(1007, 451);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(lblHeaderl);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "QLSPForm";
             Text = "QLSP";
             Load += QLSPForm_Load;

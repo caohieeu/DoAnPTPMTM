@@ -24,6 +24,7 @@ namespace QuanLySanPham
         private List<Product> products = new List<Product>();
         private List<Brand> brands = new List<Brand>();
         private List<Category> categories = new List<Category>();
+        private List<Provider> providers = new List<Provider>();
         public ManageForm(Execute execute, QLSPForm qLSPForm, string typeForm, string param)
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace QuanLySanPham
             LoadBrands();
             LoadForm();
             LoadProduct();
+            LoadProvider();
         }
         public void LoadForm()
         {
@@ -94,6 +96,19 @@ namespace QuanLySanPham
             comboBoxCategoryID.DisplayMember = "Name";
             comboBoxCategoryID.ValueMember = "Id";
         }
+        private void LoadProvider()
+        {
+            var dataTable = _execute.getProvider();
+            providers.Clear();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Provider provider = new Provider(row["Id"].ToString(), row["Name"].ToString(), row["Address"].ToString(), row["Phone"].ToString());
+                providers.Add(provider);
+            }
+            cbbProviderId.DataSource = providers;
+            cbbProviderId.DisplayMember = "Name";
+            cbbProviderId.ValueMember = "Id";
+        }
 
 
         private void LoadBrands()
@@ -122,8 +137,9 @@ namespace QuanLySanPham
                     string imageUrl = txtUrl.Text;
                     string categoryId = comboBoxCategoryID.SelectedValue.ToString();
                     string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    int stock = int.Parse(txtStock.Text);
-                    currentProduct = new Product(id, name, description, price, imageUrl, categoryId, brandId, DateTime.UtcNow, DateTime.UtcNow, stock);
+                    int stock = (int)txtStock.Value;
+                    string providerId = cbbProviderId.SelectedValue.ToString();
+                    currentProduct = new Product(id, name, description, price, imageUrl, categoryId, brandId, DateTime.UtcNow, DateTime.UtcNow, stock, providerId);
                     if (_execute.Add(currentProduct))
                     {
                         MessageBox.Show("Thêm sản phẩm thành công!");
@@ -155,8 +171,9 @@ namespace QuanLySanPham
                     string imageUrl = txtUrl.Text;
                     string categoryId = comboBoxCategoryID.SelectedValue.ToString();
                     string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    int stock = int.Parse(txtStock.Text);
-                    currentProduct = new Product(productId, name, description, price, imageUrl, categoryId, brandId, (DateTime)currentProduct.DateCreated, (DateTime)currentProduct.DatePurchase, stock);
+                    int stock = (int)txtStock.Value;
+                    string providerId = cbbProviderId.SelectedValue.ToString();
+                    currentProduct = new Product(productId, name, description, price, imageUrl, categoryId, brandId, DateTime.UtcNow, DateTime.UtcNow, stock, providerId);
                     if (_execute.UpdateProduct(currentProduct))
                     {
                         MessageBox.Show("Sửa sản phẩm thành công!");
@@ -208,20 +225,22 @@ namespace QuanLySanPham
         {
             try
             {
-                var resourePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Resources", "ProfileImage");
-                OpenFileDialog fileDialog = new OpenFileDialog();
-                fileDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png";
+                OpenFileDialog fileDialog = new OpenFileDialog
+                {
+                    Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*"
+                };
+
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    ImageLocation = fileDialog.FileName;
-                    string imageName = fileDialog.SafeFileName;
-
-                    txtUrl.Text = Guid.NewGuid() + imageName;
+                    string selectedFilePath = fileDialog.FileName;
+                    txtUrl.Text = selectedFilePath;
+                    ptrBoxProduct.Image = Image.FromFile(selectedFilePath);
+                    ptrBoxProduct.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error have occured", "400", MessageBoxButtons.OK);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
