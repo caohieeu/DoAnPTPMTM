@@ -1,0 +1,14 @@
+﻿@model List<ProjectShoeShop.Models.Category>
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a style="color: #9a9064" data-parent="#accordion" href="/Product/ProductByMenCategory?id=@item.Id">
+                    @item.Name
+                </a>
+            </h4>
+        </div>
+    </div>
+}
