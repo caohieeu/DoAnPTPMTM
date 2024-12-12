@@ -23,11 +23,13 @@ namespace LoginForm
         public LoginForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public LoginForm(string _Conn)
         {
             this._Conn = _Conn;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -86,7 +88,7 @@ namespace LoginForm
         {
             if (cbShow.Checked)
             {
-                txtPassWord.PasswordChar = ' ';
+                txtPassWord.PasswordChar = '\0';
             }
             else
             {
