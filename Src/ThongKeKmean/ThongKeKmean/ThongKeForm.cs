@@ -25,6 +25,7 @@ namespace ThongKeKmean
             InitializeComponent();
             customerDao = new CustomerDao(_connectionString);
             tt = new ThuatToan(customerDao);
+            txtCum.Value = 1;
         }
         private void LoadChart(DataTable data)
         {
@@ -107,7 +108,7 @@ namespace ThongKeKmean
 
         private void btnPhanCum_Click(object sender, EventArgs e)
         {
-            if(txtCum.Value == 0)
+            if (txtCum.Value == 0)
             {
                 MessageBox.Show("Nhập số cum trước khi chạy thuật toán, số cụm phải lớn hơn 0!");
                 return;
@@ -121,6 +122,11 @@ namespace ThongKeKmean
         {
             DanhSachCustomerForm frm = new DanhSachCustomerForm(dataKmean);
             frm.ShowDialog();
+        }
+
+        private void ThongKeForm_Load(object sender, EventArgs e)
+        {
+            btnPhanCum.PerformClick();
         }
     }
 }

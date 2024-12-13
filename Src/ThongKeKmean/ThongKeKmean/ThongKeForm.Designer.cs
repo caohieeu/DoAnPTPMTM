@@ -96,6 +96,7 @@
             Controls.Add(pnlChart);
             Name = "ThongKeForm";
             Text = "ThongKeForm";
+            Load += ThongKeForm_Load;
             ((System.ComponentModel.ISupportInitialize)txtCum).EndInit();
             ResumeLayout(false);
             PerformLayout();
