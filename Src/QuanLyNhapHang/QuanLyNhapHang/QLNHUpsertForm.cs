@@ -161,7 +161,11 @@ namespace QuanLyNhapHang
                 txtdiachi.Text = selectedProvider["Address"].ToString();
                 txtsdt.Text = selectedProvider["Phone"].ToString();
 
+                if (!isInit)
+                    detailData.Rows.Clear();
+
                 UpdateColumnDataSource("ProductId", txtNccId.Text);
+                
             }
         }
         private void UpdateColumnDataSource(string columnName, string providerId)

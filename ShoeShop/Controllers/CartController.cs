@@ -259,7 +259,6 @@ namespace ProjectShoeShop.Controllers
                 OrderStatus = "Prepare",
                 DeliveryStatus = "Prepare",
                 OrderDate = DateTime.Now,
-                Test = "Prepare"
             };
             db.Orders.Add(order);
             db.SaveChanges();

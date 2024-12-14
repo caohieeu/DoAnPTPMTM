@@ -15,7 +15,7 @@
                         <tr class="text-center">
                             <th>&nbsp;</th>
                             <th>Product</th>
-                            <th>Delivery Status</th>
+                            <th>Order Status</th>
                             <th>Quantity</th>
                             <th>Total</th>
                         </tr>
@@ -35,17 +35,21 @@
                                 </td>
 
                                 <td>
-                                    @if (item.DeliveryStatus == "Delivered")
+                                    @if (item.OrderStatus == "Prepare")
                                     {
-                                        <span style="background-color: #00b894; color: #fff; padding: 6px 12px; border-radius: 20px;">@item.DeliveryStatus</span>
+                                        <span style="background-color: #00b894; color: #fff; padding: 6px 12px; border-radius: 20px;">@item.OrderStatus</span>
                                     }
-                                    else if (item.DeliveryStatus == "Pending")
+                                    else if (item.OrderStatus == "Shipping")
                                     {
-                                        <span style="background-color: #fdcb6e; color: #fff; padding: 6px 12px; border-radius: 20px;">@item.DeliveryStatus</span>
+                                        <span style="background-color: #fdcb6e; color: #fff; padding: 6px 12px; border-radius: 20px;">@item.OrderStatus</span>
+                                    }
+                                    else if (item.OrderStatus == "Shipped")
+                                    {
+                                        <span style="background-color: #e19b42; color: #fff; padding: 6px 12px; border-radius: 20px; ">@item.OrderStatus</span>
                                     }
                                     else
                                     {
-                                        <span style="background-color: #74b9ff; color: #fff; padding: 6px 12px; border-radius: 20px;">@item.DeliveryStatus</span>
+                                        <span style="background-color: #74b9ff; color: #fff; padding: 6px 12px; border-radius: 20px;">@item.OrderStatus</span>
                                     }
                                 </td>
 
@@ -58,11 +62,11 @@
                                 <td class="total">$@item.TotalAmount</td>
                             </tr><!-- END TR-->
                             <tr>
-                                @if (item.DeliveryStatus == "Pending")
+                                @if (item.OrderStatus == "Shipping")
                                 {
-                                    <td colspan="4"><a href="/Account/ConfirmReceived?OrderId=@item.OrderId" class="btn text-white p-2" style="float: right">Received Goods</a></td>
+                                    <></>
                                 }
-                                else if (item.DeliveryStatus == "Delivered")
+                                else if (item.OrderStatus == "Shipped")
                                 {
                                     <td colspan="4"><a href="/Account/ReviewProduct?OrderId=@item.OrderId" class="btn text-white p-2" style="float: right">Review</a></td>
                                 }
