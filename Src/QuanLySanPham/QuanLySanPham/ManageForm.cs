@@ -69,14 +69,6 @@ namespace QuanLySanPham
                     comboBoxCategoryID.SelectedValue = product.CategoryID;
                     comboBoxBrandID.SelectedValue = product.BrandID;
                     txtStock.Text = product.Stock.ToString();
-                    string productId = txtId.Text;
-                    string name = txtName.Text;
-                    string description = txtDescription.Text;
-                    decimal price = decimal.Parse(txtPrice.Text);
-                    string imageUrl = txtUrl.Text;
-                    string categoryId = comboBoxCategoryID.SelectedValue.ToString();
-                    string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    int stock = int.Parse(txtStock.Text);
                 }
             }
         }
@@ -183,9 +175,9 @@ namespace QuanLySanPham
                     MessageBox.Show("Vui lòng chọn sản phẩm để sửa!");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi sửa sản phẩm");
+                MessageBox.Show("Lỗi khi sửa sản phẩm: "+ ex);
             }
         }
 
