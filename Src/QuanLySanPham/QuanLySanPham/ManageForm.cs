@@ -22,7 +22,6 @@ namespace QuanLySanPham
         private string _typeForm = "";
         public string param = string.Empty;
         public Product currentProduct;
-        private List<Product> products = new List<Product>();
         private List<Brand> brands = new List<Brand>();
         private List<Category> categories = new List<Category>();
         private List<Provider> providers = new List<Provider>();
@@ -47,12 +46,14 @@ namespace QuanLySanPham
             if (_typeForm == "modified")
             {
                 btnSua.Visible = true;
+                button1.Visible = true;
                 btnThem.Visible = false;
             }
             else
             {
                 btnSua.Visible = false;
                 btnThem.Visible = true;
+                button1.Visible =  false;
             }
 
         }
@@ -206,7 +207,7 @@ namespace QuanLySanPham
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi sửa sản phẩm: "+ ex);
+                MessageBox.Show("Lỗi khi sửa sản phẩm: " + ex);
             }
         }
 
@@ -280,6 +281,12 @@ namespace QuanLySanPham
         private void ManageForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            XuatHangForm xhForm = new XuatHangForm(_execute, param);
+            xhForm.ShowDialog();
         }
     }
 }

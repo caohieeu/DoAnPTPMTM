@@ -17,6 +17,14 @@ namespace QuanLySanPham.DAO
         {
             Conn = conn;
         }
+        public DataTable GetGoodsIssue(string productId)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = $"SELECT * FROM GoodsIssue where productId = '{productId}' order by datetime desc";
+
+            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+        }
         public DataTable GetData()
         {
             MyDbContext myDbContext = new MyDbContext(Conn);

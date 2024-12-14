@@ -51,6 +51,7 @@
             cbbProviderId = new ComboBox();
             txtDescription = new RichTextBox();
             txtStock = new NumericUpDown();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)ptrBoxProduct).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtStock).BeginInit();
             SuspendLayout();
@@ -253,11 +254,23 @@
             txtStock.Size = new Size(258, 27);
             txtStock.TabIndex = 54;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(12, 512);
+            button1.Name = "button1";
+            button1.Size = new Size(161, 45);
+            button1.TabIndex = 55;
+            button1.Text = "Lịch sử xuất hàng";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ManageForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 569);
+            Controls.Add(button1);
             Controls.Add(txtStock);
             Controls.Add(txtDescription);
             Controls.Add(label9);
@@ -315,5 +328,6 @@
         private ComboBox cbbProviderId;
         private RichTextBox txtDescription;
         private NumericUpDown txtStock;
+        private Button button1;
     }
 }

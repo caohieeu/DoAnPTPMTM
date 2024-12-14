@@ -18,6 +18,10 @@ namespace QuanLySanPham
         {
             _productDao = productDao;
         }
+        public DataTable GetGoodsIssue(string productId)
+        {
+            return _productDao.GetGoodsIssue(productId);
+        }
         public List<string> ValidateUser(Product product)
         {
             var validationResults = new List<ValidationResult>();
