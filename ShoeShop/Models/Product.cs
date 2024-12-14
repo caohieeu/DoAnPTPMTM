@@ -36,5 +36,8 @@ namespace ProjectShoeShop.Models
         public string BrandID { get; set; }
         [ForeignKey(nameof(BrandID))]
         public Brand Brand { get; set;}
+        public string ProviderId { get; set; }
+        [ForeignKey(nameof(ProviderId))]
+        public Provider Provider { get; set; }
     }
 }

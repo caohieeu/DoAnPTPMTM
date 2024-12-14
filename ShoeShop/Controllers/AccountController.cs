@@ -227,7 +227,6 @@ namespace ProjectShoeShop.Controllers
                             QuantityProduct = db.OrderDetails
                                                 .Where(m => m.OrderId == x.Id)
                                                 .Sum(m => m.Quantity),
-                            DeliveryStatus = x.DeliveryStatus,
                             OrderStatus = x.OrderStatus,
                             TotalAmount = db.OrderDetails
                                                 .Where(m => m.OrderId == x.Id)
