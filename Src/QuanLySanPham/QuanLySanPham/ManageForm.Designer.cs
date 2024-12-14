@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             btnSua = new Button();
-            btnXoa = new Button();
             btnThem = new Button();
             label8 = new Label();
             label7 = new Label();
@@ -59,24 +58,13 @@
             // btnSua
             // 
             btnSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSua.Location = new Point(610, 527);
+            btnSua.Location = new Point(664, 512);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(76, 30);
+            btnSua.Size = new Size(107, 45);
             btnSua.TabIndex = 47;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
             btnSua.Click += btnSua_Click;
-            // 
-            // btnXoa
-            // 
-            btnXoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnXoa.Location = new Point(689, 527);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(82, 30);
-            btnXoa.TabIndex = 46;
-            btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = true;
-            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -278,7 +266,6 @@
             Controls.Add(btnUpload);
             Controls.Add(label11);
             Controls.Add(btnSua);
-            Controls.Add(btnXoa);
             Controls.Add(btnThem);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -306,7 +293,6 @@
         #endregion
 
         private Button btnSua;
-        private Button btnXoa;
         private Button btnThem;
         private Label label8;
         private Label label7;

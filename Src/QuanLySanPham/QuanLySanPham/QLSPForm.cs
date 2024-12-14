@@ -22,6 +22,7 @@ namespace QuanLySanPham
         {
             _connectionString = connectionString;
             InitializeComponent();
+            productDao = new ProductDao(_connectionString);
         }
         public void QLSPForm_Load(object sender, EventArgs e)
         {
@@ -29,14 +30,12 @@ namespace QuanLySanPham
         }
         private void ShowDetailForm(string type, string param)
         {
-            productDao = new ProductDao(_connectionString);
             Execute execute = new Execute(productDao);
             ManageForm manageForm = new ManageForm(execute, this, type, param);
             manageForm.ShowDialog();
         }
         private void LoadDataToGrid()
         {
-            ProductDao productDao = new ProductDao(_connectionString);
             var dataTable = productDao.GetData();
 
             products.Clear();
@@ -75,7 +74,6 @@ namespace QuanLySanPham
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            ProductDao productDao = new ProductDao(_connectionString);
             if (txtSearch.Text != "")
             {
                 var dataTable = productDao.GetProductByName(txtSearch.Text);
@@ -123,6 +121,45 @@ namespace QuanLySanPham
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             ShowDetailForm("add", string.Empty);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (grdSP.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var product = grdSP.SelectedRows[0].Cells["Id"].Value.ToString();
+                   
+                        if (productDao.DeleteProduct(product))
+                        {
+                            MessageBox.Show("Xóa thành công");
+                            LoadDataToGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lỗi khi xóa");
+                            this.Close();
+                        }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một sản phẩm để xóa.");
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (grdSP.SelectedRows.Count > 0)
+            {
+                var product = grdSP.SelectedRows[0].Cells["Id"].Value.ToString();
+                ShowDetailForm("modified", product);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một sản phẩm để sửa.");
+            }
         }
     }
 }

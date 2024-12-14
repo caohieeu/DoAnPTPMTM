@@ -39,6 +39,8 @@
             panel1 = new Panel();
             toolStrip1 = new ToolStrip();
             btnThem = new ToolStripButton();
+            btnXoa = new ToolStripButton();
+            btnSua = new ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)grdSP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
             panel1.SuspendLayout();
@@ -112,7 +114,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnThem });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnThem, btnXoa, btnSua });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1006, 27);
@@ -129,6 +131,26 @@
             btnThem.Text = "Thêm";
             btnThem.Click += btnThem_Click_1;
             // 
+            // btnXoa
+            // 
+            btnXoa.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnXoa.Image = (Image)resources.GetObject("btnXoa.Image");
+            btnXoa.ImageTransparentColor = Color.Magenta;
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(39, 24);
+            btnXoa.Text = "Xóa";
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnSua
+            // 
+            btnSua.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnSua.Image = (Image)resources.GetObject("btnSua.Image");
+            btnSua.ImageTransparentColor = Color.Magenta;
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(38, 24);
+            btnSua.Text = "Sửa";
+            btnSua.Click += btnSua_Click;
+            // 
             // QLSPForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -139,7 +161,6 @@
             Controls.Add(lblHeaderl);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "QLSPForm";
             Text = "QLSP";
             Load += QLSPForm_Load;
@@ -165,5 +186,7 @@
         private Panel panel1;
         private ToolStrip toolStrip1;
         private ToolStripButton btnThem;
+        private ToolStripButton btnXoa;
+        private ToolStripButton btnSua;
     }
 }

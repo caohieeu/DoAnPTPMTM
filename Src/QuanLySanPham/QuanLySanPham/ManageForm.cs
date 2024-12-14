@@ -29,7 +29,6 @@ namespace QuanLySanPham
         {
             InitializeComponent();
             btnSua.Visible = false;
-            btnXoa.Visible = false;
             _execute = execute;
             _qLSPForm = qLSPForm;
             _typeForm = typeForm;
@@ -46,13 +45,11 @@ namespace QuanLySanPham
             {
                 btnSua.Visible = true;
                 btnThem.Visible = false;
-                btnXoa.Visible = true;
             }
             else
             {
                 btnSua.Visible = false;
                 btnThem.Visible = true;
-                btnXoa.Visible = false;
             }
 
         }
@@ -180,7 +177,6 @@ namespace QuanLySanPham
                         this.Close();
                         _qLSPForm.QLSPForm_Load(sender, e);
                     }
-                    MessageBox.Show("Sửa thành công!");
                 }
                 else
                 {
@@ -193,33 +189,33 @@ namespace QuanLySanPham
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtId.Text))
-            {
-                string productId = txtId.Text;
+        //private void btnXoa_Click(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(txtId.Text))
+        //    {
+        //        string productId = txtId.Text;
 
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    if (_execute.DeleteProduct(param))
-                    {
-                        MessageBox.Show("Xóa thành công");
-                        this.Close();
-                        _qLSPForm.QLSPForm_Load(sender, e);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi khi xóa");
-                        this.Close();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm để xóa!");
-            }
-        }
+        //        DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+        //        if (result == DialogResult.Yes)
+        //        {
+        //            if (_execute.DeleteProduct(param))
+        //            {
+        //                MessageBox.Show("Xóa thành công");
+        //                this.Close();
+        //                _qLSPForm.QLSPForm_Load(sender, e);
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Lỗi khi xóa");
+        //                this.Close();
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Vui lòng chọn sản phẩm để xóa!");
+        //    }
+        //}
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
