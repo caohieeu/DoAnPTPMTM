@@ -280,7 +280,21 @@ namespace ProjectShoeShop.Controllers
 
                 product.Stock = product.Stock - orderDetail.Quantity;
                 db.OrderDetails.Add(orderDetail);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+                    foreach (var validationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Diagnostics.Debug.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                        }
+                    }
+                    throw;
+                }
             }
             return RedirectToAction("CheckOutSucess", new {id=order.Id});
         }
