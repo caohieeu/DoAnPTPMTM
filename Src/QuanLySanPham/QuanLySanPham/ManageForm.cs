@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,6 +39,8 @@ namespace QuanLySanPham
             LoadForm();
             LoadProduct();
             LoadProvider();
+
+            ImageLocation = txtUrl.Text;
         }
         public void LoadForm()
         {
@@ -53,7 +56,7 @@ namespace QuanLySanPham
             }
 
         }
-        private void LoadProduct()
+        private async void LoadProduct()
         {
             if (param != string.Empty)
             {
@@ -61,6 +64,10 @@ namespace QuanLySanPham
 
                 if (product != null)
                 {
+                    string appBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    DirectoryInfo parentDirectory = Directory.GetParent(appBaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+                    string imagesPath = Path.Combine(parentDirectory.FullName, "ShoeShop") + product.ImageURL.Replace("/", "\\");
+
                     txtId.Text = product.Id;
                     txtName.Text = product.Name;
                     txtDescription.Text = product.Description;
@@ -69,14 +76,24 @@ namespace QuanLySanPham
                     comboBoxCategoryID.SelectedValue = product.CategoryID;
                     comboBoxBrandID.SelectedValue = product.BrandID;
                     txtStock.Text = product.Stock.ToString();
-                    string productId = txtId.Text;
-                    string name = txtName.Text;
-                    string description = txtDescription.Text;
-                    decimal price = decimal.Parse(txtPrice.Text);
-                    string imageUrl = txtUrl.Text;
-                    string categoryId = comboBoxCategoryID.SelectedValue.ToString();
-                    string brandId = comboBoxBrandID.SelectedValue.ToString();
-                    int stock = int.Parse(txtStock.Text);
+
+                    try
+                    {
+                        using (var fileStream = new FileStream(imagesPath, FileMode.Open, FileAccess.Read))
+                        {
+                            using (var memoryStream = new MemoryStream())
+                            {
+                                fileStream.CopyTo(memoryStream);
+                                memoryStream.Position = 0; // Reset position before reading
+                                ptrBoxProduct.Image = Image.FromStream(memoryStream);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    ptrBoxProduct.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
         }
@@ -139,6 +156,8 @@ namespace QuanLySanPham
                     currentProduct = new Product(id, name, description, price, imageUrl, categoryId, brandId, DateTime.UtcNow, DateTime.UtcNow, stock, providerId);
                     if (_execute.Add(currentProduct))
                     {
+                        File.Copy(ptrBoxProduct.ImageLocation, txtUrl.Tag.ToString(), overwrite: true);
+
                         MessageBox.Show("Thêm sản phẩm thành công!");
                         this.Close();
                         _qLSPForm.QLSPForm_Load(sender, e);
@@ -173,6 +192,8 @@ namespace QuanLySanPham
                     currentProduct = new Product(productId, name, description, price, imageUrl, categoryId, brandId, DateTime.UtcNow, DateTime.UtcNow, stock, providerId);
                     if (_execute.UpdateProduct(currentProduct))
                     {
+                        File.Copy(ptrBoxProduct.ImageLocation, txtUrl.Tag.ToString(), overwrite: true);
+
                         MessageBox.Show("Sửa sản phẩm thành công!");
                         this.Close();
                         _qLSPForm.QLSPForm_Load(sender, e);
@@ -219,8 +240,18 @@ namespace QuanLySanPham
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
+
             try
             {
+                string appBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                DirectoryInfo parentDirectory = Directory.GetParent(appBaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+                string imagesPath = Path.Combine(parentDirectory.FullName, "ShoeShop", "images");
+
+                if (!Directory.Exists(imagesPath))
+                {
+                    Directory.CreateDirectory(imagesPath);
+                }
+
                 OpenFileDialog fileDialog = new OpenFileDialog
                 {
                     Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*"
@@ -228,10 +259,16 @@ namespace QuanLySanPham
 
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    string guid = Guid.NewGuid().ToString().Substring(0, 10);
                     string selectedFilePath = fileDialog.FileName;
-                    txtUrl.Text = selectedFilePath;
+                    string fileName = guid + fileDialog.SafeFileName;
+                    string destinationPath = Path.Combine(imagesPath, fileName);
+
+                    txtUrl.Text = Path.Combine("\\images", fileName);
+                    txtUrl.Tag = destinationPath;
                     ptrBoxProduct.Image = Image.FromFile(selectedFilePath);
                     ptrBoxProduct.SizeMode = PictureBoxSizeMode.Zoom;
+                    ptrBoxProduct.ImageLocation = selectedFilePath;
                 }
             }
             catch (Exception ex)
