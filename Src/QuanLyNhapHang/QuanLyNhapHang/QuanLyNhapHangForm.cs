@@ -72,13 +72,21 @@ namespace QuanLyNhapHang
         {
             if (bsMaster.Current == null)
             {
-                MessageBox.Show("Vui lòng chọn một bản ghi để chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn một phiếu nhập để chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var selectedRow = ((DataRowView)bsMaster.Current).Row;
 
             string goodsReceiptId = selectedRow["Id"].ToString();
+            var inValid1 = childTable.AsEnumerable()
+                .Any(row => row["GoodsReceiptId"].ToString() == goodsReceiptId 
+                && (int)row["Status"] == 1);
+            if(inValid1 )
+            {
+                MessageBox.Show("Đơn hàng đã từng được xuất không thể chỉnh sữa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             var childDt = childTable.Select($"GoodsReceiptId = '{goodsReceiptId}'").CopyToDataTable();
             childDt.Columns.Remove("chon");
