@@ -80,7 +80,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Quản Lý Của Hàng Điện Tử";
             Load += MainForm_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);

@@ -92,6 +92,7 @@
             // 
             // grdUser
             // 
+            grdUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grdUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grdUser.Dock = DockStyle.Fill;
             grdUser.Location = new Point(0, 0);

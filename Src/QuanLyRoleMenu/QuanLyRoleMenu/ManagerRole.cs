@@ -40,23 +40,30 @@ namespace QuanLyRoleMenu
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtTen.Text == string.Empty || txtMa.Text == string.Empty)
+            try
             {
-                MessageBox.Show("Vui lòng nhập đủ thông tin", "Err", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            RoleDao roleDao = new RoleDao(conn);
-            role = new Role(txtMa.Text, txtTen.Text);
-            if (mode == 0)
+                if (txtTen.Text == string.Empty || txtMa.Text == string.Empty)
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin", "Err", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                RoleDao roleDao = new RoleDao(conn);
+                role = new Role(txtMa.Text, txtTen.Text);
+                if (mode == 0)
+                {
+                    roleDao.InsertRole(role);
+                }
+                else if (mode == 1)
+                {
+                    roleDao.UpdateRole(role);
+                }
+                IsSave = true;
+                Close();
+            } 
+            catch (Exception ex)
             {
-                roleDao.InsertRole(role);
+                MessageBox.Show("Lỗi khi quản lý quyền");
             }
-            else if (mode == 1)
-            {
-                roleDao.UpdateRole(role);
-            }
-            IsSave = true;
-            Close();
         }
     }
 }

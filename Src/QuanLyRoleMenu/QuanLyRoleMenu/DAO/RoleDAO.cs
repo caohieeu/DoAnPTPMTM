@@ -53,7 +53,6 @@ namespace QuanLyRoleMenu.DAO
 
             return myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters) > 0;
         }
-
         public bool DeleteRole(string id)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);

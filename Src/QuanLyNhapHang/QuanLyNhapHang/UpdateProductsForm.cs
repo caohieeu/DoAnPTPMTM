@@ -59,6 +59,20 @@ namespace QuanLyNhapHang
 
             dataGridView1.DataSource = filteredProducts1;
             dataGridView2.DataSource = filteredProducts2;
+            if (dataGridView1.Columns.Count > 0)
+            {
+                dataGridView1.Columns["Id"].HeaderText = "Mã Sảm Phẩm";
+                dataGridView1.Columns["Name"].HeaderText = "Tên Sản Phẩm";
+                dataGridView1.Columns["Stock"].HeaderText = "Số Lượng";
+                dataGridView1.Columns["Price"].HeaderText = "Giá";
+            }
+            if (dataGridView2.Columns.Count > 0)
+            {
+                dataGridView2.Columns["Id"].HeaderText = "Mã Sảm Phẩm";
+                dataGridView2.Columns["Name"].HeaderText = "Tên Sản Phẩm";
+                dataGridView2.Columns["Stock"].HeaderText = "Số Lượng";
+                dataGridView2.Columns["Price"].HeaderText = "Giá";
+            }
 
             string readOnlyCol = "Id,Name,Stock";
             foreach (var col in readOnlyCol.Split(','))

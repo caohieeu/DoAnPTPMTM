@@ -39,9 +39,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 10);
             label1.Name = "label1";
-            label1.Size = new Size(38, 20);
+            label1.Size = new Size(89, 20);
             label1.TabIndex = 1;
-            label1.Text = "User";
+            label1.Text = "Người dùng";
             // 
             // txtUser
             // 

@@ -52,6 +52,7 @@
             // 
             // grViewRoleMenu
             // 
+            grViewRoleMenu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grViewRoleMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grViewRoleMenu.Location = new Point(12, 218);
             grViewRoleMenu.Name = "grViewRoleMenu";

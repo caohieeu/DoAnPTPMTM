@@ -101,7 +101,7 @@
             groupBox1.Size = new Size(886, 239);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Browse stream list";
+            groupBox1.Text = "Danh sách luồng";
             // 
             // panel1
             // 
@@ -115,6 +115,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 27);
@@ -140,8 +141,8 @@
             btnThemLD.Image = (Image)resources.GetObject("btnThemLD.Image");
             btnThemLD.ImageTransparentColor = Color.Magenta;
             btnThemLD.Name = "btnThemLD";
-            btnThemLD.Size = new Size(41, 24);
-            btnThemLD.Text = "Add";
+            btnThemLD.Size = new Size(50, 24);
+            btnThemLD.Text = "Thêm";
             btnThemLD.Click += btnThemLD_Click;
             // 
             // btnSuaLD
@@ -150,8 +151,8 @@
             btnSuaLD.Image = (Image)resources.GetObject("btnSuaLD.Image");
             btnSuaLD.ImageTransparentColor = Color.Magenta;
             btnSuaLD.Name = "btnSuaLD";
-            btnSuaLD.Size = new Size(62, 24);
-            btnSuaLD.Text = "Update";
+            btnSuaLD.Size = new Size(38, 24);
+            btnSuaLD.Text = "Sửa";
             btnSuaLD.Click += btnSuaLD_Click;
             // 
             // btnXoaLD
@@ -160,8 +161,8 @@
             btnXoaLD.Image = (Image)resources.GetObject("btnXoaLD.Image");
             btnXoaLD.ImageTransparentColor = Color.Magenta;
             btnXoaLD.Name = "btnXoaLD";
-            btnXoaLD.Size = new Size(57, 24);
-            btnXoaLD.Text = "Delete";
+            btnXoaLD.Size = new Size(39, 24);
+            btnXoaLD.Text = "Xóa";
             btnXoaLD.Click += btnXoaLD_Click;
             // 
             // panel2
@@ -197,7 +198,7 @@
             groupBox3.Size = new Size(437, 233);
             groupBox3.TabIndex = 6;
             groupBox3.TabStop = false;
-            groupBox3.Text = "User list";
+            groupBox3.Text = "Danh sách người dùng";
             // 
             // panel4
             // 
@@ -211,6 +212,7 @@
             // 
             // dataGridView2
             // 
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.Location = new Point(0, 27);
@@ -236,8 +238,8 @@
             toolStripButton6.Image = (Image)resources.GetObject("toolStripButton6.Image");
             toolStripButton6.ImageTransparentColor = Color.Magenta;
             toolStripButton6.Name = "toolStripButton6";
-            toolStripButton6.Size = new Size(41, 24);
-            toolStripButton6.Text = "Add";
+            toolStripButton6.Size = new Size(50, 24);
+            toolStripButton6.Text = "Thêm";
             toolStripButton6.Click += toolStripButton6_Click;
             // 
             // toolStripButton5
@@ -246,8 +248,8 @@
             toolStripButton5.Image = (Image)resources.GetObject("toolStripButton5.Image");
             toolStripButton5.ImageTransparentColor = Color.Magenta;
             toolStripButton5.Name = "toolStripButton5";
-            toolStripButton5.Size = new Size(62, 24);
-            toolStripButton5.Text = "Update";
+            toolStripButton5.Size = new Size(38, 24);
+            toolStripButton5.Text = "Sửa";
             toolStripButton5.Click += toolStripButton5_Click;
             // 
             // toolStripButton4
@@ -256,8 +258,8 @@
             toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
             toolStripButton4.ImageTransparentColor = Color.Magenta;
             toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new Size(57, 24);
-            toolStripButton4.Text = "Delete";
+            toolStripButton4.Size = new Size(39, 24);
+            toolStripButton4.Text = "Xóa";
             toolStripButton4.Click += toolStripButton4_Click;
             // 
             // groupBox4
@@ -269,7 +271,7 @@
             groupBox4.Size = new Size(437, 233);
             groupBox4.TabIndex = 7;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Role list";
+            groupBox4.Text = "Danh sách quyền";
             // 
             // panel3
             // 
@@ -283,6 +285,7 @@
             // 
             // dataGridView3
             // 
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView3.Dock = DockStyle.Fill;
             dataGridView3.Location = new Point(0, 27);
@@ -308,8 +311,8 @@
             toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(41, 24);
-            toolStripButton1.Text = "Add";
+            toolStripButton1.Size = new Size(50, 24);
+            toolStripButton1.Text = "Thêm";
             toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripButton2
@@ -318,8 +321,8 @@
             toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
             toolStripButton2.ImageTransparentColor = Color.Magenta;
             toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(62, 24);
-            toolStripButton2.Text = "Update";
+            toolStripButton2.Size = new Size(38, 24);
+            toolStripButton2.Text = "Sửa";
             toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripButton3
@@ -328,8 +331,8 @@
             toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
             toolStripButton3.ImageTransparentColor = Color.Magenta;
             toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(57, 24);
-            toolStripButton3.Text = "Delete";
+            toolStripButton3.Size = new Size(39, 24);
+            toolStripButton3.Text = "Xóa";
             // 
             // tableLayoutPanel1
             // 

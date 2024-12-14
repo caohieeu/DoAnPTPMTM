@@ -36,40 +36,46 @@ namespace QuanLySanPham
         }
         private void LoadDataToGrid()
         {
-            var dataTable = productDao.GetData();
-
-            products.Clear();
-            foreach (DataRow row in dataTable.Rows)
+            try
             {
-                Product product = new Product
-                {
-                    Id = row["Id"].ToString(),
-                    Name = row["Name"].ToString(),
-                    Description = row["Description"].ToString(),
-                    Price = Convert.ToDecimal(row["Price"]),
-                    ImageURL = row["ImageURL"].ToString(),
-                    CategoryID = row["CategoryID"].ToString(),
-                    DateCreated = Convert.ToDateTime(row["DateCreated"]),
-                    DatePurchase = Convert.ToDateTime(row["DatePurchase"]),
-                    Stock = Convert.ToInt32(row["Stock"]),
-                    BrandID = row["BrandID"].ToString(),
-                    ProviderId = row["ProviderId"].ToString()
-                };
-                products.Add(product);
-            }
+                var dataTable = productDao.GetData();
 
-            grdSP.DataSource = new BindingList<Product>(products);
-            grdSP.Columns["Id"].HeaderText = "Mã sản phẩm";
-            grdSP.Columns["Name"].HeaderText = "Tên sản phẩm";
-            grdSP.Columns["Description"].HeaderText = "Mô tả";
-            grdSP.Columns["Price"].HeaderText = "Giá";
-            grdSP.Columns["ImageURL"].HeaderText = "URL Hình ảnh";
-            grdSP.Columns["CategoryID"].HeaderText = "Mã danh mục";
-            grdSP.Columns["DateCreated"].HeaderText = "Ngày tạo";
-            grdSP.Columns["DatePurchase"].HeaderText = "Ngày mua";
-            grdSP.Columns["Stock"].HeaderText = "Số lượng";
-            grdSP.Columns["BrandID"].HeaderText = "Mã thương hiệu";
-            grdSP.Columns["ProviderId"].HeaderText = "Mã nhà cung cấp";
+                products.Clear();
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Product product = new Product
+                    {
+                        Id = row["Id"].ToString(),
+                        Name = row["Name"].ToString(),
+                        Description = row["Description"].ToString(),
+                        Price = Convert.ToDecimal(row["Price"]),
+                        ImageURL = row["ImageURL"].ToString(),
+                        CategoryID = row["CategoryID"].ToString(),
+                        DateCreated = Convert.ToDateTime(row["DateCreated"]),
+                        DatePurchase = Convert.ToDateTime(row["DatePurchase"]),
+                        Stock = Convert.ToInt32(row["Stock"]),
+                        BrandID = row["BrandID"].ToString(),
+                        ProviderId = row["ProviderId"].ToString()
+                    };
+                    products.Add(product);
+                }
+
+                grdSP.DataSource = new BindingList<Product>(products);
+                grdSP.Columns["Id"].HeaderText = "Mã sản phẩm";
+                grdSP.Columns["Name"].HeaderText = "Tên sản phẩm";
+                grdSP.Columns["Description"].HeaderText = "Mô tả";
+                grdSP.Columns["Price"].HeaderText = "Giá";
+                grdSP.Columns["ImageURL"].HeaderText = "URL Hình ảnh";
+                grdSP.Columns["CategoryID"].HeaderText = "Mã danh mục";
+                grdSP.Columns["DateCreated"].HeaderText = "Ngày tạo";
+                grdSP.Columns["DatePurchase"].HeaderText = "Ngày mua";
+                grdSP.Columns["Stock"].HeaderText = "Số lượng";
+                grdSP.Columns["BrandID"].HeaderText = "Mã thương hiệu";
+                grdSP.Columns["ProviderId"].HeaderText = "Mã nhà cung cấp";
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Lỗi khi tải dữ liệu");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -103,6 +109,7 @@ namespace QuanLySanPham
             }
             else
             {
+                LoadDataToGrid();
                 MessageBox.Show("Hãy điền trước khi tìm kiếm!");
             }
         }
@@ -125,12 +132,15 @@ namespace QuanLySanPham
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (grdSP.SelectedRows.Count > 0)
+            try
             {
-                if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+                if (grdSP.SelectedRows.Count > 0)
                 {
-                    var product = grdSP.SelectedRows[0].Cells["Id"].Value.ToString();
-                   
+                    if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        var product = grdSP.SelectedRows[0].Cells["Id"].Value.ToString();
+
                         if (productDao.DeleteProduct(product))
                         {
                             MessageBox.Show("Xóa thành công");
@@ -141,24 +151,36 @@ namespace QuanLySanPham
                             MessageBox.Show("Lỗi khi xóa");
                             this.Close();
                         }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một sản phẩm để xóa.");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Vui lòng chọn một sản phẩm để xóa.");
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (grdSP.SelectedRows.Count > 0)
+            try
             {
-                var product = grdSP.SelectedRows[0].Cells["Id"].Value.ToString();
-                ShowDetailForm("modified", product);
+                if (grdSP.SelectedRows.Count > 0)
+                {
+                    var product = grdSP.SelectedRows[0].Cells["Id"].Value.ToString();
+                    ShowDetailForm("modified", product);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một sản phẩm để sửa.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng chọn một sản phẩm để sửa.");
+                MessageBox.Show(ex.Message);
             }
         }
     }

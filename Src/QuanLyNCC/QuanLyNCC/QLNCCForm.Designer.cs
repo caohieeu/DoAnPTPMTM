@@ -83,6 +83,7 @@
             // 
             // grdNCC
             // 
+            grdNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grdNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grdNCC.Dock = DockStyle.Fill;
             grdNCC.Location = new Point(0, 27);

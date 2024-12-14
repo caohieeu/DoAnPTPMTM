@@ -69,9 +69,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(9, 15);
             label1.Name = "label1";
-            label1.Size = new Size(39, 20);
+            label1.Size = new Size(51, 20);
             label1.TabIndex = 7;
-            label1.Text = "Role";
+            label1.Text = "Quyền";
             // 
             // RLDUpsertForm
             // 

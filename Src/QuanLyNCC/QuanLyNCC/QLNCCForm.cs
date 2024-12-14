@@ -31,6 +31,14 @@ namespace QuanLyNCC
             masterTable = dts.Tables[0];
 
             bsGrid.DataSource = masterTable;
+
+            if (grdNCC.Columns.Count > 0)
+            {
+                grdNCC.Columns["Id"].HeaderText = "Mã Nhà Cung Cấp";
+                grdNCC.Columns["Name"].HeaderText = "Tên Nhà Cung Cấp";
+                grdNCC.Columns["Address"].HeaderText = "Địa Chỉ";
+                grdNCC.Columns["Phone"].HeaderText = "Số Điện Thoại";
+            }
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

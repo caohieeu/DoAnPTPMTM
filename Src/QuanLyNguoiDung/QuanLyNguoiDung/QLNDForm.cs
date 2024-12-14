@@ -46,9 +46,24 @@ namespace QuanLyNguoiDung
         {
             if (!DesignMode)
             {
+                this.WindowState = FormWindowState.Maximized;
                 MyDao myDao = new MyDao(_connectionString);
                 DataTable dt = myDao.GetData();
                 grdUser.DataSource = dt;
+
+                if (grdUser.Columns.Count > 0)
+                {
+                    grdUser.Columns["Id"].HeaderText = "Mã Người Dùng";
+                    grdUser.Columns["FullName"].HeaderText = "Họ và Tên";
+                    grdUser.Columns["UserName"].HeaderText = "Tên Đăng Nhập";
+                    grdUser.Columns["PasswordHash"].HeaderText = "Mật Khẩu";
+                    grdUser.Columns["Email"].HeaderText = "Email";
+                    grdUser.Columns["Phone"].HeaderText = "Số Điện Thoại";
+                    grdUser.Columns["Birth"].HeaderText = "Ngày Sinh";
+                    grdUser.Columns["ImagePath"].HeaderText = "Đường Dẫn Ảnh";
+                    grdUser.Columns["Address"].HeaderText = "Địa Chỉ";
+                    grdUser.Columns["RoleId"].HeaderText = "Mã Vai Trò";
+                }
             }
         }
     }

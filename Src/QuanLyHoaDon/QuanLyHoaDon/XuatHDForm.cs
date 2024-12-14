@@ -46,6 +46,14 @@ namespace QuanLyHoaDon
                 lst.Add(orderDetail);
             }
             grdDetailOrder.DataSource = new BindingList<OrderDetail>(lst);
+            if (grdDetailOrder.Columns.Count > 0)
+            {
+                grdDetailOrder.Columns["Id"].HeaderText = "Mã Chi Tiết Đơn Hàng";
+                grdDetailOrder.Columns["OrderId"].HeaderText = "Mã Đơn Hàng";
+                grdDetailOrder.Columns["ProductId"].HeaderText = "Mã Sản Phẩm";
+                grdDetailOrder.Columns["Quantity"].HeaderText = "Số Lượng";
+                grdDetailOrder.Columns["Price"].HeaderText = "Giá Sản Phẩm";
+            }
         }
         private void LoadDataToText()
         {

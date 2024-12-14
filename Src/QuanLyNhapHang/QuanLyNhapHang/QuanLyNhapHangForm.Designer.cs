@@ -94,6 +94,7 @@
             // gridMaster
             // 
             gridMaster.AllowUserToAddRows = false;
+            gridMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridMaster.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridMaster.Dock = DockStyle.Fill;
             gridMaster.Location = new Point(0, 27);
@@ -166,6 +167,7 @@
             // gridChild
             // 
             gridChild.AllowUserToAddRows = false;
+            gridChild.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridChild.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridChild.Dock = DockStyle.Fill;
             gridChild.Location = new Point(0, 0);
