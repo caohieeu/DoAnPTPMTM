@@ -228,6 +228,7 @@ namespace ProjectShoeShop.Controllers
                                                 .Where(m => m.OrderId == x.Id)
                                                 .Sum(m => m.Quantity),
                             DeliveryStatus = x.DeliveryStatus,
+                            OrderStatus = x.OrderStatus,
                             TotalAmount = db.OrderDetails
                                                 .Where(m => m.OrderId == x.Id)
                                                 .Sum(m => m.Price),
@@ -311,7 +312,7 @@ namespace ProjectShoeShop.Controllers
                 ReviewDate = DateTime.Now
             };
             Order order = db.Orders.Where(x => x.Id == OrderId).FirstOrDefault();
-            order.DeliveryStatus = "Success";
+            order.OrderStatus = "Success";
             db.SaveChanges();
 
             db.Reviews.Add(review);

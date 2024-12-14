@@ -12,6 +12,7 @@ namespace ProjectShoeShop.ViewModel
         public string ImageProduct { get; set; }
         public string NameProduct { get; set; }
         public string DeliveryStatus { get; set; }
+        public string OrderStatus { get; set; }
         public int QuantityProduct { get; set; }
         public double TotalAmount { get; set; }
     }

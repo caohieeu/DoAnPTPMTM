@@ -20,6 +20,5 @@ namespace ProjectShoeShop.Models
         public string OrderStatus { get; set; }
         public string DeliveryStatus { get; set; }
         public DateTime OrderDate { get; set; }
-        public string Test { get; set; }
     }
 }
