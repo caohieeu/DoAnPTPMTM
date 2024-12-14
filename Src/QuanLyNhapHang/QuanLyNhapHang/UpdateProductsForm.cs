@@ -38,7 +38,9 @@ namespace QuanLyNhapHang
                     Price = (decimal)row["Price"],
                     Stock = (int)row["Stock"],
                     Name = row["Name"].ToString()
-                }).ToList();
+                })
+                .OrderBy(x => x.Id)
+                .ToList();
 
             var filteredProducts2 = allProducts.AsEnumerable()
                 .Where(row => ProcIds.Any(x => x.ProductId == row["Id"].ToString()))
@@ -55,7 +57,9 @@ namespace QuanLyNhapHang
                         Stock = (int)row["Stock"] + additionalStock,
                         Name = row["Name"].ToString()
                     };
-                }).ToList();
+                })
+                .OrderBy(x => x.Id)
+                .ToList();
 
             dataGridView1.DataSource = filteredProducts1;
             dataGridView2.DataSource = filteredProducts2;
@@ -69,13 +73,20 @@ namespace QuanLyNhapHang
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            var listProc = dataGridView2.DataSource as List<ProductsUpdateDto>;
-            foreach(var proc in ProcIds)
+            var listProc2 = dataGridView2.DataSource as List<ProductsUpdateDto>;
+            var listProc1 = dataGridView1.DataSource as List<ProductsUpdateDto>;
+            foreach (var proc in ProcIds)
             {
-                foreach(var productUpdate in listProc.Where(x => x.Id == proc.ProductId))
-                {
-                    myDao.UpdateGoodsStatus(proc.GoodsReceiptId, proc.ProductId, productUpdate.Stock, productUpdate.Price);    
-                }
+                var proc1 = listProc1.Where(x => x.Id == proc.ProductId).SingleOrDefault();
+                var proc2= listProc2.Where(x => x.Id == proc.ProductId).SingleOrDefault();
+
+                myDao.UpdateGoodsStatus(proc.GoodsReceiptId
+                    , proc.ProductId
+                    , proc1.Price
+                    , proc1.Stock
+                    , proc2.Price
+                    , proc2.Stock
+                    , Core.Enviroment.UserID);
             }
         }
         private void BtnCancel_Click(object sender, EventArgs e)

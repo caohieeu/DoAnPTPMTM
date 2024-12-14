@@ -17,7 +17,13 @@ namespace QuanLyNhapHang.DAO
         {
             Conn = conn;
         }
-        public bool UpdateGoodsStatus(string grId, string procId, int stock, decimal price)
+        public bool UpdateGoodsStatus(string grId
+            , string procId
+            , decimal oldPrice
+            , int oldStock
+            , decimal newPrice
+            , int newStock
+            , string userId)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
 
@@ -25,12 +31,16 @@ namespace QuanLyNhapHang.DAO
             {
                 new SqlParameter("@pGRId", SqlDbType.NVarChar, 128) { Value = grId },
                 new SqlParameter("@pProcId", SqlDbType.NVarChar, 128) { Value = procId },
-                new SqlParameter("@pStock", SqlDbType.NVarChar, 256) { Value = stock },
-                new SqlParameter("@pPrice", SqlDbType.NVarChar) { Value = price }
+                new SqlParameter("@pOldPrice", SqlDbType.Decimal) { Value = oldPrice },
+                new SqlParameter("@pOldStock", SqlDbType.Int) { Value = oldStock },
+                new SqlParameter("@pNewPrice", SqlDbType.Decimal) { Value = newPrice },
+                new SqlParameter("@pNewStock", SqlDbType.Int) { Value = newStock },
+                new SqlParameter("@pUserId", SqlDbType.NVarChar, 128) { Value = userId }
             };
             int res = myDbContext.ExecuteCommand("UpdateGoodsStatus", CommandType.StoredProcedure, parameters);
             return res > 0;
         }
+
         public DataTable GetProduct(string providerId)
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
