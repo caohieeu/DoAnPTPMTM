@@ -100,37 +100,49 @@ namespace QuanLyNhapHang
         {
             try
             {
+                gridMaster.EndEdit();
+                gridChild.EndEdit();
+
                 var masterIds = masterTable.AsEnumerable()
                                 .Where(row => (bool)row["chon"])
                                 .Select(row => row["Id"].ToString());
 
+                var inValid1 = childTable.AsEnumerable()
+                 .Any(row => masterIds.Contains(row["GoodsReceiptId"].ToString()) && (int)row["Status"] == 1);
+                var inValid2 = childTable.AsEnumerable()
+                   .Any(row => (bool)row["chon"] && (int)row["Status"] == 1);
+                if (inValid1 || inValid2)
+                    MessageBox.Show("không thể xuất hàng nhập có status bằng 1", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 var product1 = childTable.AsEnumerable()
-                   .Where(row => masterIds.Contains(row["GoodsReceiptId"].ToString()))
-                   .Select(row => new ProductUpdateDto
+                   .Where(row => masterIds.Contains(row["GoodsReceiptId"].ToString()) && (int)row["Status"] == 0)
+                   .Select(row => new GoodsUpdateDto
                    {
                        Id = row["Id"].ToString(),
                        GoodsReceiptId = row["GoodsReceiptId"].ToString(),
-                       ProductId = row["ProductId"].ToString()
+                       ProductId = row["ProductId"].ToString(),
+                       Quantity = (int)row["Quantity"]
                    })
-                   .Distinct()
                    .ToList();
-
                 var product2 = childTable.AsEnumerable()
-                   .Where(row => (bool)row["chon"])
-                   .Select(row => new ProductUpdateDto
+                   .Where(row => (bool)row["chon"] && (int)row["Status"] == 0)
+                   .Select(row => new GoodsUpdateDto
                    {
                        Id = row["Id"].ToString(),
                        GoodsReceiptId = row["GoodsReceiptId"].ToString(),
-                       ProductId = row["ProductId"].ToString()
+                       ProductId = row["ProductId"].ToString(),
+                       Quantity = (int)row["Quantity"]
                    })
-                   .Distinct()
                    .ToList();
 
-                var products = product1.Concat(product2).Distinct().ToList();
-
+                var products = product1
+                    .Concat(product2)
+                    .GroupBy(p => p.Id)
+                    .Select(group => group.First())
+                    .ToList();
 
                 MyDao myDao = new MyDao(_connectionString);
-                var updateForm = new UpdateProductsForm(myDao, masterIds.ToList(), products);
+                var updateForm = new UpdateProductsForm(myDao, products);
                 updateForm.ShowDialog();
             }
             catch (Exception)

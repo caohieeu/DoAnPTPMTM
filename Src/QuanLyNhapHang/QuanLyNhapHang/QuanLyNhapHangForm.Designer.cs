@@ -37,7 +37,6 @@
             toolStrip1 = new ToolStrip();
             btnAdd = new ToolStripButton();
             editBtn = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
             btnUpdate = new ToolStripButton();
             groupBox2 = new GroupBox();
             panel2 = new Panel();
@@ -107,7 +106,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, editBtn, toolStripButton1, btnUpdate });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, editBtn, btnUpdate });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(792, 27);
@@ -133,15 +132,6 @@
             editBtn.Size = new Size(38, 24);
             editBtn.Text = "Sửa";
             editBtn.Click += editBtn_Click;
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(39, 24);
-            toolStripButton1.Text = "Xóa";
             // 
             // btnUpdate
             // 
@@ -224,6 +214,5 @@
         private DataGridView gridChild;
         private BindingSource bsMaster;
         private BindingSource bsDetail;
-        private ToolStripButton toolStripButton1;
     }
 }

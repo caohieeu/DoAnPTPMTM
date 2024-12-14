@@ -14,18 +14,15 @@ namespace QuanLyNhapHang
 {
     public partial class UpdateProductsForm : Form
     {
-        List<string> GoodsReceiptId;
-        List<ProductUpdateDto> ProcIds;
+        List<GoodsUpdateDto> ProcIds;
         MyDao myDao;
         public UpdateProductsForm(
             MyDao myDao,
-            List<string> goodsReceiptId,
-            List<ProductUpdateDto> procIds
+            List<GoodsUpdateDto> procIds
         )
         {
             InitializeComponent();
             this.myDao = myDao;
-            this.GoodsReceiptId = goodsReceiptId;
             this.ProcIds = procIds;
         }
 
@@ -33,11 +30,57 @@ namespace QuanLyNhapHang
         {
             var allProducts = myDao.GetProduct();
 
-            var filteredProducts = allProducts.AsEnumerable()
-                .Where(row => ProcIds.Any(x => x.Id == row["Id"]))
-                .CopyToDataTable();
+            var filteredProducts1 = allProducts.AsEnumerable()
+                .Where(row => ProcIds.Any(x => x.ProductId == row["Id"].ToString()))
+                .Select(row => new ProductsUpdateDto
+                {
+                    Id = row["Id"].ToString(),
+                    Price = (decimal)row["Price"],
+                    Stock = (int)row["Stock"],
+                    Name = row["Name"].ToString()
+                }).ToList();
 
-            dataGridView1.DataSource = filteredProducts; 
+            var filteredProducts2 = allProducts.AsEnumerable()
+                .Where(row => ProcIds.Any(x => x.ProductId == row["Id"].ToString()))
+                .Select(row =>
+                {
+                    var productId = row["Id"].ToString();
+                    var additionalStock = ProcIds
+                        .Where(x => x.ProductId == productId)
+                        .Sum(x => x.Quantity);
+                    return new ProductsUpdateDto
+                    {
+                        Id = productId,
+                        Price = (decimal)row["Price"],
+                        Stock = (int)row["Stock"] + additionalStock,
+                        Name = row["Name"].ToString()
+                    };
+                }).ToList();
+
+            dataGridView1.DataSource = filteredProducts1;
+            dataGridView2.DataSource = filteredProducts2;
+
+            string readOnlyCol = "Id,Name,Stock";
+            foreach (var col in readOnlyCol.Split(','))
+            {
+                dataGridView2.Columns[col].ReadOnly = true;
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            var listProc = dataGridView2.DataSource as List<ProductsUpdateDto>;
+            foreach(var proc in ProcIds)
+            {
+                foreach(var productUpdate in listProc.Where(x => x.Id == proc.ProductId))
+                {
+                    myDao.UpdateGoodsStatus(proc.GoodsReceiptId, proc.ProductId, productUpdate.Stock, productUpdate.Price);    
+                }
+            }
+        }
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

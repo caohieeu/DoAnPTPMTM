@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuanLyNhapHang.Models
 {
-    public class ProductUpdateDto
+    public class GoodsUpdateDto
     {
         public string Id { get; set; }
         public string GoodsReceiptId { set; get; }
         public string ProductId { get; set; }  
+        public int Quantity { get; set; }
     }
 }
