@@ -1,4 +1,5 @@
 ﻿using QuanLyNhapHang.DAO;
+using QuanLyNhapHang.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,13 @@ namespace QuanLyNhapHang
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var frm = new QLNHUpsertForm(_connectionString, 0, masterTable.Clone(), childTable.Clone());
+            var msTable = masterTable.Clone();
+            msTable.Columns.Remove("chon");
+
+            var cTable = childTable.Clone();
+            cTable.Columns.Remove("chon");
+
+            var frm = new QLNHUpsertForm(_connectionString, 0, msTable, cTable);
             frm.ShowDialog();
             if (frm.IsSave)
             {
@@ -63,7 +70,7 @@ namespace QuanLyNhapHang
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            if (bsMaster.Current == null) 
+            if (bsMaster.Current == null)
             {
                 MessageBox.Show("Vui lòng chọn một bản ghi để chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -74,7 +81,10 @@ namespace QuanLyNhapHang
             string goodsReceiptId = selectedRow["Id"].ToString();
 
             var childDt = childTable.Select($"GoodsReceiptId = '{goodsReceiptId}'").CopyToDataTable();
+            childDt.Columns.Remove("chon");
+
             var msTable = selectedRow.Table.Clone();
+            msTable.Columns.Remove("chon");
             msTable.ImportRow(selectedRow);
 
             var frm = new QLNHUpsertForm(_connectionString, 1, msTable, childDt);
@@ -84,6 +94,51 @@ namespace QuanLyNhapHang
             {
                 LoadData();
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var masterIds = masterTable.AsEnumerable()
+                                .Where(row => (bool)row["chon"])
+                                .Select(row => row["Id"].ToString());
+
+                var product1 = childTable.AsEnumerable()
+                   .Where(row => masterIds.Contains(row["GoodsReceiptId"].ToString()))
+                   .Select(row => new ProductUpdateDto
+                   {
+                       Id = row["Id"].ToString(),
+                       GoodsReceiptId = row["GoodsReceiptId"].ToString(),
+                       ProductId = row["ProductId"].ToString()
+                   })
+                   .Distinct()
+                   .ToList();
+
+                var product2 = childTable.AsEnumerable()
+                   .Where(row => (bool)row["chon"])
+                   .Select(row => new ProductUpdateDto
+                   {
+                       Id = row["Id"].ToString(),
+                       GoodsReceiptId = row["GoodsReceiptId"].ToString(),
+                       ProductId = row["ProductId"].ToString()
+                   })
+                   .Distinct()
+                   .ToList();
+
+                var products = product1.Concat(product2).Distinct().ToList();
+
+
+                MyDao myDao = new MyDao(_connectionString);
+                var updateForm = new UpdateProductsForm(myDao, masterIds.ToList(), products);
+                updateForm.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

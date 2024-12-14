@@ -25,6 +25,14 @@ namespace QuanLyNhapHang.DAO
 
             return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
         }
+        public DataTable GetProduct()
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = $"SELECT * FROM Products";
+
+            return myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+        }
         public DataTable GetProvider()
         {
             MyDbContext myDbContext = new MyDbContext(Conn);
