@@ -22,5 +22,6 @@ namespace ProjectShoeShop.DAL
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Provider> Providers { get; set; }
     }
 }
