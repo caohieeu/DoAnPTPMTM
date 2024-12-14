@@ -50,6 +50,16 @@ namespace QuanLyHoaDon
                 orders.Add(order);
             }
             grdHoaDon.DataSource = new BindingList<Order>(orders);
+            if (grdHoaDon.Columns.Count > 0)
+            {
+                grdHoaDon.Columns["Id"].HeaderText = "Mã Đơn Hàng";
+                grdHoaDon.Columns["UserID"].HeaderText = "Mã Người Dùng";
+                grdHoaDon.Columns["ShippingAddress"].HeaderText = "Địa Chỉ Giao Hàng";
+                grdHoaDon.Columns["PaymentMethod"].HeaderText = "Phương Thức Thanh Toán";
+                grdHoaDon.Columns["OrderStatus"].HeaderText = "Trạng Thái Đơn Hàng";
+                grdHoaDon.Columns["DeliveryStatus"].HeaderText = "Trạng Thái Vận Chuyển";
+                grdHoaDon.Columns["OrderDate"].HeaderText = "Ngày Đặt Hàng";
+            }
         }
         private void ShowDetailForm(string type, string param)
         {

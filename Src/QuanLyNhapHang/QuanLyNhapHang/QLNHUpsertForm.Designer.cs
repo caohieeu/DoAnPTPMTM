@@ -213,6 +213,7 @@
             // 
             // detailGrid
             // 
+            detailGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             detailGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             detailGrid.Dock = DockStyle.Fill;
             detailGrid.EditMode = DataGridViewEditMode.EditOnEnter;

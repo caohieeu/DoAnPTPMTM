@@ -51,6 +51,33 @@ namespace QuanLyNhapHang
 
             bsDetail.DataSource = bsMaster;
             bsDetail.DataMember = "RL";
+            if (gridMaster.Columns.Count > 0)
+            {
+                gridMaster.Columns["chon"].HeaderText = "Chọn";
+                gridMaster.Columns["Id"].HeaderText = "Mã Nhập Hàng";
+                gridMaster.Columns["ProviderId"].HeaderText = "Mã Nhà Cung Cấp";
+                gridMaster.Columns["ProviderName"].HeaderText = "Tên Nhà Cung Cấp";
+                gridMaster.Columns["Address"].HeaderText = "Địa Chỉ";
+                gridMaster.Columns["Phone"].HeaderText = "Số Điện Thoại";
+                gridMaster.Columns["TotalShip"].HeaderText = "Tổng Tiền Vận Chuyển";
+                gridMaster.Columns["TotalProduct"].HeaderText = "Tổng Sản Phẩm";
+                gridMaster.Columns["TotalPrice"].HeaderText = "Tổng Tiền";
+                gridMaster.Columns["CreatedDate"].HeaderText = "Ngày Tạo";
+                gridMaster.Columns["CreatedUserId"].HeaderText = "Người Tạo";
+            }
+
+            if (gridChild.Columns.Count > 0)
+            {
+                gridChild.Columns["chon"].HeaderText = "Chọn";
+                gridChild.Columns["Id"].HeaderText = "Mã Chi Tiết Nhập Hàng";
+                gridChild.Columns["GoodsReceiptId"].HeaderText = "Mã Nhập Hàng";
+                gridChild.Columns["ProductId"].HeaderText = "Mã Sản Phẩm";
+                gridChild.Columns["ProductName"].HeaderText = "Tên Sản Phẩm";
+                gridChild.Columns["Quantity"].HeaderText = "Số Lượng";
+                gridChild.Columns["Price"].HeaderText = "Giá";
+                gridChild.Columns["Ship"].HeaderText = "Phí Vận Chuyển";
+                gridChild.Columns["Status"].HeaderText = "Trạng Thái";
+            }
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

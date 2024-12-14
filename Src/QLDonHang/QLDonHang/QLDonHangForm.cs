@@ -43,6 +43,26 @@ namespace QLDonHang
 
             bsOrderDetail.DataSource = bsOrder;
             bsOrderDetail.DataMember = "Odr";
+            if (dataGridViewOrder.Columns.Count > 0)
+            {
+                dataGridViewOrder.Columns["Id"].HeaderText = "Mã Đơn Hàng";
+                dataGridViewOrder.Columns["UserID"].HeaderText = "Mã Người Dùng";
+                dataGridViewOrder.Columns["ShippingAddress"].HeaderText = "Địa Chỉ Giao Hàng";
+                dataGridViewOrder.Columns["PaymentMethod"].HeaderText = "Phương Thức Thanh Toán";
+                dataGridViewOrder.Columns["OrderStatus"].HeaderText = "Trạng Thái Đơn Hàng";
+                dataGridViewOrder.Columns["DeliveryStatus"].HeaderText = "Trạng Thái Vận Chuyển";
+                dataGridViewOrder.Columns["OrderDate"].HeaderText = "Ngày Đặt Hàng";
+                dataGridViewOrder.Columns["TenLuongDuyet"].HeaderText = "Tên Luồng Duyệt";
+            }
+
+            if (dataGridViewOrderDetail.Columns.Count > 0)
+            {
+                dataGridViewOrderDetail.Columns["Id"].HeaderText = "Mã Chi Tiết Đơn Hàng";
+                dataGridViewOrderDetail.Columns["OrderId"].HeaderText = "Mã Đơn Hàng";
+                dataGridViewOrderDetail.Columns["ProductId"].HeaderText = "Mã Sản Phẩm";
+                dataGridViewOrderDetail.Columns["Quantity"].HeaderText = "Số Lượng";
+                dataGridViewOrderDetail.Columns["Price"].HeaderText = "Giá Sản Phẩm";
+            }
         }
         private void QLDonHangForm_Load(object sender, EventArgs e)
         {

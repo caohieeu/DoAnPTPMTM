@@ -49,6 +49,11 @@ namespace QuanLyRoleMenu
                 roleMenus.Add(roleMenu);
             }
             grViewRoleMenu.DataSource = new BindingList<RoleMenu>(roleMenus);
+            if (grViewRoleMenu.Columns.Count > 0)
+            {
+                grViewRoleMenu.Columns["RoleId"].HeaderText = "Mã quyền";
+                grViewRoleMenu.Columns["MenuId"].HeaderText = "Mã menu";
+            }
         }
         private void loadComboboxMenu()
         {
@@ -101,20 +106,27 @@ namespace QuanLyRoleMenu
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (grViewRoleMenu.SelectedRows.Count > 0)
+           try
             {
-                if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (grViewRoleMenu.SelectedRows.Count > 0)
                 {
-                    string selectedRoleId = grViewRoleMenu.SelectedRows[0].Cells["RoleId"].Value.ToString();
-                    string selectedMenuId = grViewRoleMenu.SelectedRows[0].Cells["MenuId"].Value.ToString();
-                    roleMenuDao = new RoleMenuDao(conn);
-                    roleMenuDao.DeleteRoleMenu(selectedRoleId, selectedMenuId);
-                    loadRoleMenuByRole(txtRole.Text);
+                    if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        string selectedRoleId = grViewRoleMenu.SelectedRows[0].Cells["RoleId"].Value.ToString();
+                        string selectedMenuId = grViewRoleMenu.SelectedRows[0].Cells["MenuId"].Value.ToString();
+                        roleMenuDao = new RoleMenuDao(conn);
+                        roleMenuDao.DeleteRoleMenu(selectedRoleId, selectedMenuId);
+                        loadRoleMenuByRole(txtRole.Text);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một RoleMenu để xóa.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng chọn một RoleMenu để xóa.");
+                MessageBox.Show("Lỗi: " + ex);
             }
         }
 

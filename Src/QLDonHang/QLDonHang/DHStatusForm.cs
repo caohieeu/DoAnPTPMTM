@@ -49,6 +49,13 @@ namespace QLDonHang
 
             dttable = dt.Tables[1];
             bindingSource1.DataSource = dttable;
+            if (dataGridView1.Columns.Count > 0)
+            {
+                dataGridView1.Columns["edate"].HeaderText = "Ngày Duyệt";
+                dataGridView1.Columns["orderid"].HeaderText = "Mã Hóa Đơn";
+                dataGridView1.Columns["UserName"].HeaderText = "Tài Khoản";
+                dataGridView1.Columns["TenLuongDuyet"].HeaderText = "Tên Luồng Duyệt";
+            }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

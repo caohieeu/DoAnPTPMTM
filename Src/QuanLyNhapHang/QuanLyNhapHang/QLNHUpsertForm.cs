@@ -134,6 +134,17 @@ namespace QuanLyNhapHang
             AddGridComboBoxColumns(comboColumn, "ProductId", "Id");
 
             isInit = false;
+            if (detailGrid.Columns.Count > 0)
+            {
+                detailGrid.Columns["Id"].HeaderText = "Mã Chi Tiết Nhập Hàng";
+                detailGrid.Columns["GoodsReceiptId"].HeaderText = "Mã Nhập Hàng";
+                detailGrid.Columns["ProductId"].HeaderText = "Mã Sản Phẩm";
+                detailGrid.Columns["ProductName"].HeaderText = "Tên Sản Phẩm";
+                detailGrid.Columns["Quantity"].HeaderText = "Số Lượng";
+                detailGrid.Columns["Price"].HeaderText = "Giá";
+                detailGrid.Columns["Ship"].HeaderText = "Phí Vận Chuyển";
+                detailGrid.Columns["Status"].HeaderText = "Trạng Thái";
+            }
         }
 
         private void AddGridComboBoxColumns(DataGridViewComboBoxColumn comboColumn, string colName, string colValue)

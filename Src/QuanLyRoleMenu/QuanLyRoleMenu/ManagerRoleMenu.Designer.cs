@@ -52,6 +52,7 @@
             // 
             // grViewRoleMenu
             // 
+            grViewRoleMenu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grViewRoleMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grViewRoleMenu.Location = new Point(12, 218);
             grViewRoleMenu.Name = "grViewRoleMenu";
@@ -128,7 +129,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 507);
+            ClientSize = new Size(820, 507);
             Controls.Add(btnLuu);
             Controls.Add(btnXoa);
             Controls.Add(btnThem);

@@ -50,6 +50,7 @@
             label9 = new Label();
             btnUpdate = new Button();
             btnDelete = new Button();
+            label10 = new Label();
             SuspendLayout();
             // 
             // txtUserName
@@ -92,11 +93,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(309, 47);
+            label1.Location = new Point(254, 38);
             label1.Name = "label1";
-            label1.Size = new Size(189, 38);
+            label1.Size = new Size(295, 38);
             label1.TabIndex = 1;
-            label1.Text = "Manage User";
+            label1.Text = "Quản Lý Người Dùng";
             // 
             // btnAddNew
             // 
@@ -104,7 +105,7 @@
             btnAddNew.Name = "btnAddNew";
             btnAddNew.Size = new Size(94, 48);
             btnAddNew.TabIndex = 2;
-            btnAddNew.Text = "Add";
+            btnAddNew.Text = "Thên";
             btnAddNew.UseVisualStyleBackColor = true;
             btnAddNew.Click += btnAddNew_Click;
             // 
@@ -138,9 +139,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(82, 117);
             label2.Name = "label2";
-            label2.Size = new Size(78, 20);
+            label2.Size = new Size(71, 20);
             label2.TabIndex = 6;
-            label2.Text = "UserName";
+            label2.Text = "Tài khoản";
             // 
             // label3
             // 
@@ -149,16 +150,16 @@
             label3.Name = "label3";
             label3.Size = new Size(70, 20);
             label3.TabIndex = 6;
-            label3.Text = "Password";
+            label3.Text = "Mật khẩu";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(82, 261);
             label4.Name = "label4";
-            label4.Size = new Size(39, 20);
+            label4.Size = new Size(51, 20);
             label4.TabIndex = 6;
-            label4.Text = "Role";
+            label4.Text = "Quyền";
             // 
             // label5
             // 
@@ -174,27 +175,27 @@
             label6.AutoSize = true;
             label6.Location = new Point(452, 117);
             label6.Name = "label6";
-            label6.Size = new Size(72, 20);
+            label6.Size = new Size(56, 20);
             label6.TabIndex = 6;
-            label6.Text = "FullName";
+            label6.Text = "Họ Tên";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Location = new Point(452, 186);
             label7.Name = "label7";
-            label7.Size = new Size(62, 20);
+            label7.Size = new Size(55, 20);
             label7.TabIndex = 6;
-            label7.Text = "Address";
+            label7.Text = "Địa chỉ";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Location = new Point(452, 261);
             label8.Name = "label8";
-            label8.Size = new Size(96, 20);
+            label8.Size = new Size(74, 20);
             label8.TabIndex = 6;
-            label8.Text = "Date Of Birth";
+            label8.Text = "Ngày sinh";
             // 
             // txtImage
             // 
@@ -215,9 +216,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(452, 413);
             label9.Name = "label9";
-            label9.Size = new Size(50, 20);
+            label9.Size = new Size(97, 20);
             label9.TabIndex = 6;
-            label9.Text = "Phone";
+            label9.Text = "Số điện thoại";
             // 
             // btnUpdate
             // 
@@ -225,7 +226,7 @@
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 48);
             btnUpdate.TabIndex = 7;
-            btnUpdate.Text = "Update";
+            btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
             // 
@@ -235,15 +236,25 @@
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 48);
             btnDelete.TabIndex = 8;
-            btnDelete.Text = "Delete";
+            btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(452, 338);
+            label10.Name = "label10";
+            label10.Size = new Size(35, 20);
+            label10.TabIndex = 9;
+            label10.Text = "Ảnh";
             // 
             // AddForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(803, 600);
+            Controls.Add(label10);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(label9);
@@ -298,5 +309,6 @@
         private Label label9;
         private Button btnUpdate;
         private Button btnDelete;
+        private Label label10;
     }
 }

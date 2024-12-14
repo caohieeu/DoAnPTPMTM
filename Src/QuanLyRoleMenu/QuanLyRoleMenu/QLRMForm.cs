@@ -48,6 +48,11 @@ namespace QuanLyRoleMenu
             }
 
             grViewRole.DataSource = new BindingList<Role>(roles);
+            if (grViewRole.Columns.Count > 0)
+            {
+                grViewRole.Columns["Id"].HeaderText = "Mã quyền";
+                grViewRole.Columns["Name"].HeaderText = "Tên quyền";
+            }
         }
         private void loadDataMenu()
         {
@@ -68,6 +73,13 @@ namespace QuanLyRoleMenu
             }
 
             grViewMenu.DataSource = new BindingList<Menu>(menus);
+            if (grViewMenu.Columns.Count > 0)
+            {
+                grViewMenu.Columns["MenuId"].HeaderText = "Mã menu";
+                grViewMenu.Columns["AssemblyName"].HeaderText = "AssemblyName";
+                grViewMenu.Columns["NameSpace"].HeaderText = "NameSpace";
+                grViewMenu.Columns["MenuName"].HeaderText = "Tên menu";
+            }
         }
         private void loadDataMenuByRole(string roleId)
         {
@@ -111,38 +123,52 @@ namespace QuanLyRoleMenu
         private void bntSua_Click(object sender, EventArgs e)
         {
             
-            if (grViewRole.SelectedRows.Count > 0)
+           try
             {
-                string selectedRoleId = grViewRole.SelectedRows[0].Cells["Id"].Value.ToString();
-                string selectedRoleName = grViewRole.SelectedRows[0].Cells["Name"].Value.ToString();
-                Role role = new Role(selectedRoleId, selectedRoleName);
-                var frm = new ManagerRole(_connectionString, 1, role);
-                frm.ShowDialog();
-                if (frm.IsSave)
+                if (grViewRole.SelectedRows.Count > 0)
                 {
-                    loadDataRole();
+                    string selectedRoleId = grViewRole.SelectedRows[0].Cells["Id"].Value.ToString();
+                    string selectedRoleName = grViewRole.SelectedRows[0].Cells["Name"].Value.ToString();
+                    Role role = new Role(selectedRoleId, selectedRoleName);
+                    var frm = new ManagerRole(_connectionString, 1, role);
+                    frm.ShowDialog();
+                    if (frm.IsSave)
+                    {
+                        loadDataRole();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một role để sửa.");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Vui lòng chọn một role để sửa.");
+                MessageBox.Show("Lỗi khi thêm quyền");
             }
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (grViewRole.SelectedRows.Count > 0)
+            try
             {
-                if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (grViewRole.SelectedRows.Count > 0)
                 {
-                    string selectedRoleId = grViewRole.SelectedRows[0].Cells["Id"].Value.ToString();
-                    RoleDao roleDao = new RoleDao(_connectionString);
-                    roleDao.DeleteRole(selectedRoleId);
-                    loadDataRole();
+                    if (MessageBox.Show("Xác nhận xóa", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        string selectedRoleId = grViewRole.SelectedRows[0].Cells["Id"].Value.ToString();
+                        RoleDao roleDao = new RoleDao(_connectionString);
+                        roleDao.DeleteRole(selectedRoleId);
+                        loadDataRole();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một role để xóa.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng chọn một role để xóa.");
+                MessageBox.Show("Lỗi khi xóa: " + ex.Message);
             }
         }
 

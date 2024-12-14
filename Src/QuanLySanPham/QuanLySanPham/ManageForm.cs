@@ -204,9 +204,9 @@ namespace QuanLySanPham
                     MessageBox.Show("Vui lòng chọn sản phẩm để sửa!");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi sửa sản phẩm");
+                MessageBox.Show("Lỗi khi sửa sản phẩm: "+ ex);
             }
         }
 

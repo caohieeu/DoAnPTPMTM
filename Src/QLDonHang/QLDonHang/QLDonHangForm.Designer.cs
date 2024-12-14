@@ -65,10 +65,11 @@
             groupBox3.Size = new Size(893, 149);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Order Detail";
+            groupBox3.Text = "Chi tiết hóa đơn";
             // 
             // dataGridViewOrderDetail
             // 
+            dataGridViewOrderDetail.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewOrderDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOrderDetail.Dock = DockStyle.Fill;
             dataGridViewOrderDetail.Location = new Point(3, 23);
@@ -87,10 +88,11 @@
             groupBox2.Size = new Size(893, 370);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Orders";
+            groupBox2.Text = "Hóa đơn";
             // 
             // dataGridViewOrder
             // 
+            dataGridViewOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOrder.Dock = DockStyle.Fill;
             dataGridViewOrder.Location = new Point(3, 23);
