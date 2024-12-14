@@ -14,6 +14,7 @@ namespace QuanLyNhapHang
 {
     public partial class UpdateProductsForm : Form
     {
+        public bool isSave { set; get; } = false;
         List<GoodsUpdateDto> ProcIds;
         MyDao myDao;
         public UpdateProductsForm(
@@ -102,6 +103,9 @@ namespace QuanLyNhapHang
                     , proc2.Stock
                     , Core.Enviroment.UserID);
             }
+            MessageBox.Show("Luu thanh cong");
+            isSave = true;
+            Close();
         }
         private void BtnCancel_Click(object sender, EventArgs e)
         {

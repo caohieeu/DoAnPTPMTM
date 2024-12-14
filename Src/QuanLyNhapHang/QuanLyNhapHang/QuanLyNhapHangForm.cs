@@ -179,6 +179,10 @@ namespace QuanLyNhapHang
                 MyDao myDao = new MyDao(_connectionString);
                 var updateForm = new UpdateProductsForm(myDao, products);
                 updateForm.ShowDialog();
+                if (updateForm.isSave)
+                {
+                    LoadData();
+                }
             }
             catch (Exception)
             {
