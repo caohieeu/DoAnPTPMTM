@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
-using Org.BouncyCastle.Pkcs;
 using ProjectShoeShop.DAL;
 using ProjectShoeShop.Models;
 using ProjectShoeShop.ViewModel;
@@ -101,7 +95,7 @@ namespace ProjectShoeShop.Controllers
             ViewBag.Sold = Sold(id);
             return View(lst);
         }
-        public ActionResult FilterByMenPartial()
+        public ActionResult FilterByCategoryPartial()
         {
             var listCategories = db.Categories.ToList();
             try
@@ -113,11 +107,7 @@ namespace ProjectShoeShop.Controllers
                 return View();
             }
         }
-        public ActionResult FilterByWomenPartial()
-        {
-            return View();
-        }
-        public ActionResult ProductByMenCategory(string id, int MinRange = 0, int MaxRange = 100000000)
+        public ActionResult ProductByCategory(string id, int MinRange = 0, int MaxRange = 100000000)
         {
             try
             {
@@ -125,48 +115,6 @@ namespace ProjectShoeShop.Controllers
                                             .Include(nameof(Product.Category))
                                             .Where(x => x.CategoryID == id).ToList();
                 if(listProducts != null)
-                {
-                    listProducts = listProducts.Where(x => x.Price >= MinRange && x.Price <= MaxRange).ToList();
-                    ViewBag.MinRange = MinRange;
-                    ViewBag.MaxRange = MaxRange;
-                    return View(listProducts);
-                }
-                return View();
-            }
-            catch
-            {
-                return HttpNotFound();
-            }
-        }
-        public ActionResult ProductByWomenCategory(string id, int MinRange = 0, int MaxRange = 100000000)
-        {
-            try
-            {
-                List<Product> listProducts = db.Products
-                                            .Include(nameof(Product.Category))
-                                            .Where(x => x.CategoryID == id).ToList();
-                if (listProducts != null)
-                {
-                    listProducts = listProducts.Where(x => x.Price >= MinRange && x.Price <= MaxRange).ToList();
-                    ViewBag.MinRange = MinRange;
-                    ViewBag.MaxRange = MaxRange;
-                    return View(listProducts);
-                }
-                return View();
-            }
-            catch
-            {
-                return HttpNotFound();
-            }
-        }
-        public ActionResult ProductByCategory(string name, int MinRange = 0, int MaxRange = 100000000)
-        {
-            try
-            {
-                List<Product> listProducts = db.Products
-                                            .Include(nameof(Product.Category))
-                                            .Where(x => x.Category.Name == name ).ToList();
-                if (listProducts != null)
                 {
                     listProducts = listProducts.Where(x => x.Price >= MinRange && x.Price <= MaxRange).ToList();
                     ViewBag.MinRange = MinRange;

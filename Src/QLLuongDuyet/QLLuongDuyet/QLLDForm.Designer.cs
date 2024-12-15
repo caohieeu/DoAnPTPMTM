@@ -40,7 +40,6 @@
             toolStrip1 = new ToolStrip();
             btnThemLD = new ToolStripButton();
             btnSuaLD = new ToolStripButton();
-            btnXoaLD = new ToolStripButton();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             groupBox3 = new GroupBox();
@@ -49,14 +48,12 @@
             toolStrip2 = new ToolStrip();
             toolStripButton6 = new ToolStripButton();
             toolStripButton5 = new ToolStripButton();
-            toolStripButton4 = new ToolStripButton();
             groupBox4 = new GroupBox();
             panel3 = new Panel();
             dataGridView3 = new DataGridView();
             toolStrip3 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
-            toolStripButton3 = new ToolStripButton();
             tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)bsLD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUSLD).BeginInit();
@@ -128,7 +125,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnThemLD, btnSuaLD, btnXoaLD });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnThemLD, btnSuaLD });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(880, 27);
@@ -154,16 +151,6 @@
             btnSuaLD.Size = new Size(38, 24);
             btnSuaLD.Text = "Sửa";
             btnSuaLD.Click += btnSuaLD_Click;
-            // 
-            // btnXoaLD
-            // 
-            btnXoaLD.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnXoaLD.Image = (Image)resources.GetObject("btnXoaLD.Image");
-            btnXoaLD.ImageTransparentColor = Color.Magenta;
-            btnXoaLD.Name = "btnXoaLD";
-            btnXoaLD.Size = new Size(39, 24);
-            btnXoaLD.Text = "Xóa";
-            btnXoaLD.Click += btnXoaLD_Click;
             // 
             // panel2
             // 
@@ -225,7 +212,7 @@
             // toolStrip2
             // 
             toolStrip2.ImageScalingSize = new Size(20, 20);
-            toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripButton6, toolStripButton5, toolStripButton4 });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripButton6, toolStripButton5 });
             toolStrip2.Location = new Point(0, 0);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.Size = new Size(431, 27);
@@ -251,16 +238,6 @@
             toolStripButton5.Size = new Size(38, 24);
             toolStripButton5.Text = "Sửa";
             toolStripButton5.Click += toolStripButton5_Click;
-            // 
-            // toolStripButton4
-            // 
-            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
-            toolStripButton4.ImageTransparentColor = Color.Magenta;
-            toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new Size(39, 24);
-            toolStripButton4.Text = "Xóa";
-            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // groupBox4
             // 
@@ -298,7 +275,7 @@
             // toolStrip3
             // 
             toolStrip3.ImageScalingSize = new Size(20, 20);
-            toolStrip3.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
+            toolStrip3.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2 });
             toolStrip3.Location = new Point(0, 0);
             toolStrip3.Name = "toolStrip3";
             toolStrip3.Size = new Size(431, 27);
@@ -324,15 +301,6 @@
             toolStripButton2.Size = new Size(38, 24);
             toolStripButton2.Text = "Sửa";
             toolStripButton2.Click += toolStripButton2_Click;
-            // 
-            // toolStripButton3
-            // 
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(39, 24);
-            toolStripButton3.Text = "Xóa";
             // 
             // tableLayoutPanel1
             // 
@@ -397,7 +365,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton btnThemLD;
         private ToolStripButton btnSuaLD;
-        private ToolStripButton btnXoaLD;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel2;
         private GroupBox groupBox3;
@@ -406,14 +373,12 @@
         private ToolStrip toolStrip2;
         private ToolStripButton toolStripButton6;
         private ToolStripButton toolStripButton5;
-        private ToolStripButton toolStripButton4;
         private GroupBox groupBox4;
         private Panel panel3;
         private DataGridView dataGridView3;
         private ToolStrip toolStrip3;
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
         private TableLayoutPanel tableLayoutPanel1;
     }
 }

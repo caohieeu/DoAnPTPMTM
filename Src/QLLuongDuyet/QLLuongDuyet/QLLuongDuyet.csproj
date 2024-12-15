@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <BaseOutputPath>D:\Document\HocAndCode\HocTap\HK7_Nam4\LTUDTM\DoAn\DoAnPTPMTM\Dll</BaseOutputPath>
+    <BaseOutputPath>D:\WorkspaceSchool\DoAnPTPMTM\Dll</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -62,10 +62,9 @@
                                 <td class="total">$@item.TotalAmount</td>
                             </tr><!-- END TR-->
                             <tr>
-                                @if (item.OrderStatus == "Prepare")
-                                {
-                                }
-                                else if(item.OrderStatus == "Shipping")
+                                @if (item.OrderStatus == "Prepare" || 
+                                    item.OrderStatus == "Shipping" ||
+                                    item.OrderStatus == "Waiting")
                                 {
                                 }
                                 else if (item.OrderStatus == "Shipped")

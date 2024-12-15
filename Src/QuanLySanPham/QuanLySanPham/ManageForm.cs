@@ -48,6 +48,7 @@ namespace QuanLySanPham
                 btnSua.Visible = true;
                 button1.Visible = true;
                 btnThem.Visible = false;
+                txtId.Enabled = false;
             }
             else
             {
@@ -67,7 +68,7 @@ namespace QuanLySanPham
                 {
                     string appBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     DirectoryInfo parentDirectory = Directory.GetParent(appBaseDirectory)?.Parent?.Parent?.Parent?.Parent;
-                    string imagesPath = Path.Combine(parentDirectory.FullName, "ShoeShop") + product.ImageURL.Replace("/", "\\");
+                    string imagesPath = Path.Combine(parentDirectory.FullName, "ShoeShop") + product.ImageURL;
 
                     txtId.Text = product.Id;
                     txtName.Text = product.Name;
@@ -265,7 +266,7 @@ namespace QuanLySanPham
                     string fileName = guid + fileDialog.SafeFileName;
                     string destinationPath = Path.Combine(imagesPath, fileName);
 
-                    txtUrl.Text = Path.Combine("\\images", fileName);
+                    txtUrl.Text = "/images/" + fileName;
                     txtUrl.Tag = destinationPath;
                     ptrBoxProduct.Image = Image.FromFile(selectedFilePath);
                     ptrBoxProduct.SizeMode = PictureBoxSizeMode.Zoom;

@@ -573,10 +573,8 @@
     <Content Include="Views\Cart\ShowCart.cshtml" />
     <Content Include="Views\Product\DetailProduct.cshtml" />
     <Content Include="Views\Product\ReviewPartial.cshtml" />
-    <Content Include="Views\Product\FilterByMenPartial.cshtml" />
-    <Content Include="Views\Product\FilterByWomenPartial.cshtml" />
-    <Content Include="Views\Product\ProductByMenCategory.cshtml" />
-    <Content Include="Views\Product\ProductByWomenCategory.cshtml" />
+    <Content Include="Views\Product\FilterByCategoryPartial.cshtml" />
+    <Content Include="Views\Product\ProductByCategory.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\CheckOut.cshtml" />
     <Content Include="Views\Shared\ShoeShopPage.cshtml" />
