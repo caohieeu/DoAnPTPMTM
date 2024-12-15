@@ -33,7 +33,6 @@
             toolStrip1 = new ToolStrip();
             btnAdd = new ToolStripButton();
             editBtn = new ToolStripButton();
-            btnDelete = new ToolStripButton();
             grdNCC = new DataGridView();
             bsGrid = new BindingSource(components);
             toolStrip1.SuspendLayout();
@@ -44,7 +43,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, editBtn, btnDelete });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, editBtn });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
@@ -70,16 +69,6 @@
             editBtn.Size = new Size(38, 24);
             editBtn.Text = "Sửa";
             editBtn.Click += editBtn_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.ImageTransparentColor = Color.Magenta;
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(39, 24);
-            btnDelete.Text = "Xóa";
-            btnDelete.Click += btnDelete_Click;
             // 
             // grdNCC
             // 
@@ -116,7 +105,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton btnAdd;
         private ToolStripButton editBtn;
-        private ToolStripButton btnDelete;
         private DataGridView grdNCC;
         private BindingSource bsGrid;
     }
