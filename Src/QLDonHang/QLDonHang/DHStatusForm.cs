@@ -18,6 +18,7 @@ namespace QLDonHang
         DataRow usld;
         string oderId, conn, status;
         public bool isSave;
+        public List<OrderDetailDto> orderDetails;
         public DHStatusForm(string oderId,
             DataRow usld, string conn, string status)
         {
@@ -67,6 +68,14 @@ namespace QLDonHang
             };
             if (myDao.UpdateStatus(order))
             {
+                if(status == "Prepare")
+                {
+                    foreach(var orderItem in orderDetails)
+                    {
+                        var newStock = myDao.GetStockProduct(orderItem.ProductId) - orderItem.Quantity;
+                        myDao.UpdateStockProduct(orderItem.ProductId, newStock);
+                    }
+                }
                 MessageBox.Show("Cập nhật thành công");
             }
             else

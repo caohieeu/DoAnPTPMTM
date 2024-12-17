@@ -1,4 +1,5 @@
-﻿using QLLuongDuyet.DAO;
+﻿using QLDonHang.Models;
+using QLLuongDuyet.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +73,26 @@ namespace QLDonHang
 
         private void dataGridViewOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var dHStatusForm = new DHStatusForm(((DataRowView)bsOrder.Current)["Id"].ToString(), null, _connectionString, ((DataRowView)bsOrder.Current)["OrderStatus"].ToString());
+            string orderId = ((DataRowView)bsOrder.Current)["Id"].ToString();
+            string orderStatus = ((DataRowView)bsOrder.Current)["OrderStatus"].ToString();
+            var dHStatusForm = new DHStatusForm(orderId, null, _connectionString, orderStatus);
+
+            var rows = childTable.Select($"OrderId = '{orderId}'");
+
+            List<OrderDetailDto> orderDetailList = new List<OrderDetailDto>();
+            foreach (DataRow row in rows)
+            {
+                OrderDetailDto orderDetailDto = new OrderDetailDto
+                {
+                    ProductId = row["ProductId"].ToString(),
+                    Quantity = Convert.ToInt32(row["Quantity"])
+                };
+
+                orderDetailList.Add(orderDetailDto);
+            }
+
+
+            dHStatusForm.orderDetails = orderDetailList;
             dHStatusForm.ShowDialog();
             if(dHStatusForm.isSave)
             {
