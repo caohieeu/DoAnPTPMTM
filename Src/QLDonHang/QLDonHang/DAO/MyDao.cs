@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using QLDonHang.Models;
+using QLDonHang.Model;
 
 namespace QLLuongDuyet.DAO
 {
@@ -54,6 +55,35 @@ namespace QLLuongDuyet.DAO
                 return true;
             }
             return false;
+        }
+        public int GetStockProduct(string productId)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+
+            string sqlQuery = "SELECT Stock FROM Products WHERE Id='" + productId + "'";
+
+            DataTable resultTable = myDbContext.ExecuteQuery(sqlQuery, CommandType.Text);
+
+            if(resultTable.Rows.Count > 0)
+            {
+                return Convert.ToInt32(resultTable.Rows[0]["Stock"]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public bool UpdateStockProduct(string productId, int stock)
+        {
+            MyDbContext myDbContext = new MyDbContext(Conn);
+            string sqlQuery = @"UPDATE Products SET Stock = @Stock WHERE Id = @Id";
+
+            var parameters = new IDataParameter[]
+            {
+                new SqlParameter("@Id", productId),
+                new SqlParameter("@Stock", stock),
+            };
+            return myDbContext.ExecuteCommand(sqlQuery, CommandType.Text, parameters) > 0;
         }
     }
 }
