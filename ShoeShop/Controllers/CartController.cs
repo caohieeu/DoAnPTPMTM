@@ -277,8 +277,6 @@ namespace ProjectShoeShop.Controllers
                 Product product = db.Products
                     .Where(x => x.Id == orderDetail.ProductId)
                     .FirstOrDefault();
-
-                product.Stock = product.Stock - orderDetail.Quantity;
                 db.OrderDetails.Add(orderDetail);
                 try
                 {
